@@ -1,0 +1,11 @@
+
+                              /* "Clarified" v2.3.8 by Valerio Lyndon */
+ 
+@\import "https://malscraper.azurewebsites.net/covers/manga/karmashizzle/presets/dataimagelinkbefore";
+
+@\import "https://itszayeric.github.io/MAL/MAL%20CSS/M-Clari.css";
+
+@\import "https://itszayeric.github.io/MAL/MAL%20CSS/Tags.css";
+
+@\import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
+            

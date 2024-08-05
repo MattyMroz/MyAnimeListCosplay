@@ -1,0 +1,210 @@
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Clarified.min.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/Highlight%20Favourites.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Themes/Breezy.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/List%20Width.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/Emoji%20Genres.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/Category%20Accents.css";
+@\import "https://dl.dropboxusercontent.com/s/rq7fxvthdgqvjsh/Studio%20Images%20Import.css";
+
+:root {
+    --list-width: 900px;
+}
+
+
+
+/**
+* Studio Images
+* v1.0.1
+*/
+
+:root {
+    /* Variables have been shortened for code optimisation.
+* Meanings are as follows:
+* --si: studio image
+* --sf: current filter value
+* --sw: filter value of mostly white items
+* --sl: filter value of lighter items
+* --sd: filter value of darker items
+* --sb: filter value of mostly black items
+* --st: state of the name plate (hidden/visible)
+*/
+    --si: url(https://image.myanimelist.net/ui/5LYzTBVoS196gvYvw3zjwATQzHmZIv64AoFHFVPWqow);
+    --sf: none;
+    --sw: none;
+    --sl: none;
+    --sd: none;
+    --sb: none;
+    --st: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --sw: invert(1) hue-rotate(180deg);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sl: brightness(1.5) saturate(.6667);
+        --sd: brightness(.5) saturate(2);
+        --sb: invert(1) hue-rotate(180deg) brightness(0.8);
+    }
+}
+
+.studio span {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background: repeating-linear-gradient(45deg, var(--button), transparent 20px);
+    margin: 0 !important;
+}
+
+.studio span:first-of-type {
+    border-radius: 4px 4px 0 0;
+}
+
+.studio span:last-of-type {
+    border-radius: 0 0 4px 4px;
+}
+
+.data.studio a {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 21px;
+    margin: 2px 0;
+    border-radius: 4px;
+    overflow: visible;
+    background: var(--button);
+    box-shadow: var(--mild-shadow);
+    line-height: 21px !important;
+    transition: transform 0.12s ease;
+    visibility: var(--st);
+}
+
+.list-table .list-table-data .data.studio a:hover {
+    color: var(--text) !important;
+    text-decoration: none;
+    visibility: visible;
+}
+
+.data.studio a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 6px;
+    width: calc(100% - 12px);
+    height: 21px;
+    background: var(--si) center / contain no-repeat;
+    filter: var(--sf);
+    visibility: visible;
+}
+
+.data.studio a:hover::after {
+    visibility: hidden;
+}
+
+/* END of Studio Images */
+
+
+
+/* Replace Tags with Genres on PTW */
+
+.data.status:not(.plantowatch)~.genre,
+.data.status.plantowatch~.tags {
+    display: none !important;
+}
+
+.data.status:not(.plantowatch)~.tags,
+.data.status.plantowatch~.genre {
+    width: 100%;
+    text-align: left;
+}
+
+
+
+/* Auto-hiding Tags */
+
+.data.status:not(.plantowatch)~.tags {
+    display: grid !important;
+    grid-template-rows: 0fr;
+    text-align: left !important;
+    transition: grid-template-rows .18s ease 0s;
+}
+
+#list-container .list-table-data:hover .data.tags {
+    grid-template-rows: 1fr;
+    transition-delay: .4s;
+}
+
+.data.tags div {
+    overflow: hidden;
+}
+
+.data.tags a {
+    white-space: nowrap;
+}
+
+/* loading bar */
+.data.tags div:not(:empty)::before {
+    content: "";
+    position: absolute;
+    inset: auto 14px -3px 36px;
+    width: 0;
+    height: 2px;
+    border-radius: 100px;
+    background: var(--page-category);
+}
+
+.list-table-data:hover .data.tags div::before {
+    animation:
+        .4s ease-in-out 0s barfill both,
+        .13s ease-in-out .37s barfade both;
+}
+
+@keyframes barfill {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: calc(100% - 50px);
+    }
+}
+
+@keyframes barfade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+/* Expandable Genres */
+
+.data.genre a[href*="genre="] {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+    transition: font-size 0.12s ease;
+}
+
+.data.genre a[href*="genre="]:hover,
+.data.genre a[href*="genre="]::before {
+    font-size: 11px;
+}
+
+/* hitbox */
+.data.genre a[href*="genre="]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -3px;
+    width: 3px;
+    height: 100%;
+}
