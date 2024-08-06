@@ -361,6 +361,7 @@ body::after {
 /* =============== GENERIC SETUP =============== */
 /* =============== HEADER =============== */
 .header {
+	top: 0;
 	width: 100%;
 	height: 35rem;
 	color: var(--image-text);
@@ -485,7 +486,7 @@ body::after {
 /* =============== VARIABLES CSS =============== */
 /* ----------- User Menu ----------- */
 .list-menu-float {
-	position: absolute;
+	position: fixed;
 	top: calc(1.5rem + 3.8rem);
 	left: calc(-4.9rem + 3rem + 1.5rem + 8.4rem);
 	z-index: 15;
@@ -2773,7 +2774,8 @@ body #fancybox-close::after {
 
 div#advanced-options {
 	--menu-blur: blur(1rem);
-	--menu-bg-color: hsla(0, 0%, 10%, 0.5);
+	/* --menu-bg-color: hsla(0, 0%, 10%, 0.5); */
+	--menu-bg-color: hsla(0, 0%, 10%, 1);
 	background-color: var(--menu-bg-color);
 	background-image: url("");
 	background-size: 100% 100%;
