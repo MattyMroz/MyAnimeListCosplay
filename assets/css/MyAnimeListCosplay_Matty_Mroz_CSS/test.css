@@ -2542,8 +2542,6 @@ div[style^="width: 300px;"] input+input {
     .search-container {
         will-change: top;
     }
-
-    :
 }
 
 div[style="padding-top: 8px"] {
