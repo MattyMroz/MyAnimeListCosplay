@@ -763,6 +763,7 @@ body::after {
 
 /* =============== CATEGORY-MENU =============== */
 
+/* the reason for the position and 0 height is so that the "fixed" class will trigger at the correct scroll location */
 .status-menu-container {
 	position: absolute;
 	top: 4rem;
@@ -771,7 +772,7 @@ body::after {
 	border: none;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 125rem) {
 	#status-menu.fixed {
 		display: none;
 	}
@@ -2914,7 +2915,6 @@ a[href$="&genre=45"]::before {
 		transform: rotate(300deg);
 	}
 }
-
 
 /* =============== FOOTER =============== */
 
