@@ -1,90 +1,3 @@
-/*
-VARIABLES CSS
-	FONTS
-	CORE COLOURS
-	CATEGORY COLORS
-	BACKGROUND AND IMAGE SETTINGS
-	DARK MODE COLORS
-	SHADOWS
-	TOP RATED BANNER COLORS
-	USER-SPECIFIC SETTINGS
-	LIST WIDTH
-	EMOJI GENRES
-	SCROLLBAR COLORS
-	THEME
-
-GLOBAL STYLES
-	HTML STYLES
-	BODY STYLES
-	LINK STYLES
-	HEADER STYLES
-
-SCROLLBAR
-
-LIST CONTAINER
-
-STATUS MENU
-	@Search
-	SEARCH BOX BORDER
-
-LIST
-	@Stats
-	@Side-Buttons
-	@Add-Edit-More
-	@Status
-	@NUMBER
-	@IMAGE
-	COVER PREVIEW ON HOVER
-	@TYPE
-	@POPULARITY
-	@TITLE
-	TITLE COLOR ON TABLE HOVER PER CATEGORY
-	@NOTES
-	@SCORE
-	TOP RATED BANNERS
-	@PROGRESS, PRIORITY
-	@Dates
-	@Started
-	@Finished
-	@Days
-	@Airing
-	@Generic
-	@Rated
-	@Magazine
-	@Storage
-	@Retail
-	@Season
-	@Tags
-	@Genres
-	AUTO-HIDING TAGS & GENRES
-	@Demographic
-	TRY TO UNFUCK DEMOGRAPHIC
-	@Studio
-	@Licensor
-	EMOJI GENRES
-	@Empty-Table
-	@More-Info
-	@BBCode
-	@Loading
-	LOADING BAR
-	LIST TABLE DATA HOVER EFFECT
-
-FOOTER
-
-OVERLAYS
-
-FILTER-MENU
-	FILTER POPUP BACKGROUND IMAGE
-
-STREAMING-INFO
-
-REWATCHING-BOX
-
-USER
-*/
-
-
-
 /* =============== IMPORTS =============== */
 @import "https://malscraper.azurewebsites.net/covers/anime/matty_mroz/presets/dataimagelinkbefore";
 
@@ -254,23 +167,17 @@ html:not(.dark-mode) #gdpr-modal-bottom {
 }
 
 /* =============== BASE BODY =============== */
+body {
+	--content-link: var(--page-category);
+	--inverse-background: var(--page-category);
+}
+
 body.ownlist {
 	position: relative;
 	min-width: 106rem;
 	background: var(--background) center / cover fixed var(--page-background) !important;
 	background-size: cover;
 	color: var(--content-text) !important;
-}
-
-
-body {
-	--content-link: var(--page-category);
-	--inverse-background: var(--page-category);
-}
-
-.data {
-	--content-link: var(--local-category);
-	--inverse-background: var(--local-category);
 }
 
 /* =============== FONT =============== */
@@ -317,7 +224,6 @@ select {
 	background: var(--scrollbar-corner-bg);
 }
 
-/* =============== LINKS =============== */
 a,
 .list-table .list-table-data .data a {
 	color: var(--content-text) !important;
@@ -331,7 +237,6 @@ a:not(.edit-disabled):not(.hover_info):hover,
 	text-decoration: none;
 }
 
-/* =============== FORMS =============== */
 input,
 textarea,
 select {
@@ -342,7 +247,6 @@ select {
 	outline: 0;
 }
 
-/* ========== SELECT STYLING ========== */
 select,
 #advanced-options select,
 #advanced-options select:disabled {
@@ -352,7 +256,6 @@ select,
 	background-repeat: no-repeat;
 }
 
-/* =============== OTHER CONTAINERS =============== */
 .list-container {
 	width: 100%;
 	padding-top: 5.5rem;
@@ -393,7 +296,6 @@ div[style="padding-top: 0.8rem"] {
 	padding: 0 !important;
 }
 
-/* =============== BACKGROUND =============== */
 body::before,
 body::after {
 	content: "";
@@ -418,8 +320,6 @@ body::after {
 }
 
 
-/* =============== COVER =============== */
-/* ===============  @Cover-Image =============== */
 .header::before {
 	content: "";
 	position: absolute;
@@ -453,8 +353,6 @@ body::after {
 	box-shadow: var(--mild-shadow);
 }
 
-/* =============== GENERIC SETUP =============== */
-/* =============== HEADER =============== */
 .header {
 	width: 100%;
 	height: 35rem;
@@ -481,7 +379,6 @@ body::after {
 	transition-duration: .08s;
 }
 
-/* =============== COMMON BUTTON STYLING =============== */
 
 .header .header-title,
 .header .header-menu .btn-menu,
@@ -495,7 +392,6 @@ body::after {
 	font-size: 1.4rem;
 }
 
-/* =============== HOME BUTTON =============== */
 
 .header .header-title {
 	top: 1.5rem;
@@ -522,7 +418,6 @@ body::after {
 	transition-duration: .08s;
 }
 
-/* =============== VIEWING "NAME'S" LIST =============== */
 
 .header .header-menu .btn-menu {
 	color: var(--image-text);
@@ -530,7 +425,6 @@ body::after {
 	cursor: text;
 }
 
-/* =============== REMOVE DROPDOWN ICON =============== */
 
 #header-menu-button {
 	font-weight: normal;
@@ -542,14 +436,12 @@ body::after {
 	display: none;
 }
 
-/* =============== SHARED ANIME / AFFINITY / HISTORY =============== */
 
 .header .header-menu .header-info {
 	margin-top: 0;
 	order: 2;
 }
 
-/* =============== SWAP LIST =============== */
 
 #header-menu-dropdown {
 	position: static;
@@ -582,9 +474,6 @@ body::after {
 	vertical-align: top;
 	margin-top: 0.2rem;
 }
-
-/* =============== VARIABLES CSS =============== */
-/* ----------- @User-Menu ----------- */
 
 .list-menu-float {
 	position: absolute;
@@ -761,8 +650,6 @@ body::after {
 }
 
 
-/* =============== CATEGORY-MENU =============== */
-
 .status-menu-container {
 	position: absolute;
 	top: 4rem;
@@ -922,7 +809,6 @@ body::after {
 	width: 0.2rem;
 }
 
-/* =============== CATEGORY HEADER COLORS =============== */
 
 #status-menu .status-button:hover,
 #status-menu .status-button::before {
@@ -961,7 +847,6 @@ body::after {
 	--category: var(--color-planned);
 }
 
-/* @Search */
 
 #status-menu .search-container {
 	display: flex;
@@ -1116,8 +1001,6 @@ body::after {
 	outline: 0 !important;
 }
 
-/* =============== LIST =============== */
-
 .list-table>tbody {
 	display: block;
 	width: 106rem;
@@ -1125,15 +1008,12 @@ body::after {
 	box-shadow: var(--mild-shadow);
 	border-radius: 0.6rem;
 	margin-bottom: 0.6rem;
-	/* list gap */
 }
 
 .list-item {
 	padding: 0.1rem;
-	/* list thiccness */
 }
 
-/* =============== LIST TABLE DATA HOVER EFFECT =============== */
 
 .list-table-data:before {
 	content: "";
@@ -1221,7 +1101,6 @@ tr.list-table-data:has(.tags) {
 	margin-right: 0.3rem;
 }
 
-/* Textarea */
 
 .data textarea {
 	width: calc(100% - 0.6rem) !important;
@@ -1231,7 +1110,6 @@ tr.list-table-data:has(.tags) {
 	resize: vertical;
 }
 
-/* Category colour variables */
 .status:is(.watching, .reading)~td {
 	--local-category: var(--color-current);
 	--local-category-hover: var(--color-hover-current);
@@ -1257,8 +1135,10 @@ tr.list-table-data:has(.tags) {
 	--local-category-hover: var(--color-hover-planned);
 }
 
-
-/* =============== List-Header =============== */
+.data {
+	--content-link: var(--local-category);
+	--inverse-background: var(--local-category);
+}
 
 .list-table .list-table-header .header-title {
 	position: relative;
@@ -1282,7 +1162,6 @@ tr.list-table-data:has(.tags) {
 	text-indent: 0.3rem;
 }
 
-/* column icon styles */
 .header-title::before,
 .header-title a::before {
 	font-size: 1.1rem;
@@ -1294,7 +1173,6 @@ tr.list-table-data:has(.tags) {
 	text-decoration: none;
 }
 
-/* description on hover for icons, activated by adding "content" property later on specific column headers */
 .header-title a:hover::after {
 	content: var(--label, none);
 	position: absolute;
@@ -1311,14 +1189,11 @@ tr.list-table-data:has(.tags) {
 	pointer-events: none;
 }
 
-/* hidden column headers */
 .header-title.finished+.days,
 .header-title:is(.tags, .genre) {
 	display: none !important;
 }
 
-
-/* =============== Stats =============== */
 
 .list-unit .list-stats {
 	position: sticky;
@@ -1338,15 +1213,10 @@ tr.list-table-data:has(.tags) {
 	transform: translateX(1.3rem);
 }
 
-/* Hides the text on the column headers. I could instead simply add a background to .list-stats, but that causes the Stats button to layer incorrectly and is more likely to cause glitchy visuals */
 .list-unit .list-stats[style*="block;"]+.list-table>tbody:first-of-type .header-title {
 	visibility: hidden;
 	pointer-events: none;
 }
-
-
-/* =============== Side-Buttons =============== */
-/* =============== Add-Edit-More =============== */
 
 .list-unit .list-status-title {
 	position: sticky;
@@ -1392,7 +1262,6 @@ tr.list-table-data:has(.tags) {
 	height: 2rem;
 	border-radius: 0.3rem;
 	margin: 0 0 0.3rem;
-	/* 'more' button pos */
 	float: left;
 	clear: both;
 	color: var(--content-text) !important;
@@ -1459,9 +1328,6 @@ tr.list-table-data:has(.tags) {
 	text-shadow: none !important;
 }
 
-
-/* =============== Status =============== */
-
 .header-title.status {
 	width: 1.8rem !important;
 	order: 2;
@@ -1525,9 +1391,6 @@ tr.list-table-data:has(.tags) {
 	content: "\f141 ";
 }
 
-
-/* =============== NUMBER =============== */
-
 .header-title.number,
 .data.number {
 	width: 3.2rem !important;
@@ -1543,9 +1406,6 @@ tr.list-table-data:has(.tags) {
 	grid-column-start: 1;
 	grid-row-start: 1;
 }
-
-
-/* =============== IMAGE =============== */
 
 .header-title.image {
 	width: 5.4rem !important;
@@ -1581,8 +1441,6 @@ tr.list-table-data:has(.tags) {
 }
 
 
-/* =============== TYPE =============== */
-
 .header-title.type,
 .data.type {
 	margin-left: 0.5rem;
@@ -1591,8 +1449,6 @@ tr.list-table-data:has(.tags) {
 	order: 40;
 }
 
-
-/* =============== POPULARITY =============== */
 
 :is(.header-title, .data).popularity {
 	width: 6rem;
@@ -1605,16 +1461,12 @@ tr.list-table-data:has(.tags) {
 }
 
 
-/* =============== TITLE =============== */
-
-/* Header Styles */
 .header-title.title {
 	width: 50% !important;
 	flex: 1 1 auto !important;
 	order: 5;
 }
 
-/* Title Data Styles */
 .data.title {
 	font: 1.2rem "Ubuntu";
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
@@ -1633,7 +1485,6 @@ tr.list-table-data:has(.tags) {
 	float: left;
 }
 
-/* Icon Watch Styles */
 .icon-watch2 {
 	float: left;
 	clear: left;
@@ -1646,7 +1497,6 @@ tr.list-table-data:has(.tags) {
 	font-style: italic;
 	opacity: 1;
 	display: none;
-	/* REMOVE "WATCH" FROM LIST */
 }
 
 #list-container .mal-icon I {
@@ -1664,7 +1514,6 @@ tr.list-table-data:has(.tags) {
 	text-decoration: none;
 }
 
-/* Content Status Styles (airing, publishing) */
 .list-table .list-table-data .data.title :is(.rewatching, .rereading, .content-status) {
 	font: 1.8rem "Pixelify Sans";
 	font-weight: 500;
@@ -1696,7 +1545,6 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== NOTES =============== */
-
 .notes {
 	width: 100% !important;
 	clear: both;
@@ -1753,9 +1601,6 @@ tr.list-table-data:has(.tags) {
 
 
 
-/* =============== SCORE =============== */
-
-/* Header Styles */
 :is(.header-title, .data)[class*="score"] {
 	width: 2.3rem !important;
 	order: 7;
@@ -1801,7 +1646,6 @@ tr.list-table-data:has(.tags) {
 	content: "Diff.";
 }
 
-/* Data Styles */
 .data.score a,
 .data.mal_score,
 .data.score_diff {
@@ -1835,7 +1679,6 @@ tr.list-table-data:has(.tags) {
 	margin: 0 0.3rem 0 0.6rem;
 }
 
-/* Score Difference Hover Effect */
 .data.score~.score_diff {
 	position: relative;
 	top: -2.6rem;
@@ -1862,7 +1705,6 @@ tr.list-table-data:has(.tags) {
 	font-weight: normal;
 }
 
-/* MAL Score Style Changes */
 .status:not([class*="planto"])~.data.score~.mal_score {
 	position: static;
 	width: 6.15rem !important;
@@ -1877,7 +1719,6 @@ tr.list-table-data:has(.tags) {
 	z-index: 1;
 }
 
-/* Plan to Watch/Read Styles */
 .data[class*="planto"]~.score~.mal_score {
 	margin-right: -2.6rem;
 }
@@ -1900,8 +1741,6 @@ tr.list-table-data:has(.tags) {
 .data.score a:not([style="display: none;"])+select {
 	display: none;
 }
-
-/* =============== COVER PREVIEW ON HOVER =============== */
 
 .data.image a {
 	overflow: visible;
@@ -1969,14 +1808,12 @@ tr.list-table-data:has(.tags) {
 
 /* =============== TOP RATED BANNERS =============== */
 
-/* Default Banner Settings */
 .data.score-label {
 	--top-text: none;
 	--rated: transparent;
 	--toggle: hidden;
 }
 
-/* Score-specific Banner Styles */
 .data .score-8 {
 	--top-text: "TOP 3 🥉";
 	--rated: var(--eight);
@@ -2028,7 +1865,6 @@ tr.list-table-data:has(.tags) {
 			hsla(42, 80%, 30%, 1) 100%);
 }
 
-/* Banner Hover Effects */
 .data .score-label::before,
 .data .score-label::after {
 	content: var(--top-text);
@@ -2044,7 +1880,6 @@ tr.list-table-data:has(.tags) {
 	opacity: 1;
 }
 
-/* Banner Line */
 .data .score-label::before {
 	left: -20.5rem;
 	top: calc(50% - 0rem);
@@ -2059,7 +1894,6 @@ tr.list-table-data:has(.tags) {
 		inset 0 0.8rem 0.3rem -0.6rem var(--content-highlight);
 }
 
-/* Banner Text */
 .data .score-label::after {
 	left: calc(-20.5rem + 19rem/2);
 	top: calc(50% - 0.7rem);
@@ -2084,8 +1918,6 @@ tr.list-table-data:has(.tags) {
 	position: static;
 }
 
-/* =============== PROGRESS, PRIORITY =============== */
-
 .header-title:is(.progress, .chapters, .volumes, .priority) {
 	width: 7rem !important;
 	order: 10;
@@ -2101,13 +1933,10 @@ tr.list-table-data:has(.tags) {
 	align-items: center;
 }
 
-/* Progress */
 
 [class^="icon-add-"] i {
 	font-weight: 400;
 }
-
-/* Priority */
 
 .header-title:is(.progress, .chapters, .volumes)~.priority {
 	width: 2rem !important;
@@ -2142,32 +1971,14 @@ tr.list-table-data:has(.tags) {
 	margin-right: 0.3rem;
 }
 
-/* Hide priority column on non-planned items */
 .data.status:not([class*="planto"])~.priority {
 	display: none !important;
 }
-
-
-/* =============== VARIABLES CSS =============== */
-
-/* =============== @Dates =============== */
-/* =============== @Started =============== */
-/* =============== @Finished =============== */
-/* =============== @Days =============== */
-/* =============== @Airing =============== */
-
-/* Header
-
-VL rant officially removed as of v2.3.5 */
-
-/* days */
 
 .header-title.days {
 	width: 7rem !important;
 	order: 25;
 }
-
-/* other dates */
 
 .header-title:is(.started, .finished):has(a) {
 	width: auto !important;
@@ -2189,7 +2000,6 @@ VL rant officially removed as of v2.3.5 */
 	content: "\f253";
 }
 
-/* user dates */
 
 .header-title.started:not(.finished ~ .started) {
 	--label: "User Started";
@@ -2199,7 +2009,6 @@ VL rant officially removed as of v2.3.5 */
 	--label: "User Finished";
 }
 
-/* airing / publishing */
 
 .header-title:is(.started, .finished) a {
 	width: 3.3rem;
@@ -2227,7 +2036,6 @@ VL rant officially removed as of v2.3.5 */
 	--label: "Publishing Finished";
 }
 
-/* Column */
 
 .data:is(.started, .finished, .days, .airing-started, .airing-finished) {
 	position: relative;
@@ -2275,7 +2083,6 @@ VL rant officially removed as of v2.3.5 */
 	margin-left: -7.3rem;
 }
 
-/* Icons */
 .data:is(.started, .finished, .days, .airing-started, .airing-finished)::before {
 	display: inline-block;
 	width: 1.4rem;
@@ -2304,7 +2111,6 @@ VL rant officially removed as of v2.3.5 */
 	cursor: help;
 }
 
-/* Empty column text - thanks to its fixed width, any text in the column will push this to the next line, which hides it due to "overflow: hidden" on the parent. */
 .data:is(.started, .finished, .days, .airing-started, .airing-finished)::after {
 	content: "None";
 	display: block;
@@ -2312,13 +2118,6 @@ VL rant officially removed as of v2.3.5 */
 	opacity: 0.35;
 }
 
-
-/* =============== @Generic =============== */
-/* =============== @Rated =============== */
-/* =============== @Magazine =============== */
-/* =============== @Storage =============== */
-/* =============== @Retail =============== */
-/* =============== @Season =============== */
 
 .data:is(.rated, .magazine, .storage, .retail, .season) {
 	height: 1.5em;
@@ -2339,7 +2138,6 @@ VL rant officially removed as of v2.3.5 */
 	order: 19;
 }
 
-/* Rated */
 
 .header-title.rated,
 .data.rated {
@@ -2355,7 +2153,6 @@ VL rant officially removed as of v2.3.5 */
 	font: bold 1.2rem/2.4rem var(--alternate-font);
 }
 
-/* Season */
 
 .header-title.started:not(:has(a)) {
 	width: 4.4rem !important;
@@ -2391,7 +2188,6 @@ VL rant officially removed as of v2.3.5 */
 	font-weight: 400;
 }
 
-/* Empty column text - thanks to its fixed width, any text in the column will push this to the next line, which hides it due to "overflow: hidden" on the parent. */
 .data:is(.rated, .magazine, .storage, .retail, .season:empty)::after {
 	content: "None";
 	display: block;
@@ -2417,12 +2213,6 @@ VL rant officially removed as of v2.3.5 */
 }
 
 
-/* =============== @Tags =============== */
-/* =============== @Genres =============== */
-/* =============== @Demographic =============== */
-/* =============== @Studio =============== */
-/* =============== @Licensor =============== */
-
 .data:is(.tags, .genre, .demographic, .studio, .licensor) {
 	order: 35;
 	line-height: 1;
@@ -2438,7 +2228,6 @@ VL rant officially removed as of v2.3.5 */
 	display: none;
 }
 
-/* Empty Columns */
 
 .data:is(.demographic, .licensor, .studio, .genre):empty::after {
 	content: "None";
@@ -2447,7 +2236,6 @@ VL rant officially removed as of v2.3.5 */
 	opacity: 0.35;
 }
 
-/* Studio & Licensor */
 
 .header-title:is(.studio, .licensor) {
 	width: 10rem !important;
@@ -2470,9 +2258,7 @@ VL rant officially removed as of v2.3.5 */
 	line-height: 1.6rem;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	/*other browsers*/
 	text-overflow: "..";
-	/*firefox*/
 }
 
 .data:is(.studio, .licensor) span+span {
@@ -2481,9 +2267,6 @@ VL rant officially removed as of v2.3.5 */
 	margin-top: 0.2rem;
 }
 
-/* Tags & Genre & Demographic */
-
-/* =============== AUTO-HIDING TAGS & GENRES =============== */
 .data:is(.tags, .genre) {
 	display: grid !important;
 	grid-auto-columns: max-content;
@@ -2511,7 +2294,6 @@ VL rant officially removed as of v2.3.5 */
 	word-break: break-word;
 }
 
-/* =============== DEMOGRAPHIC STYLES =============== */
 .data.genre~.genre {
 	display: block !important;
 }
@@ -2520,7 +2302,6 @@ VL rant officially removed as of v2.3.5 */
 	overflow: visible;
 }
 
-/* =============== LOADING BAR =============== */
 .data.tags div::before {
 	content: "";
 	position: absolute;
@@ -2557,7 +2338,6 @@ VL rant officially removed as of v2.3.5 */
 	}
 }
 
-/* =============== TAGS & GENRES LAYOUT =============== */
 .data:is(.tags, .genre) {
 	grid-column-start: 1;
 	grid-column-end: 51;
@@ -2576,7 +2356,6 @@ VL rant officially removed as of v2.3.5 */
 	width: 40%;
 }
 
-/* =============== MANGA-SPECIFIC STYLES =============== */
 .manga .data.genre:not(:has([href*="genre="])) {
 	width: 8rem;
 	grid-column-start: initial;
@@ -2587,7 +2366,6 @@ VL rant officially removed as of v2.3.5 */
 	margin-top: 0;
 }
 
-/* =============== TAGS & GENRES APPEARANCE =============== */
 .data.tags div,
 .data.genre {
 	font-size: 0;
@@ -2732,7 +2510,6 @@ a[href$="&genre=45"]::before {
 
 
 
-/* =============== @Empty-Table =============== */
 
 .list-table[data-items="[]"]::after {
 	display: block;
@@ -2747,12 +2524,10 @@ a[href$="&genre=45"]::before {
 	line-height: 2rem;
 	text-align: center;
 
-	/* No Entries (Generic/Non-Owner) */
 	content: var(--empty, "*Cricket noise*");
 }
 
 [data-owner="1"] {
-	/* No Entries (Owner) */
 	--empty: "*Cricket noise*";
 }
 
@@ -2767,7 +2542,6 @@ a[href$="&genre=45"]::before {
 }
 
 
-/* =============== @More-Info =============== */
 
 .list-table .more-info[style$="table-row;"] {
 	display: block !important;
@@ -2795,7 +2569,6 @@ a[href$="&genre=45"]::before {
 }
 
 
-/* =============== @BBCode =============== */
 
 :is(.notes, .more-info) :is(a, input, iframe) {
 	pointer-events: auto;
@@ -2869,14 +2642,11 @@ a[href$="&genre=45"]::before {
 }
 
 
-/* =============== @Loading =============== */
-
 .list-unit .loading-space {
 	margin: 0;
 	height: auto;
 }
 
-/* =============== VARIABLES CSS =============== */
 
 #loading-spinner {
 	position: relative;
@@ -2915,53 +2685,10 @@ a[href$="&genre=45"]::before {
 	}
 }
 
-
 /* =============== FOOTER =============== */
 
 #footer-block {
 	display: none;
-	/* display: block; */
-	width: 50rem !important;
-	padding: 1rem 0;
-	margin: 2rem auto;
-	background: var(--inverse-background);
-	line-height: 1.4rem;
-	border-radius: 0.6rem;
-}
-
-/* Logo */
-#footer-block::before {
-	content: "";
-	height: 4.5rem;
-	margin-bottom: 1.8rem;
-	background: url(https://files.catbox.moe/2aocpd.webp) center / contain no-repeat;
-	display: none;
-}
-
-#copyright,
-#recaptcha-terms {
-	color: var(--inverse-text);
-}
-
-#recaptcha-terms a {
-	color: inherit !important;
-}
-
-#copyright::after {
-	content: "\a \"Clarified\" list design by Valerio Lyndon.\a Executed by Matty_Mroz";
-	white-space: pre-wrap;
-}
-
-#recaptcha-terms {
-	margin: 0;
-	font-size: 0.9rem;
-	line-height: 1.6rem;
-	display: none;
-}
-
-#recaptcha-terms::before {
-	content: "";
-	white-space: pre-wrap;
 }
 
 /* =============== OVERLAYS =============== */
@@ -2983,7 +2710,6 @@ body.ownlist #fancybox-overlay {
 	color: var(--content-text);
 }
 
-/* Close Button */
 
 body #fancybox-close {
 	top: -0.8rem;
@@ -3010,9 +2736,6 @@ body #fancybox-close::after {
 	font-weight: 700;
 }
 
-
-/* =============== FILTER-MENU =============== */
-
 #advanced-options {
 	position: fixed;
 	top: calc(2rem + 10vh);
@@ -3023,7 +2746,15 @@ body #fancybox-close::after {
 	color: var(--content-text);
 }
 
-/* Headers */
+div#advanced-options {
+	--menu-blur: blur(1rem);
+	--menu-bg-color: hsla(0, 0%, 10%, 0.5);
+	background-color: var(--menu-bg-color);
+	background-image: url("");
+	background-size: 100% 100%;
+	background-repeat: no-repeat !important;
+	backdrop-filter: var(--menu-blur);
+}
 
 #advanced-options .advanced-options-header {
 	line-height: 3rem;
@@ -3055,8 +2786,6 @@ body #fancybox-close::after {
 	color: var(--content-link);
 }
 
-/* Fields */
-
 #advanced-options [class*="-widget"] {
 	display: flex;
 }
@@ -3083,8 +2812,6 @@ body #fancybox-close::after {
 	background-color: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
 }
-
-/* Specific Fields */
 
 #advanced-options .filter-widget[class*="-date"] span:nth-of-type(n+2) {
 	display: inline-block;
@@ -3132,8 +2859,6 @@ body #fancybox-close::after {
 	line-height: 1.4rem;
 }
 
-/* Buttons */
-
 #advanced-options .advanced-options-button {
 	border-top: 0.2rem dashed var(--border);
 }
@@ -3148,9 +2873,6 @@ body #fancybox-close::after {
 	background: var(--inverse-background);
 	color: var(--inverse-text) !important;
 }
-
-
-/* =============== STREAMING-INFO =============== */
 
 .mal-modal * {
 	border-color: var(--border) !important;
@@ -3178,9 +2900,6 @@ body #fancybox-close::after {
 	color: var(--content-text) !important;
 }
 
-
-/* =============== REWATCHING-BOX =============== */
-
 div[style^="width: 30rem;"] input {
 	border-radius: 0.4rem;
 	background: var(--button);
@@ -3193,37 +2912,4 @@ div[style^="width: 30rem;"] input:hover {
 	color: var(--content-link);
 }
 
-
-/* Other tweaks */
-
-#footer-block::before {
-	filter: brightness(100) invert(1);
-}
-
-
-/* =============== USER =============== */
-
-
 /* =============== MODS =============== */
-
-
-
-
-
-
-
-
-
-
-
-/* =============== FILTER POPUP BACKGROUND IMAGE =============== */
-
-div#advanced-options {
-	--menu-blur: blur(1rem);
-	--menu-bg-color: hsla(0, 0%, 10%, 0.5);
-	background-color: var(--menu-bg-color);
-	background-image: url("");
-	background-size: 100% 100%;
-	background-repeat: no-repeat !important;
-	backdrop-filter: var(--menu-blur);
-}
