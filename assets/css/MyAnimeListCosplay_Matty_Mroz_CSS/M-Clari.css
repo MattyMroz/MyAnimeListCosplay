@@ -946,11 +946,13 @@ body::after {
 	position: absolute !important;
 	top: 0.2rem !important;
 	left: 0 !important;
-	width: 0.2rem !important;
+	width: 0.3rem !important;
 	height: calc(100% - 0.4rem) !important;
-	background-color: transparent !important;
-	transition: background-color 0.2s ease !important;
+	background-color: var(--local-category) !important;
+	opacity: 0 !important;
+	transition: opacity .3s ease !important;
 }
+
 
 .list-menu-float .icon-menu.setting::before {
 	height: calc(75% - 0.4rem) !important;
@@ -958,7 +960,7 @@ body::after {
 
 .list-menu-float .icon-menu:not(.profile):hover::before,
 .list-menu-float .icon-menu:not(.profile):focus::before {
-	background-color: var(--local-category) !important;
+	opacity: 1 !important;
 }
 
 .list-menu-float .icon-menu:not(.profile):hover::before,
@@ -1030,7 +1032,7 @@ body::after {
 	border-radius: 0.6rem;
 	background: var(--content-background);
 	box-shadow: var(--mild-shadow);
-	/* animation: 0.2s ease-out Menu-Reveal; */
+	animation: 0.2s ease-out Menu-Reveal;
 }
 
 @keyframes Menu-Reveal {
@@ -1151,9 +1153,8 @@ body::after {
 	width: calc(100% - 2.4rem);
 	height: 0.2rem;
 	background: var(--content-link);
-	/* opacity: 0;
-	transition: opacity .3s ease; */
-	transition: none;
+	opacity: 0;
+	transition: opacity .3s ease;
 }
 
 #status-menu .status-button:hover::after {
@@ -1177,10 +1178,9 @@ body::after {
 	background: var(--category);
 }
 
-/*
 #status-menu .status-button.on::after {
 	opacity: 1;
-} */
+}
 
 .status-button:nth-of-type(1) {
 	--category: var(--color-all-items);
@@ -3013,8 +3013,6 @@ a[href$="&genre=45"]::before {
 	padding: 0.3rem;
 	border: 0.1rem solid var(--border);
 }
-
-
 
 /* =============== LOADING =============== */
 .list-unit .loading-space {
