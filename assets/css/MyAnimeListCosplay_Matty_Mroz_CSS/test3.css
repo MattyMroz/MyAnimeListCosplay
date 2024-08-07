@@ -1,0 +1,283 @@
+/* ----------- User Menu ----------- */
+.list-menu-float {
+    position: fixed;
+    /* top: 6.3rem; */
+    /* left: 16rem; */
+    left: -6rem;
+    width: 6rem;
+    background: transparent;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    background: var(--content-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+}
+
+.list-menu-float:hover {
+    left: 0rem;
+}
+
+.list-menu-float::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(50% - 6rem - var(--list-width) * 0.5 - 1.5rem);
+    height: 100vh;
+    background: transparent;
+}
+
+/* Style dla elementów menu */
+.list-menu-float .icon-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 4rem;
+    height: 4.28rem;
+    background: var(--content-background);
+    text-decoration: none;
+    border-radius: 0;
+    transition: background-color 0.2s ease;
+}
+
+.list-menu-float .icon-menu.profile {
+    height: 5rem;
+    padding-top: 2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.list-menu-float .icon-menu.profile::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4rem;
+    height: 4rem;
+    background: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d") no-repeat center center;
+    background-size: 120%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.3rem solid transparent;
+    background-clip: padding-box;
+    transition: all 0.1s ease-in-out;
+}
+
+.list-menu-float .icon-menu.profile:hover::before {
+    border-color: var(--local-category);
+    box-shadow: 0 0 1rem rgb(150, 150, 150);
+}
+
+.list-menu-float .icon-menu.profile:not(:hover)::before {
+    transition: all 0.5s ease-out;
+}
+
+.list-menu-float .icon-menu.history {
+    padding-bottom: 1rem;
+}
+
+.list-menu-float .icon-menu.export {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.list-menu-float .icon-menu.logout {
+    padding-top: 1rem;
+}
+
+.list-menu-float .icon-menu.setting {
+    height: 5rem;
+    padding-bottom: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.list-menu-float .icon-menu:not(:first-child),
+.list-menu-float .icon-menu.logout {
+    border-top: 0.3rem dotted var(--border);
+}
+
+.list-menu-float .icon-menu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.list-menu-float .icon-menu .icon {
+    position: absolute;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    fill: var(--local-category);
+}
+
+/* ========================================================= */
+.list-menu-float .icon-menu .text {
+    position: absolute;
+    top: 0rem;
+    left: 3rem;
+    height: 4rem;
+    width: 12rem;
+    padding-left: 1rem;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: var(--font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: var(--image-shadow);
+    color: var(--local-category-hover);
+    transition: transform 0.05s ease-in-out;
+    transform: translateX(-10px);
+    /* outline: 0.3rem dotted white; */
+}
+
+.list-menu-float .icon-menu:hover .text,
+.list-menu-float .icon-menu .text:hover {
+    opacity: 1;
+    transform: translateX(10px);
+    background: var(--content-background);
+    padding: 0.8rem 1.2rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    pointer-events: auto;
+}
+
+.list-menu-float .icon-menu .text:hover {
+    color: var(--local-category);
+}
+
+
+.list-menu-float .icon-menu:hover .text::before {
+    content: '';
+    position: absolute;
+    left: -0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 0.8rem 0.8rem 0.8rem 0;
+    border-style: solid;
+    border-color: transparent var(--content-background) transparent transparent;
+}
+
+
+/* ========================================================= */
+.list-menu-float .icon-menu.setting .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 0rem;
+    left: 3rem;
+    height: 8rem;
+    width: 16rem;
+    padding-left: 1rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 1rem;
+}
+
+.list-menu-float .icon-menu.setting .text a {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 4rem;
+    width: 100%;
+    background: var(--content-background);
+    color: var(--local-category-hover);
+}
+
+.list-menu-float .icon-menu.setting .text a.link-style-setting {
+    border-top: 0.3rem dotted var(--border);
+}
+
+
+
+.list-menu-float .icon-menu.setting .text a:hover {
+    color: var(--local-category);
+}
+
+/* ========================================================= */
+
+.list-menu-float .icon-menu:not(.profile)::before {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.list-menu-float .icon-menu:not(.profile)::before {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    width: 0.2rem;
+    height: calc(100% - 0.4rem); 
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.list-menu-float .icon-menu:not(.profile):hover::before,
+.list-menu-float .icon-menu:not(.profile):focus::before {
+    background-color: var(--local-category); /* Kolor bordera przy hover/focus */
+}
+niec się nie zmienło na
+
+.list-menu-float .icon-menu:not(.profile):hover::before,
+.list-menu-float .icon-menu:not(.profile):focus::before {
+    border-left-color: var(--local-category);
+}
+
+.list-menu-float .icon-menu.quick-add {
+    --local-category: var(--color-all-items);
+    --local-category-hover: var(--color-hover-all-items);
+}
+
+.list-menu-float .icon-menu.anime-list {
+    --local-category: var(--color-current);
+    --local-category-hover: var(--color-hover-current);
+}
+
+.list-menu-float .icon-menu.manga-list {
+    --local-category: var(--color-completed);
+    --local-category-hover: var(--color-hover-completed);
+}
+
+.list-menu-float .icon-menu.statistics {
+    --local-category: var(--color-onhold);
+    --local-category-hover: var(--color-hover-onhold);
+}
+
+.list-menu-float .icon-menu.history {
+    --local-category: var(--color-dropped);
+    --local-category-hover: var(--color-hover-dropped);
+}
+
+.list-menu-float .icon-menu.export {
+    --local-category: var(--color-planned);
+    --local-category-hover: var(--color-hover-planned);
+}
+
+.list-menu-float .icon-menu.logout {
+    --local-category: var(--color-logout);
+    --local-category-hover: var(--color-hover-logout);
+}
+
+.list-menu-float .icon-menu.setting {
+    --local-category: var(--color-setting);
+    --local-category-hover: var(--color-hover-setting);
+}
