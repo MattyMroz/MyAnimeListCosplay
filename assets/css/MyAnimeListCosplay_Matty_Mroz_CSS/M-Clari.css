@@ -504,12 +504,11 @@ body::after {
 	position: fixed !important;
 	left: -6rem !important;
 	width: 6rem !important;
-	background: transparent !important;
+	background: var(--content-background) !important;
 	border: none !important;
 	border-radius: 1rem !important;
 	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1) !important;
 	transition: left 0.3s ease !important;
-	background: var(--content-background) !important;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
@@ -541,6 +540,7 @@ body::after {
 	text-decoration: none !important;
 	border-radius: 0 !important;
 	transition: background-color 0.2s ease !important;
+	cursor: pointer !important;
 }
 
 .list-menu-float .icon-menu.profile {
@@ -575,48 +575,27 @@ body::after {
 	transition: all 0.5s ease-out !important;
 }
 
-.list-menu-float .icon-menu.history {
-	padding-bottom: 1rem !important;
-}
-
-.list-menu-float .icon-menu.export {
-	padding-top: 1rem !important;
-	padding-bottom: 1rem !important;
-}
-
-.list-menu-float .icon-menu.logout {
-	padding-top: 1rem !important;
-}
-
-.list-menu-float .icon-menu.setting {
-	height: 5rem !important;
-	padding-bottom: 1rem !important;
-	border-bottom-left-radius: 1rem !important;
-	border-bottom-right-radius: 1rem !important;
-}
-
 .list-menu-float .icon-menu:not(:first-child),
 .list-menu-float .icon-menu.logout {
 	border-top: 0.3rem dotted var(--border) !important;
 }
 
-.list-menu-float .icon-menu::before {
-	content: "" !important;
-	position: absolute !important;
-	left: 0 !important;
-	top: 0 !important;
-	height: 100% !important;
-	background-color: transparent !important;
-	transition: background-color 0.2s ease !important;
+.list-menu-float .icon-menu.setting {
+	margin-bottom: 1rem;
 }
 
 .list-menu-float .icon-menu .icon {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 	position: absolute !important;
 	top: 1rem !important;
+	left: 1rem !important;
 	width: 2rem !important;
 	height: 2rem !important;
 	fill: var(--local-category) !important;
 }
+
 
 .list-menu-float .icon-menu .text {
 	position: absolute !important;
@@ -641,7 +620,7 @@ body::after {
 .list-menu-float .icon-menu .text:hover {
 	opacity: 1 !important;
 	transform: translateX(10px) !important;
-	background: var(--content-background) !important;
+	background: linear-gradient(to right, transparent 1rem, var(--content-background) 1rem) !important;
 	padding: 0.8rem 1.2rem !important;
 	border-top-right-radius: 0.5rem !important;
 	border-bottom-right-radius: 0.5rem !important;
@@ -698,43 +677,26 @@ body::after {
 	color: var(--local-category) !important;
 }
 
-
 .list-menu-float .icon-menu:not(.profile)::before {
 	content: "" !important;
 	position: absolute !important;
-	width: 4rem !important;
-	height: 0.3rem !important;
-	left: 50% !important;
-	transform: translateX(-50%) !important;
-	background-color: transparent !important;
-	transition: background-color 0.2s ease !important;
-}
-
-.list-menu-float .icon-menu:not(.profile)::before {
-	content: "" !important;
-	position: absolute !important;
-	top: 0.2rem !important;
+	top: 0.34rem !important;
 	left: 0 !important;
-	width: 0.3rem !important;
-	height: calc(100% - 0.4rem) !important;
+	width: 0.2rem !important;
+	height: 0 !important;
 	background-color: var(--local-category) !important;
-	opacity: 0 !important;
-	transition: opacity .3s ease !important;
+	transition: height 0.3s ease, top 0s linear 0.3s !important;
 }
 
-
-.list-menu-float .icon-menu.setting::before {
-	height: calc(75% - 0.4rem) !important;
+.list-menu-float .icon-menu:not(.profile):hover::before {
+	height: 3.3rem !important;
+	transition: height 0.3s ease !important;
 }
 
-.list-menu-float .icon-menu:not(.profile):hover::before,
-.list-menu-float .icon-menu:not(.profile):focus::before {
-	opacity: 1 !important;
-}
-
-.list-menu-float .icon-menu:not(.profile):hover::before,
-.list-menu-float .icon-menu:not(.profile):focus::before {
-	border-left-color: var(--local-category) !important;
+.list-menu-float .icon-menu:not(.profile):not(:hover)::before {
+	top: auto !important;
+	bottom: 0.34rem !important;
+	height: 0 !important;
 }
 
 .list-menu-float .icon-menu.quick-add {
@@ -776,6 +738,7 @@ body::after {
 	--local-category: var(--color-setting) !important;
 	--local-category-hover: var(--color-hover-setting) !important;
 }
+
 
 /* =============== CATEGORY MENU =============== */
 .status-menu-container {
@@ -2940,7 +2903,7 @@ div#advanced-options {
 	--menu-blur: blur(1rem);
 	/* --menu-bg-color: hsla(0, 0%, 10%, 0.5); */
 	--menu-bg-color: hsla(0, 0%, 10%, 1);
-	background-color: var(--menu-bg-color);
+	background-color: var(--menu-bg-coFlor);
 	background-image: url("");
 	background-size: 100% 100%;
 	background-repeat: no-repeat !important;
