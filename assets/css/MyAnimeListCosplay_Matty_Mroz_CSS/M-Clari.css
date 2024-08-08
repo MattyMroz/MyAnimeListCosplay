@@ -1,4 +1,8 @@
 /* =============== IMPORTS =============== */
+
+/* @\import "https://mattymroz.github.io/MyAnimeListCosplay/assets/css/MyAnimeListCosplay_Matty_Mroz_CSS/M-Clari.css"; */
+
+
 @import "https://malscraper.azurewebsites.net/covers/anime/matty_mroz/presets/dataimagelinkbefore";
 
 @import "https://malscraper.azurewebsites.net/covers/manga/matty_mroz/presets/dataimagelinkbefore";
@@ -308,7 +312,6 @@ div[style="padding-top: 0.8rem"] {
 /* =============== FOOTER =============== */
 #footer-block {
 	display: none !important;
-	/* F*** YOU MAL CSS */
 }
 
 /* =============== BACKGROUND =============== */
@@ -565,7 +568,7 @@ body::after {
 
 .list-menu-float .icon-menu.profile:hover::before {
 	border-color: var(--local-category) !important;
-	box-shadow: 0 0 1rem rgb(150, 150, 150) !important;
+	filter: drop-shadow(0 0 0.5rem rgb(150, 150, 150)) !important;
 }
 
 .list-menu-float .icon-menu.profile:not(:hover)::before {
@@ -823,8 +826,8 @@ body::after {
 	position: relative;
 	top: -6.5rem;
 	width: var(--list-width);
-	min-width: 90rem;
 	height: 5rem;
+	min-width: 90rem;
 	background: var(--content-background);
 	border-radius: 0.6rem;
 	box-shadow: var(--mild-shadow);
@@ -836,10 +839,12 @@ body::after {
 }
 
 #status-menu .status-button {
+	position: relative;
 	height: 3rem;
 	padding: 0 1.2rem;
 	font-size: 0;
 	text-decoration: none;
+	overflow: hidden;
 }
 
 #status-menu.fixed .status-button {
@@ -914,24 +919,68 @@ body::after {
 }
 
 #status-menu .status-button::after {
-	left: 1.2rem;
-	bottom: 0.2rem;
-	width: calc(100% - 2.4rem);
-	height: 0.2rem;
-	background: var(--content-link);
-	opacity: 0;
-	transition: opacity .3s ease;
-}
-
-#status-menu .status-button:hover::after {
+	content: '';
+	position: absolute;
+	background: var(--category);
 	opacity: 1;
 }
 
-#status-menu.fixed .status-button::after {
-	left: 0.2rem;
+#status-menu:not(.fixed) .status-button::after {
+	left: 1.2rem;
 	bottom: 0.2rem;
-	height: calc(100% - 0.4rem);
+	width: 0;
+	height: 0.2rem;
+	transition: width 0.3s ease, height 0s linear 0.3s;
+}
+
+#status-menu.fixed .status-button::after {
+	top: 0.5rem;
+	left: 0.2rem;
 	width: 0.2rem;
+	height: 0;
+	transition: height 0.3s ease, width 0s linear 0.3s;
+}
+
+#status-menu:not(.fixed) .status-button:hover::after,
+#status-menu:not(.fixed) .status-button.on::after {
+	width: calc(100% - 2.4rem);
+	height: 0.2rem;
+	transition: width 0.3s ease;
+}
+
+#status-menu.fixed .status-button:hover::after,
+#status-menu.fixed .status-button.on::after {
+	width: 0.2rem;
+	height: calc(100% - 1rem);
+	transition: height 0.3s ease;
+}
+
+#status-menu:not(.fixed) .status-button:not(.on):not(:hover)::after {
+	right: 1.2rem;
+	left: auto;
+	width: 0;
+	height: 0.2rem;
+}
+
+#status-menu.fixed .status-button:not(.on):not(:hover)::after {
+	bottom: 0.5rem;
+	top: auto;
+	width: 0.2rem;
+	height: 0;
+}
+
+#status-menu:not(.fixed) .status-button.on::after {
+	width: calc(100% - 2.4rem);
+	height: 0.2rem;
+	left: 1.2rem;
+	right: auto;
+}
+
+#status-menu.fixed .status-button.on::after {
+	width: 0.2rem;
+	height: calc(100% - 1rem);
+	top: 0.5rem;
+	bottom: auto;
 }
 
 /* =============== CATEGORY HEADER COLORS =============== */
@@ -942,10 +991,6 @@ body::after {
 
 #status-menu .status-button::after {
 	background: var(--category);
-}
-
-#status-menu .status-button.on::after {
-	opacity: 1;
 }
 
 .status-button:nth-of-type(1) {
@@ -976,6 +1021,7 @@ body::after {
 #status-menu .search-container {
 	display: flex;
 	background: var(--content-background);
+	transition: none;
 }
 
 #status-menu:not(.fixed) .search-container {
@@ -991,7 +1037,7 @@ body::after {
 	right: 0;
 	top: 29rem;
 	width: 6rem;
-	height: 4.5rem;
+	height: 4.4rem;
 	border-radius: 0.6rem;
 	box-shadow: var(--mild-shadow);
 	justify-content: center;
@@ -1005,7 +1051,7 @@ body::after {
 	}
 
 	to {
-		height: 4.5rem;
+		height: 4.4rem;
 		overflow: hidden;
 	}
 }
@@ -1023,7 +1069,7 @@ body::after {
 #status-menu.fixed #search-box {
 	position: absolute;
 	right: calc(100% + 0.5rem);
-	height: 4.5rem;
+	height: 4.4rem;
 	box-shadow: var(--medium-shadow);
 	border-radius: 0.6rem;
 }
@@ -1075,9 +1121,12 @@ body::after {
 }
 
 #status-menu.fixed #search-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 0;
 	font-size: 1.7rem;
-	height: 4.5rem;
+	height: 4.4rem;
 }
 
 #status-menu:not(.fixed) #search-button i {
@@ -1085,7 +1134,16 @@ body::after {
 }
 
 #status-menu.fixed #search-button i {
-	line-height: 4.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	width: 4rem;
+	line-height: 4.4rem;
+}
+
+#status-menu.fixed #search-button:hover i::before {
+	filter: drop-shadow(0 0 0.5rem rgb(150, 150, 150)) !important;
 }
 
 /* =============== ADD AVATAR =============== */
