@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Fonta Revue Std Bold</title>
+    <style>
+        @font-face {
+            font-family: 'Revue Std Bold';
+            src: url('./assets/fonts/Revue-Std-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        h1,
+        h2,
+        .revue-font {
+            font-family: 'Revue Std Bold', Arial, sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>MAL</h1>
+
+    <div class="font-test">
+        <h2>Różne rozmiary:</h2>
+        <p class="revue-font size-12">Revue Std Bold 12px: Zażółć gęślą jaźń</p>
+        <p class="revue-font size-18">Revue Std Bold 18px: Zażółć gęślą jaźń</p>
+        <p class="revue-font size-24">Revue Std Bold 24px: Zażółć gęślą jaźń</p>
+        <p class="revue-font size-36">Revue Std Bold 36px: Zażółć gęślą jaźń</p>
+        <p class="revue-font size-48">Revue Std Bold 48px: Zażółć gęślą jaźń</p>
+    </div>
+
+    <div class="font-test">
+        <h2>Style:</h2>
+        <p class="revue-font size-24 italic">Revue Std Bold Italic: Zażółć gęślą jaźń</p>
+        <p class="revue-font size-24 uppercase">Revue Std Bold Uppercase: Zażółć gęślą jaźń</p>
+    </div>
+
+    <div class="font-test">
+        <h2>Przykładowy tekst:</h2>
+        <p class="revue-font size-18">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.
+            Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus
+            rhoncus ut eleifend nibh porttitor.
+        </p>
+    </div>
+</body>
+
+</html>

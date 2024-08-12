@@ -15,18 +15,17 @@
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
 
 @font-face {
-	font-family: 'AGRevueCyr-Roman';
-	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/AGRevueCyr-Roman%20Medium.ttf') format('truetype');
-	font-weight: 500;
+	font-family: 'Revue Std Bold';
+	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/Revue-Std-Bold.otf') format('opentype');
+	font-weight: bold;
 	font-style: normal;
 }
-
 
 /* =============== VARIABLES CSS =============== */
 :root {
 	/* ========== FONTS ========== */
 	--font: "Noto Sans", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
-	--mal-font: "AGRevueCyr-Roman", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
+	--font-mal: "Revue Std Bold", sans-serif;
 	--icon-font: FontAwesome, var(--font);
 	--alternate-font: "Roboto Condensed", Oswald, var(--icon-font);
 
@@ -431,23 +430,22 @@ body::after {
 	height: 3.2rem;
 	padding: 0.6rem;
 	font-size: 0;
-	text-indent: -9999px;
+	text-indent: 0;
 	text-decoration: none !important;
 	opacity: 1;
 	transition: opacity .5s ease-out;
 	z-index: 100;
-	position: relative;
 }
 
 .header .header-title::before {
 	content: "MAL";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: var(--mal-font);
-	font-size: 1.8rem;
-	color: var(--image-text);
+	font-family: var(--font-mal);
+	font-size: 1.4rem;
+	text-indent: 0;
+	text-decoration: none !important;
+	opacity: 1;
+	transition: opacity .5s ease-out;
+	z-index: 100;
 }
 
 .header .header-title:hover {
