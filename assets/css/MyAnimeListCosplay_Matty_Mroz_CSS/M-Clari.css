@@ -359,7 +359,6 @@ body::after {
 	background: #141414 var(--cover) var(--cover-position) / contain no-repeat;
 	-webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 	mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
-	background-color: #fff;
 }
 
 .cover-block {
@@ -424,9 +423,10 @@ body::after {
 
 /* =============== HOME BUTTON =============== */
 .header .header-title {
+	position: relative;
 	top: 1.5rem;
 	left: 3%;
-	width: 6.4rem;
+	width: 7rem;
 	height: 3.2rem;
 	padding: 0.6rem;
 	font-size: 0;
@@ -439,8 +439,12 @@ body::after {
 
 .header .header-title::before {
 	content: "MAL";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	font-family: var(--font-mal);
-	font-size: 1.4rem;
+	font-size: 2rem;
 }
 
 .header .header-title:hover::before {
@@ -533,6 +537,8 @@ body::after {
 	width: calc(50% - 6rem - var(--list-width) * 0.5 - 1.5rem) !important;
 	height: 100vh !important;
 	background: transparent !important;
+	border-top-right-radius: 100% !important;
+	border-bottom-right-radius: 20% !important;
 }
 
 .list-menu-float .icon-menu {
