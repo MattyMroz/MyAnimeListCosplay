@@ -431,13 +431,6 @@ body::after {
 	opacity: 1;
 	transition: opacity .5s ease-out;
 	z-index: 100;
-	filter: invert(1) brightness(100);
-	/* Zmienia kolor SVG na biały */
-}
-
-.header .header-title:hover {
-	filter: invert(1) brightness(80);
-	/* Przyciemnia kolor SVG przy najechaniu */
 }
 
 .header .header-title:hover {
