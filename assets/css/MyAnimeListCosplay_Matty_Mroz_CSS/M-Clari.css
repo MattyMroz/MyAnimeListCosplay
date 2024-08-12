@@ -432,8 +432,6 @@ body::after {
 	font-size: 0;
 	text-indent: 0;
 	text-decoration: none !important;
-	opacity: 1;
-	transition: opacity .5s ease-out;
 	z-index: 100;
 }
 
@@ -445,11 +443,7 @@ body::after {
 	transform: translate(-50%, -50%);
 	font-family: var(--font-mal);
 	font-size: 2rem;
-}
-
-.header .header-title:hover::before {
-	opacity: .8;
-	transition-duration: .08s;
+	transition: all 0.1s ease-in-out !important;
 }
 
 /* =============== VIEWING "NAME'S" LIST =============== */
@@ -1115,10 +1109,12 @@ body::after {
 	height: 4rem;
 	width: 4rem;
 	line-height: 4.4rem;
+	transition: all 0.1s ease-in-out !important;
 }
 
 #status-menu.fixed #search-button:hover i::before {
 	filter: drop-shadow(0 0 0.5rem rgb(150, 150, 150)) !important;
+	transition: all 0.1s ease-in-out !important;
 }
 
 /* =============== ADD AVATAR =============== */
