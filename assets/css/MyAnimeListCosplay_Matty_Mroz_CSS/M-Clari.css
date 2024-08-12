@@ -441,14 +441,9 @@ body::after {
 	content: "MAL";
 	font-family: var(--font-mal);
 	font-size: 1.4rem;
-	text-indent: 0;
-	text-decoration: none !important;
-	opacity: 1;
-	transition: opacity .5s ease-out;
-	z-index: 100;
 }
 
-.header .header-title:hover {
+.header .header-title:hover::before {
 	opacity: .8;
 	transition-duration: .08s;
 }
