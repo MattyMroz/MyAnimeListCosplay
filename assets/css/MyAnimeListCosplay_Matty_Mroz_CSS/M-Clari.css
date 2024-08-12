@@ -421,7 +421,7 @@ body::after {
 	width: 6.4rem;
 	height: 3.2rem;
 	padding: 0.6rem;
-	background-image: url(https://mattymroz.github.io/MyAnimeListCosplay/assets/img/MAL_logo.png);
+	background-image: url(https://mattymroz.github.io/MyAnimeListCosplay/assets/img/MAL_logo.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -431,6 +431,13 @@ body::after {
 	opacity: 1;
 	transition: opacity .5s ease-out;
 	z-index: 100;
+	filter: invert(1) brightness(100);
+	/* Zmienia kolor SVG na biały */
+}
+
+.header .header-title:hover {
+	filter: invert(1) brightness(80);
+	/* Przyciemnia kolor SVG przy najechaniu */
 }
 
 .header .header-title:hover {
