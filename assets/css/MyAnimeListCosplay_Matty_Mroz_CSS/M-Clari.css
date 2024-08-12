@@ -422,7 +422,7 @@ body::after {
 	height: 3.2rem;
 	padding: 0.6rem;
 	background-image: url(https://mattymroz.github.io/MyAnimeListCosplay/assets/img/MAL_logo.svg);
-	background-size: 100%;
+	background-size: 75%;
 	background-repeat: no-repeat;
 	background-position: center;
 	font-size: 0;
