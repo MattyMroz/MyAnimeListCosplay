@@ -16,7 +16,7 @@
 
 @font-face {
 	font-family: 'AGRevueCyr-Roman';
-	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/AGRevueCyr-Roman Medium.ttf') format('truetype');
+	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/AGRevueCyr-Roman%20Medium.ttf') format('truetype');
 	font-weight: 500;
 	font-style: normal;
 }
@@ -430,16 +430,24 @@ body::after {
 	width: 6.4rem;
 	height: 3.2rem;
 	padding: 0.6rem;
-	background-image: url(https://mattymroz.github.io/MyAnimeListCosplay/assets/img/MAL_logo.svg);
-	background-size: 75%;
-	background-repeat: no-repeat;
-	background-position: center;
 	font-size: 0;
 	text-indent: -9999px;
 	text-decoration: none !important;
 	opacity: 1;
 	transition: opacity .5s ease-out;
 	z-index: 100;
+	position: relative;
+}
+
+.header .header-title::before {
+	content: "MAL";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: var(--mal-font);
+	font-size: 1.8rem;
+	color: var(--image-text);
 }
 
 .header .header-title:hover {
