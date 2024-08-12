@@ -351,16 +351,7 @@ body::after {
 	background: #141414 var(--cover) var(--cover-position) / contain no-repeat;
 	-webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 	mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
-	opacity: 1;
-	transition: opacity 0.3s ease;
-}
-
-.header::before:hover {
-	opacity: 0.8;
-}
-
-.header::before:active {
-	opacity: 0.5;
+	background-color: #fff;
 }
 
 .cover-block {
@@ -381,16 +372,6 @@ body::after {
 	border-radius: 0.6rem;
 	margin: 0 auto 3rem;
 	box-shadow: var(--mild-shadow);
-	opacity: 1;
-	transition: opacity 0.3s ease;
-}
-
-#cover-image:hover {
-	opacity: 0.8;
-}
-
-#cover-image:active {
-	opacity: 0.5;
 }
 
 /* =============== GENERIC SETUP =============== */
@@ -411,18 +392,13 @@ body::after {
 
 .header .header-menu {
 	top: 1.5rem !important;
-	right: 1.5rem;
+	right: calc(3% - 1.5rem - .6rem);
 	display: flex;
+}
+
+.header:hover .header-menu {
 	opacity: 1;
-	transition: opacity 0.3s ease;
-}
-
-.header .header-menu:hover {
-	opacity: 0.8;
-}
-
-.header .header-menu:active {
-	opacity: 0.5;
+	transition-duration: .08s;
 }
 
 /* =============== COMMON BUTTON STYLING =============== */
@@ -431,43 +407,35 @@ body::after {
 .header .header-menu .header-info,
 #header-menu-dropdown .icon-menu {
 	height: 3.2rem;
-	padding: 0.6rem;
+	padding: .6rem;
 	background: var(--image-background);
 	border-radius: 0.3rem;
 	margin-right: 1.5rem;
 	font-size: 1.4rem;
-	opacity: 1;
-	transition: opacity 0.3s ease;
-}
-
-.header .header-title:hover,
-.header .header-menu .btn-menu:hover,
-.header .header-menu .header-info:hover,
-#header-menu-dropdown .icon-menu:hover {
-	opacity: 0.8;
-}
-
-.header .header-title:active,
-.header .header-menu .btn-menu:active,
-.header .header-menu .header-info:active,
-#header-menu-dropdown .icon-menu:active {
-	opacity: 0.5;
 }
 
 /* =============== HOME BUTTON =============== */
 .header .header-title {
 	top: 1.5rem;
-	left: 3rem;
-	width: 5rem;
-	height: 4rem;
+	left: 3%;
+	width: 6.4rem;
+	height: 3.2rem;
+	padding: 0.6rem;
 	background-image: url(https://mattymroz.github.io/MyAnimeListCosplay/assets/img/MAL_logo.png);
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	font-size: 0;
 	text-indent: -9999px;
 	text-decoration: none !important;
+	opacity: 1;
+	transition: opacity .5s ease-out;
 	z-index: 100;
+}
+
+.header .header-title:hover {
+	opacity: .8;
+	transition-duration: .08s;
 }
 
 /* =============== VIEWING "NAME'S" LIST =============== */
@@ -495,7 +463,7 @@ body::after {
 }
 
 /* =============== SWAP LIST =============== */
-/* #header-menu-dropdown {
+#header-menu-dropdown {
 	position: static;
 	display: block !important;
 	background: none;
@@ -525,7 +493,7 @@ body::after {
 	height: 1.6rem;
 	vertical-align: top;
 	margin-top: 0.2rem;
-} */
+}
 
 /* ----------- USER MENU ----------- */
 .list-menu-float {
