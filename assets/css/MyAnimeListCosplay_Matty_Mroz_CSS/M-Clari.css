@@ -14,10 +14,19 @@
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
 
+@font-face {
+	font-family: 'AGRevueCyr-Roman';
+	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/AGRevueCyr-Roman Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+
 /* =============== VARIABLES CSS =============== */
 :root {
 	/* ========== FONTS ========== */
 	--font: "Noto Sans", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
+	--mal-font: "AGRevueCyr-Roman", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
 	--icon-font: FontAwesome, var(--font);
 	--alternate-font: "Roboto Condensed", Oswald, var(--icon-font);
 
