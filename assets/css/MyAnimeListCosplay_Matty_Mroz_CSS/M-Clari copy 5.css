@@ -506,17 +506,16 @@ body::after {
 /* ----------- USER MENU ----------- */
 .list-menu-float {
 	position: fixed !important;
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
 	left: -6rem !important;
 	width: 6rem !important;
 	background: var(--content-background) !important;
 	border: none !important;
 	border-radius: 1rem !important;
-	/* box-shadow: var(--mild-shadow); */
 	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1) !important;
 	transition: left 0.3s ease !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
 	z-index: 20 !important;
 }
 
@@ -577,7 +576,7 @@ body::after {
 	height: 0 !important;
 }
 
-.list-menu-float .icon-menu.profile:active {
+.list-menu-float .icon-menu:active {
 	transform: scale(0.9) !important;
 	transition: transform 0.1s ease-in-out !important;
 }
@@ -635,8 +634,7 @@ body::after {
 	fill: var(--local-category) !important;
 }
 
-.list-menu-float .icon-menu .text,
-.list-menu-float .icon-menu.setting .text {
+.list-menu-float .icon-menu .text {
 	position: absolute !important;
 	top: 0rem !important;
 	left: 3rem !important;
@@ -654,14 +652,10 @@ body::after {
 	color: var(--local-category-hover) !important;
 	transition: transform 0.05s ease-in-out !important;
 	transform: translateX(-10px) !important;
-	/* box-shadow: var(--mild-shadow) !important;
-	clip-path: inset(-5px -5px -5px 0) !important; */
 }
 
 .list-menu-float .icon-menu:hover .text,
-.list-menu-float .icon-menu .text:hover,
-.list-menu-float .icon-menu.setting:hover .text,
-.list-menu-float .icon-menu.setting .text:hover {
+.list-menu-float .icon-menu .text:hover {
 	opacity: 1 !important;
 	transform: translateX(10px) !important;
 	padding: 0.8rem 1.2rem !important;
@@ -670,13 +664,11 @@ body::after {
 	pointer-events: auto !important;
 }
 
-.list-menu-float .icon-menu .text:hover,
-.list-menu-float .icon-menu.setting .text:hover {
+.list-menu-float .icon-menu .text:hover {
 	color: var(--local-category) !important;
 }
 
-.list-menu-float .icon-menu:hover .text::before,
-.list-menu-float .icon-menu.setting:hover .text::before {
+.list-menu-float .icon-menu:hover .text::before {
 	content: '' !important;
 	position: absolute !important;
 	left: -0.8rem !important;
@@ -692,10 +684,15 @@ body::after {
 	justify-content: center !important;
 	flex-direction: column !important;
 	align-items: center !important;
+	top: 0rem !important;
+	left: 3rem !important;
 	height: 8rem !important;
 	width: 16rem !important;
-	border-bottom-left-radius: 1rem !important;
-	background: transparent !important;
+	padding-left: 1rem !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border-radius: 1rem !important;
+	background: none !important;
 }
 
 .list-menu-float .icon-menu.setting .text a {
@@ -705,65 +702,41 @@ body::after {
 	justify-content: center !important;
 	text-align: center !important;
 	height: 4rem !important;
-	width: 16rem !important;
+	width: 100% !important;
 	background: none !important;
 	color: var(--local-category-hover) !important;
+	background: linear-gradient(to right, transparent 1.01rem, var(--content-background) 1.01rem) !important;
 }
 
-
 .list-menu-float .icon-menu.setting .text a.link-list-setting {
-	background: var(--content-background) !important;
-	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
-	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
+	border-bottom: 0.3rem dotted var(--border) !important;
 }
 
 .list-menu-float .icon-menu.setting .text a.link-style-setting {
-	border: none !important;
-	background: var(--content-background) !important;
-	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
-	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem),
-		linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
+	border-top: 0rem dotted var(--border) !important;
+	/* background: var(--content-background) !important; */
+
+	background: radial-gradient(circle at top left,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0) 1rem,
+			var(--content-background) 1rem,
+			var(--content-background) 100%) !important;
 }
-
-
-.list-menu-float .icon-menu.setting .text a::before {
-	content: '';
-	display: block;
-	height: 0;
-	width: 14rem;
-	border-bottom: 0.3rem dotted var(--border) !important;
-	position: absolute;
-	top: 49%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
 
 .list-menu-float .icon-menu.setting .text a:hover {
 	color: var(--local-category) !important;
 }
 
+.list-menu-float .icon-menu.setting .text a:active {
+	transform: scale(0.9) !important;
+	transition: transform 0.1s ease-in-out !important;
+}
 
-
+/*
 .list-menu-float .icon-menu.setting:hover~.list-menu-float,
 .list-menu-float:has(.icon-menu.setting:hover) {
 	border-bottom-right-radius: 0 !important;
-}
-
-/* 
-.list-menu-float .icon-menu.setting .text {
-	border-bottom-left-radius: 1rem !important;
-	background: var(--content-background) !important;
-	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) linear-gradient(to bottom, transparent 5.05rem, black 5.05rem) !important;
-	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem),
-		linear-gradient(to bottom, transparent 5.05rem, black 5.05rem) !important;
-	box-shadow: var(--mild-shadow) !important;
-	box-shadow: var(--mild-shadow) !important;
-	clip-path: inset(-5px -5px -5px 0) !important;
-	-webkit-clip-path: inset(-5px -5px -5px 0) !important;
 } */
-
-
 
 
 .list-menu-float .icon-menu.quick-add {
@@ -982,6 +955,11 @@ body::after {
 	width: 0.2rem;
 	height: calc(100% - 1rem);
 	transition: height 0.3s ease;
+}
+
+#status-menu.fixed .status-button:active {
+	transform: scale(0.9);
+	transition: transform 0.1s ease-in-out;
 }
 
 #status-menu:not(.fixed) .status-button:not(.on):not(:hover)::after {
