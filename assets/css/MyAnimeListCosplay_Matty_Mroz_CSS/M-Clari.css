@@ -101,6 +101,11 @@
 	--cover-position: center bottom calc(100% + 7rem);
 	--cover: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
 
+
+	/* ----------- USER MENU ----------- */
+	--user-menu-profile: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d");
+
+
 	/* ========== LIST WIDTH ========== */
 	/* Options: 106rem | 96rem | 90rem */
 	--list-width: 106rem;
@@ -545,8 +550,8 @@ body::after {
 	border-radius: 1rem;
 	background-color: transparent;
 	box-shadow: var(--mild-shadow);
+	z-index: -1;
 }
-
 
 .list-menu-float .icon-menu {
 	position: relative !important;
@@ -608,7 +613,7 @@ body::after {
 	left: 50% !important;
 	width: 4rem !important;
 	height: 4rem !important;
-	background: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d") no-repeat center center !important;
+	background: var(--user-menu-profile) no-repeat center center !important;
 	background-size: 120% !important;
 	border-radius: 50% !important;
 	transform: translate(-50%, -50%) !important;
@@ -676,7 +681,8 @@ body::after {
 			0.1rem calc(100% + 6rem)) !important;
 }
 
-.list-menu-float .icon-menu.setting .text {
+/* DZIAŁA ALE ŹLE PRZEGLĄDARKA RENDERUJE */
+/* .list-menu-float .icon-menu.setting .text {
 	clip-path: polygon(-6rem -6rem,
 			calc(100% + 6rem) -6rem,
 			calc(100% + 6rem) calc(100% + 6rem),
@@ -684,7 +690,7 @@ body::after {
 			-6rem 5rem,
 			0.1rem 5rem,
 			0.1rem -6rem) !important;
-}
+} */
 
 .list-menu-float .icon-menu:hover .text,
 .list-menu-float .icon-menu .text:hover,
@@ -738,7 +744,6 @@ body::after {
 	color: var(--local-category-hover) !important;
 }
 
-
 .list-menu-float .icon-menu.setting .text a.link-list-setting {
 	background: var(--content-background) !important;
 	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
@@ -753,7 +758,6 @@ body::after {
 		linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
 }
 
-
 .list-menu-float .icon-menu.setting .text a::before {
 	content: '';
 	display: block;
@@ -766,20 +770,14 @@ body::after {
 	transform: translateX(-50%);
 }
 
-
 .list-menu-float .icon-menu.setting .text a:hover {
 	color: var(--local-category) !important;
 }
-
-
 
 .list-menu-float .icon-menu.setting:hover~.list-menu-float,
 .list-menu-float:has(.icon-menu.setting:hover) {
 	border-bottom-right-radius: 0 !important;
 }
-
-
-
 
 .list-menu-float .icon-menu.quick-add:hover~.list-menu-float::after,
 .list-menu-float:has(.icon-menu.quick-add:hover)::after {
@@ -820,9 +818,6 @@ body::after {
 .list-menu-float:has(.icon-menu.setting:hover)::after {
 	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
 }
-
-
-
 
 .list-menu-float .icon-menu.quick-add {
 	--local-category: var(--color-all-items) !important;
