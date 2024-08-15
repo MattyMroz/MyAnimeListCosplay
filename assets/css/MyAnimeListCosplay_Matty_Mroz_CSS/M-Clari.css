@@ -1271,7 +1271,7 @@ body::after {
 	outline: 0 !important;
 }
 
-/* =============== LIST =============== */
+/* =============== LIST!!! =============== */
 .list-table>tbody {
 	display: block;
 	width: 106rem;
@@ -1329,8 +1329,6 @@ body::after {
 		background-position: -400% 0;
 	}
 }
-
-
 
 .list-table>tbody:first-of-type {
 	position: sticky;
@@ -1990,7 +1988,8 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== MAL SCORE STYLE CHANGES =============== */
-.status:not([class*="planto"])~.data.score~.mal_score {
+/* .status:not([class*="planto"])~.data.score~.mal_score { */
+.status~.data.score~.mal_score {
 	position: static;
 	width: 6.15rem !important;
 	margin-right: -1.15rem;
@@ -1999,19 +1998,19 @@ tr.list-table-data:has(.tags) {
 	border-radius: 1.15rem 0 0 1.15rem;
 }
 
-.status[class*="planto"]~.data.score~.mal_score {
+/* .status[class*="planto"]~.data.score~.mal_score {
 	position: relative;
 	z-index: 1;
-}
+} */
 
 /* =============== PLAN TO WATCH/READ STYLES =============== */
-.data[class*="planto"]~.score~.mal_score {
+/* .data[class*="planto"]~.score~.mal_score {
 	margin-right: -2.6rem;
 }
 
 .data[class*="planto"]~.score_diff {
 	display: none;
-}
+} */
 
 /* =============== SCORE SELECT DROPDOWN =============== */
 .data.score select {
@@ -2271,7 +2270,7 @@ tr.list-table-data:has(.tags) {
 
 .header-title:is(.started, .finished):has(a) {
 	width: auto !important;
-	background: var(--content-background) !important;
+	background: transparent !important;
 	order: 25;
 	text-align: left !important;
 	font-size: 0;
@@ -2335,6 +2334,7 @@ tr.list-table-data:has(.tags) {
 	line-height: 1.4rem;
 	text-align: left !important;
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	background: transparent;
 }
 
 .data.started {
