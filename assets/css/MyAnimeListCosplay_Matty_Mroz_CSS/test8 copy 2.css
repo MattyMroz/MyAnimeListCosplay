@@ -1,0 +1,212 @@
+/* =============== SIDE BUTTONS =============== */
+/* =============== ADD EDIT MORE =============== */
+.list-unit .list-status-title {
+    position: sticky;
+    top: 0.5rem;
+    z-index: 11;
+}
+
+.list-table .list-table-data .data.title .add-edit-more,
+.list-unit .list-status-title .stats {
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    z-index: 4;
+    width: 2.6rem;
+    height: calc(100% + 0.2rem);
+    padding: 0.3rem;
+    margin: 0;
+    background: var(--content-highlight);
+    border-radius: 0.6rem 0rem 0rem 0.6rem;
+    font-size: 0;
+    line-height: 0;
+}
+
+.list-unit .list-status-title .stats {
+    top: 0;
+    z-index: 13;
+    height: 5rem;
+    padding: 0.3rem;
+}
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+    position: absolute;
+    left: 0.3rem;
+    z-index: 4;
+}
+
+.list-table .list-table-data .tags .edit {
+    top: 4.8rem;
+}
+
+.list-table .list-table-data .notes .edit {
+    top: 7.1rem;
+}
+
+/* ========================================================= */
+.notes .edit::before {
+    content: "\f044";
+    font: bold 1.2rem var(--font);
+    animation: none !important;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.notes .edit:hover::after {
+    content: "Add Notes";
+    background: var(--inverse-background);
+    color: var(--inverse-text) !important;
+    font: bold 1.2rem var(--font);
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+/* ========================================================= */
+
+.add-edit-more a,
+.list-unit .list-status-title .stats a,
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+    display: flex;
+    float: left;
+    clear: both;
+    width: auto;
+    height: 2rem;
+    margin: 0 0 0.3rem;
+    padding: 0;
+    background: transparent;
+    border-radius: 0.3rem;
+    color: var(--content-text) !important;
+    font-size: 0;
+    line-height: 2rem;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.25;
+}
+
+#list-container .add-edit-more a:hover,
+.list-unit .list-status-title .stats a:hover,
+#list-container .list-table .list-table-data .tags .edit:hover {
+    background: var(--inverse-background);
+    color: var(--inverse-text) !important;
+    font: bold 1.2rem "Noto Sans";
+    padding: 0.2rem 0.6rem 0rem 0rem;
+    box-shadow: var(--mild-shadow);
+    text-shadow: none;
+}
+
+#list-container .list-table .list-table-data .notes .edit:hover {
+    background: var(--inverse-background);
+    color: var(--inverse-text) !important;
+    font: bold 1.2rem;
+    padding: 0.2rem 0.6rem 0rem 0rem;
+    box-shadow: var(--mild-shadow);
+    text-shadow: none;
+}
+
+.list-table-data:hover .add-edit-more a,
+.list-unit .list-status-title .stats a,
+.list-table .list-table-data:hover .tags .edit,
+.list-table .list-table-data:hover .notes .edit {
+    opacity: 1;
+}
+
+.add-edit-more a::before,
+.tags .edit::before,
+.notes .edit::before,
+.list-unit .list-status-title .stats i {
+    width: 2rem;
+    margin-top: -0.1rem;
+    margin-right: 0.3rem;
+    font: 600 1.2rem/2rem var(--icon-font) !important;
+    font-variant: normal;
+    line-height: 2rem;
+}
+
+.tags .edit::before,
+.notes .edit::before {
+    margin-right: 0.2rem;
+}
+
+.add-edit-more .add a::before {
+    content: "\2b";
+    font-family: var(--icon-font);
+}
+
+.add-edit-more .edit a::before {
+    content: "\f304";
+}
+
+.add-edit-more .more a::before {
+    content: "\e3d6";
+}
+
+.data.tags .edit::before {
+    content: "\e211";
+    text-shadow: 0.1rem 0.1rem 0.1rem #111;
+}
+
+.data.tags .edit::after {
+    content: " Tags";
+    white-space: pre;
+}
+
+.data.tags .edit:hover::before,
+.data.notes .edit:hover::before {
+    text-shadow: none !important;
+}
+
+/* =============== NOTES =============== */
+.notes {
+    width: 100% !important;
+    clear: both;
+    cursor: text;
+}
+
+.notes .text:not(:empty) {
+    padding: 0rem 0;
+    color: var(--subdued-text) !important;
+    pointer-events: none;
+}
+
+.notes textarea {
+    max-height: 30rem;
+    min-height: 6rem;
+}
+
+[data-owner="1"] .notes .text:empty {
+    padding-top: 0.1rem;
+}
+
+[data-owner="1"] .notes .text:not(:empty)::after {
+    content: "\f044";
+    position: absolute;
+    top: 6.9rem;
+    left: 0.3rem;
+    z-index: 4;
+    display: block;
+    width: fit-content;
+    margin-top: 0.2rem;
+    padding: 0.2rem 0.4rem;
+    color: var(--content-text) !important;
+    font: bold 1.2rem var(--font);
+    opacity: 0.25;
+    text-shadow: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.notes .edit:hover,
+[data-owner="1"] .notes .text:hover:not(:empty)::after {
+    content: "\f044\00a0\00a0 Edit Notes";
+    background: var(--inverse-background);
+    color: var(--inverse-text) !important;
+    font: bold 1.2rem var(--font);
+    border-radius: 0.3rem;
+    box-shadow: var(--mild-shadow);
+    text-decoration: none;
+}
+
+.list-table .list-table-data:hover .notes .text:not(:empty)::after {
+    opacity: 1;
+}

@@ -1,0 +1,193 @@
+/* =============== SIDE BUTTONS =============== */
+/* =============== ADD EDIT MORE =============== */
+.list-unit .list-status-title {
+    position: sticky;
+    top: 0.5rem;
+    z-index: 11;
+}
+
+.list-table .list-table-data .data.title .add-edit-more,
+.list-unit .list-status-title .stats {
+    position: absolute;
+    left: -0.1rem;
+    top: -0.1rem;
+    z-index: 4;
+    width: 2.6rem;
+    padding: 0.3rem;
+    height: calc(100% + 0.2rem);
+    border-radius: 0.6rem 0rem 0rem 0.6rem;
+    background: var(--content-highlight);
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.list-unit .list-status-title .stats {
+    top: 0;
+    height: 5rem;
+    padding: 0.3rem;
+    z-index: 13;
+}
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+    position: absolute;
+    left: 0.3rem;
+    z-index: 4;
+}
+
+.list-table .list-table-data .tags .edit {
+    top: 4.7rem;
+}
+
+.list-table .list-table-data .notes .edit {
+    top: 7rem;
+}
+
+/* ========================================================= */
+
+.notes .edit,
+[data-owner="1"] .notes .text:not(:empty)::after {
+    display: block;
+    padding: 0.1rem 0.4rem;
+    width: fit-content;
+    background: var(--button);
+    border-radius: 0.3rem;
+    margin-top: 0.2rem;
+    color: var(--content-text) !important;
+    font-size: 1.1rem !important;
+    position: absolute;
+    left: 0.3rem;
+    top: 7rem;
+    z-index: 4;
+}
+
+.notes .edit {
+    font-size: 0 !important;
+    letter-spacing: 0;
+}
+
+.notes .edit::before {
+    content: "\f044";
+    font-family: var(--icon-font);
+    margin-right: 0.3rem;
+}
+
+.notes .edit::after {
+    content: "Add Notes";
+    font: 1.2rem var(--font);
+    letter-spacing: 0.03rem;
+}
+
+[data-owner="1"] .notes .text:not(:empty)::after {
+    content: "\f044  Add Notes";
+    font: 1.2rem var(--font);
+    pointer-events: auto;
+}
+
+.notes .edit:hover,
+[data-owner="1"] .notes .text:hover:not(:empty)::after {
+    color: var(--content-link) !important;
+    text-decoration: none;
+}
+
+/* ========================================================= */
+
+.add-edit-more a,
+.list-unit .list-status-title .stats a,
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+    display: flex;
+    width: auto;
+    height: 2rem;
+    border-radius: 0.3rem;
+    margin: 0 0 0.3rem;
+    float: left;
+    clear: both;
+    color: var(--content-text) !important;
+    font-size: 0;
+    line-height: 2rem;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.25;
+}
+
+#list-container .add-edit-more a:hover,
+.list-unit .list-status-title .stats a:hover,
+#list-container .list-table .list-table-data .tags .edit:hover,
+#list-container .list-table .list-table-data .notes .edit:hover {
+    background: var(--inverse-background);
+    box-shadow: var(--mild-shadow);
+    color: var(--inverse-text) !important;
+    font: bold 1.2rem "Noto Sans";
+    padding: 0.2rem 0.6rem 0rem 0rem;
+    text-shadow: none;
+}
+
+.list-table-data:hover .add-edit-more a,
+.list-unit .list-status-title .stats a,
+.list-table .list-table-data:hover .tags .edit,
+.list-table .list-table-data:hover .notes .edit {
+    opacity: 1;
+}
+
+.add-edit-more a::before,
+.tags .edit::before,
+.notes .edit::before,
+.list-unit .list-status-title .stats i {
+    width: 2rem;
+    line-height: 2rem;
+    margin-right: 0.3rem;
+    margin-top: -0.1rem;
+    font: 600 1.2rem/2rem var(--icon-font) !important;
+    font-variant: normal;
+}
+
+.add-edit-more .add a::before {
+    content: "\2b";
+    font-family: var(--icon-font);
+}
+
+.add-edit-more .edit a::before {
+    content: "\f304";
+}
+
+.add-edit-more .more a::before {
+    content: "\e3d6";
+}
+
+.data.tags .edit::before {
+    content: "\e211";
+    text-shadow: 0.1rem 0.1rem 0.1rem #111;
+}
+
+.data.tags .edit::after {
+    content: " Tags";
+    white-space: pre;
+}
+
+.data.tags .edit:hover::before,
+.data.notes .edit:hover::before {
+    text-shadow: none !important;
+}
+
+/* =============== NOTES =============== */
+.notes {
+    width: 100% !important;
+    clear: both;
+    cursor: text;
+}
+
+.notes .text:not(:empty) {
+    padding: 0rem 0;
+    color: var(--subdued-text) !important;
+    pointer-events: none;
+}
+
+[data-owner="1"] .notes .text:empty {
+    padding-top: 0.1rem;
+}
+
+.data.tags div::before {
+    animation: none;
+}

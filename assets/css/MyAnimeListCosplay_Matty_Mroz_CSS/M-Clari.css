@@ -1494,113 +1494,215 @@ tr.list-table-data:has(.tags) {
 /* =============== SIDE BUTTONS =============== */
 /* =============== ADD EDIT MORE =============== */
 .list-unit .list-status-title {
-	position: sticky;
-	top: 0.5rem;
-	z-index: 11;
+	position: sticky !important;
+	top: 0.5rem !important;
+	z-index: 11 !important;
 }
 
 .list-table .list-table-data .data.title .add-edit-more,
 .list-unit .list-status-title .stats {
-	position: absolute;
-	left: -0.1rem;
-	top: -0.1rem;
-	z-index: 4;
-	width: 2.6rem;
-	padding: 0.3rem;
-	height: calc(100% + 0.2rem);
-	border-radius: 0.6rem 0rem 0rem 0.6rem;
-	background: var(--content-highlight);
-	margin: 0;
-	font-size: 0;
-	line-height: 0;
+	position: absolute !important;
+	top: -0.1rem !important;
+	left: -0.1rem !important;
+	z-index: 4 !important;
+	width: 2.6rem !important;
+	height: calc(100% + 0.2rem) !important;
+	padding: 0.3rem !important;
+	margin: 0 !important;
+	background: var(--content-highlight) !important;
+	border-radius: 0.6rem 0rem 0rem 0.6rem !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
 }
 
 .list-unit .list-status-title .stats {
-	top: 0;
-	height: 5rem;
-	padding: 0.3rem;
-	z-index: 13;
+	top: 0 !important;
+	z-index: 13 !important;
+	height: 5rem !important;
+	padding: 0.3rem !important;
+}
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	position: absolute !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
 }
 
 .list-table .list-table-data .tags .edit {
-	position: absolute;
-	left: 0.3rem;
-	top: 4.7rem;
-	z-index: 4;
+	top: 4.8rem !important;
 }
+
+.list-table .list-table-data .notes .edit {
+	top: 7.1rem !important;
+}
+
+/* ========================================================= */
+.notes .edit::before {
+	content: "\f044" !important;
+	font: bold 1.2rem var(--font) !important;
+	animation: none !important;
+	pointer-events: auto !important;
+	cursor: pointer !important;
+}
+
+.notes .edit:hover::after {
+	content: "Add Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	cursor: pointer !important;
+}
+
+/* ========================================================= */
 
 .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data .tags .edit {
-	display: flex;
-	width: auto;
-	height: 2rem;
-	border-radius: 0.3rem;
-	margin: 0 0 0.3rem;
-	float: left;
-	clear: both;
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	display: flex !important;
+	float: left !important;
+	clear: both !important;
+	width: auto !important;
+	height: 2rem !important;
+	margin: 0 0 0.3rem !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border-radius: 0.3rem !important;
 	color: var(--content-text) !important;
-	font-size: 0;
-	line-height: 2rem;
-	text-align: center;
-	white-space: nowrap;
-	opacity: 0.25;
+	font-size: 0 !important;
+	line-height: 2rem !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	opacity: 0.25 !important;
 }
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
 #list-container .list-table .list-table-data .tags .edit:hover {
-	background: var(--inverse-background);
-	box-shadow: var(--mild-shadow);
+	background: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
-	/* edit,more text on hover */
-	font: bold 1.2rem "Noto Sans";
-	padding: 0.2rem 0.6rem 0rem 0rem;
-	text-shadow: none;
+	font: bold 1.2rem "Noto Sans" !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
+}
+
+#list-container .list-table .list-table-data .notes .edit:hover {
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
 }
 
 .list-table-data:hover .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data:hover .tags .edit {
-	opacity: 1;
+.list-table .list-table-data:hover .tags .edit,
+.list-table .list-table-data:hover .notes .edit {
+	opacity: 1 !important;
 }
 
 .add-edit-more a::before,
 .tags .edit::before,
+.notes .edit::before,
 .list-unit .list-status-title .stats i {
-	width: 2rem;
-	line-height: 2rem;
-	margin-right: 0.3rem;
-	margin-top: -0.1rem;
+	width: 2rem !important;
+	margin-top: -0.1rem !important;
+	margin-right: 0.3rem !important;
 	font: 600 1.2rem/2rem var(--icon-font) !important;
-	font-variant: normal;
+	font-variant: normal !important;
+	line-height: 2rem !important;
+}
+
+.tags .edit::before,
+.notes .edit::before {
+	margin-right: 0.2rem !important;
 }
 
 .add-edit-more .add a::before {
-	content: "\2b";
-	font-family: var(--icon-font);
+	content: "\2b" !important;
+	font-family: var(--icon-font) !important;
 }
 
 .add-edit-more .edit a::before {
-	content: "\f304";
+	content: "\f304" !important;
 }
 
 .add-edit-more .more a::before {
-	content: "\e3d6";
+	content: "\e3d6" !important;
 }
 
 .data.tags .edit::before {
-	content: "\e211";
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	content: "\e211" !important;
+	text-shadow: 0.1rem 0.1rem 0.1rem #111 !important;
 }
 
 .data.tags .edit::after {
-	content: " Tags";
-	white-space: pre;
+	content: " Tags" !important;
+	white-space: pre !important;
 }
 
-.data.tags .edit:hover::before {
+.data.tags .edit:hover::before,
+.data.notes .edit:hover::before {
 	text-shadow: none !important;
+}
+
+/* =============== NOTES =============== */
+.notes {
+	width: 100% !important;
+	clear: both !important;
+	cursor: text !important;
+}
+
+.notes .text:not(:empty) {
+	padding: 0rem 0 !important;
+	color: var(--subdued-text) !important;
+	pointer-events: none !important;
+}
+
+.notes textarea {
+	max-height: 30rem !important;
+	min-height: 6rem !important;
+}
+
+[data-owner="1"] .notes .text:empty {
+	padding-top: 0.1rem !important;
+}
+
+[data-owner="1"] .notes .text:not(:empty)::after {
+	content: "\f044" !important;
+	position: absolute !important;
+	top: 6.9rem !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
+	display: block !important;
+	width: fit-content !important;
+	margin-top: 0.2rem !important;
+	padding: 0.2rem 0.4rem !important;
+	color: var(--content-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	opacity: 0.25 !important;
+	text-shadow: none !important;
+	cursor: pointer !important;
+	pointer-events: auto !important;
+}
+
+.notes .edit:hover,
+[data-owner="1"] .notes .text:hover:not(:empty)::after {
+	content: "\f044\00a0\00a0 Edit Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-decoration: none !important;
+}
+
+.list-table .list-table-data:hover .notes .text:not(:empty)::after {
+	opacity: 1 !important;
 }
 
 /* =============== STATUS =============== */
@@ -1822,61 +1924,6 @@ tr.list-table-data:has(.tags) {
 /* Title Link Color on Direct Link Hover - Original Category Color */
 .list-table .list-table-data:hover .data.title .link:hover {
 	color: var(--local-category) !important;
-}
-
-/* =============== NOTES =============== */
-.notes {
-	width: 100% !important;
-	clear: both;
-	cursor: text;
-}
-
-.notes .text:not(:empty) {
-	padding: 0rem 0;
-	color: var(--subdued-text) !important;
-	pointer-events: none;
-}
-
-[data-owner="1"] .notes .text:empty {
-	padding-top: 0.1rem;
-}
-
-.notes .edit,
-[data-owner="1"] .notes .text:not(:empty)::after {
-	display: block;
-	padding: 0.1rem 0.4rem;
-	width: fit-content;
-	background: var(--button);
-	border-radius: 0.3rem;
-	margin-top: 0.2rem;
-	color: var(--content-text) !important;
-	font-size: 1.1rem !important;
-	opacity: 0;
-	transition: opacity 0.15s ease;
-}
-
-/* Change note text
-.notes .edit {
-	font-size: 0 !important;
-	letter-spacing: 0; /* resetting letter-spacing in this way fixes a .3px gap
-}
-.notes .edit::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	letter-spacing: 0.03rem;
-} */
-
-[data-owner="1"] .notes .text:not(:empty)::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	pointer-events: auto;
-}
-
-.notes .edit:hover,
-[data-owner="1"] .notes .text:hover:not(:empty)::after {
-	opacity: 1;
-	color: var(--content-link) !important;
-	text-decoration: none;
 }
 
 /* =============== SCORE =============== */
@@ -2689,6 +2736,22 @@ tr.list-table-data:has(.tags) {
 .data.tags span a::before {
 	content: var(--hash-symbol);
 	font-family: var(--icon-font);
+}
+
+.data.genre:empty::after {
+	content: "None" !important;
+	display: none !important;
+	padding: 0.4rem !important;
+	background: var(--button) !important;
+	border-radius: 0.3rem !important;
+	margin: 0.3rem 0.3rem 0 0 !important;
+	font-size: 1.1rem !important;
+	overflow: visible !important;
+	opacity: 0.5 !important;
+}
+
+.list-table-data:hover .data.genre::after {
+	display: inline-block !important;
 }
 
 /* =============== EMOJI GENRES =============== */

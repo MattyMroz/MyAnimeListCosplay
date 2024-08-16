@@ -193,6 +193,7 @@ tr.list-table-data:has(.tags) {
     display: none !important;
 }
 
+
 /* =============== STATS =============== */
 .list-unit .list-stats {
     position: sticky;
@@ -219,7 +220,7 @@ tr.list-table-data:has(.tags) {
 
 /* =============== SIDE BUTTONS =============== */
 /* =============== ADD EDIT MORE =============== */
-.list-unit .list-status-title {
+/* .list-unit .list-status-title {
     position: sticky;
     top: 0.5rem;
     z-index: 11;
@@ -255,17 +256,9 @@ tr.list-table-data:has(.tags) {
     z-index: 4;
 }
 
-.list-table .list-table-data .notes .edit {
-    position: absolute;
-    left: 0.3rem;
-    top: 7rem;
-    z-index: 4;
-}
-
 .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data .tags .edit,
-.list-table .list-table-data .notes .edit {
+.list-table .list-table-data .tags .edit {
     display: flex;
     width: auto;
     height: 2rem;
@@ -283,12 +276,10 @@ tr.list-table-data:has(.tags) {
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
-#list-container .list-table .list-table-data .tags .edit:hover,
-#list-container .list-table .list-table-data .notes .edit:hover {
+#list-container .list-table .list-table-data .tags .edit:hover {
     background: var(--inverse-background);
     box-shadow: var(--mild-shadow);
     color: var(--inverse-text) !important;
-    /* edit,more text on hover */
     font: bold 1.2rem "Noto Sans";
     padding: 0.2rem 0.6rem 0rem 0rem;
     text-shadow: none;
@@ -296,14 +287,12 @@ tr.list-table-data:has(.tags) {
 
 .list-table-data:hover .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data:hover .tags .edit,
-.list-table .list-table-data:hover .notes .edit {
+.list-table .list-table-data:hover .tags .edit {
     opacity: 1;
 }
 
 .add-edit-more a::before,
 .tags .edit::before,
-.notes .edit::before,
 .list-unit .list-status-title .stats i {
     width: 2rem;
     line-height: 2rem;
@@ -336,20 +325,9 @@ tr.list-table-data:has(.tags) {
     white-space: pre;
 }
 
-.data.notes .edit::before {
-    content: "\f044";
-    text-shadow: 0.1rem 0.1rem 0.1rem #111;
-}
-
-.data.notes .edit::after {
-    content: " Notes";
-    white-space: pre;
-}
-
-.data.tags .edit:hover::before,
-.data.notes .edit:hover::before {
+.data.tags .edit:hover::before {
     text-shadow: none !important;
-}
+} */
 
 /* =============== STATUS =============== */
 .header-title.status {
@@ -493,14 +471,15 @@ tr.list-table-data:has(.tags) {
     order: 5;
 }
 
+/* !!! */
 .data.title {
-    font: 1.2rem "Ubuntu";
+    /* font: 1.2rem "Ubuntu"; */
     text-shadow: 0.1rem 0.1rem 0.1rem #111;
-    letter-spacing: 0.03rem;
+    /* letter-spacing: 0.03rem; */
     padding: 0 0.6rem !important;
     grid-column-start: 3;
     grid-column-end: 5;
-    grid-row-start: 1;
+    grid-row-start: 1
 }
 
 .data.image+.title {
@@ -603,22 +582,20 @@ tr.list-table-data:has(.tags) {
     transition: opacity 0.15s ease;
 }
 
-/* Change note text*/
-/* resetting letter-spacing in this way fixes a .3px gap*/
-/* .notes .edit {
+.notes .edit {
     font-size: 0 !important;
     letter-spacing: 0;
-} */
+}
 
 .notes .edit::after {
-    content: "\f044";
-    font: 1.1rem var(--icon-font);
+    content: "\f044  Add Notes";
+    font: 1.2rem var(--font);
     letter-spacing: 0.03rem;
 }
 
 [data-owner="1"] .notes .text:not(:empty)::after {
-    content: "\f044";
-    font: 1.1rem var(--icon-font);
+    content: "\f044  Add Notes";
+    font: 1.2rem var(--font);
     pointer-events: auto;
 }
 
@@ -627,51 +604,4 @@ tr.list-table-data:has(.tags) {
     opacity: 1;
     color: var(--content-link) !important;
     text-decoration: none;
-}
-
-/* =============== SCORE =============== */
-/* =============== HEADER STYLES =============== */
-:is(.header-title, .data)[class*="score"] {
-    width: 2.3rem !important;
-    order: 7;
-}
-
-:is(.header-title, .data).mal_score {
-    order: 6;
-}
-
-.header-title.mal_score {
-    width: 5rem !important;
-}
-
-.header-title.score_diff {
-    width: 4rem !important;
-}
-
-.header-title.score~ :is(.mal_score, .score_diff) {
-    width: 2.3rem !important;
-}
-
-.header-title:is(.score, .mal_score, .score_diff) a {
-    font-size: 0 !important;
-}
-
-.header-title.score a::before {
-    content: "Scr.";
-}
-
-.header-title.mal_score a::before {
-    content: "MAL Scr.";
-}
-
-.header-title.score~.mal_score a::before {
-    content: "\f500 ";
-}
-
-.header-title.score~.mal_score {
-    --label: "MAL User Score";
-}
-
-.header-title.score_diff a::before {
-    content: "Diff.";
 }
