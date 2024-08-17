@@ -2758,7 +2758,7 @@ tr.list-table-data:has(.tags) {
 	padding: 0.4rem !important;
 	background: var(--button) !important;
 	border-radius: 0.3rem !important;
-	margin: 0.3rem 0.3rem 0 0 !important;
+	margin: 0.55rem 0.3rem 0 0 !important;
 	font-size: 1.1rem !important;
 	overflow: visible !important;
 	opacity: 0.5 !important;
