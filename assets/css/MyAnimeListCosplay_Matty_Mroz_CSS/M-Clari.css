@@ -1578,6 +1578,10 @@ tr.list-table-data:has(.tags) {
 	opacity: 0.25 !important;
 }
 
+.list-table .list-table-data .notes .edit {
+	display: none !important;
+}
+
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
 #list-container .list-table .list-table-data .tags .edit:hover {
@@ -1603,6 +1607,7 @@ tr.list-table-data:has(.tags) {
 .list-table .list-table-data:hover .tags .edit,
 .list-table .list-table-data:hover .notes .edit {
 	opacity: 1 !important;
+	display: flex !important;
 }
 
 .add-edit-more a::before,
@@ -1654,6 +1659,13 @@ tr.list-table-data:has(.tags) {
 .notes {
 	width: 100% !important;
 	clear: both !important;
+}
+
+.notes:has(.text:empty) {
+	cursor: pointer !important;
+}
+
+.notes:has(.text:not(:empty)) {
 	cursor: text !important;
 }
 
@@ -1678,7 +1690,8 @@ tr.list-table-data:has(.tags) {
 	top: 6.9rem !important;
 	left: 0.3rem !important;
 	z-index: 4 !important;
-	display: block !important;
+	display: none !important;
+	/* display: block !important; */
 	width: fit-content !important;
 	margin-top: 0.2rem !important;
 	padding: 0.2rem 0.4rem !important;
@@ -1703,6 +1716,7 @@ tr.list-table-data:has(.tags) {
 
 .list-table .list-table-data:hover .notes .text:not(:empty)::after {
 	opacity: 1 !important;
+	display: block !important;
 }
 
 /* =============== STATUS =============== */
@@ -2715,7 +2729,7 @@ tr.list-table-data:has(.tags) {
 	padding: 0.4rem;
 	background: var(--button);
 	border-radius: 0.3rem;
-	margin: 0.3rem 0.3rem 0 0;
+	margin: 0.55rem 0.3rem 0 0;
 	font-size: 1.1rem;
 }
 
