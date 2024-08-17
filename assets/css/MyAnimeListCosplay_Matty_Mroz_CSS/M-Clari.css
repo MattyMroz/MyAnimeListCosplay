@@ -81,11 +81,14 @@
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
 	--scrollbar-track-bg: #111;
-	--scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
+	--scrollbar-thumb-bg-start: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-bg-end: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-hover-bg-start: rgba(255, 255, 255, 0.75);
+	--scrollbar-thumb-hover-bg-end: rgba(255, 255, 255, 0.75);
+	/* --scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
 	--scrollbar-thumb-bg-end: rgba(79, 17, 180, 1);
 	--scrollbar-thumb-hover-bg-start: rgba(8, 176, 233, 1);
-	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1);
-	--scrollbar-corner-bg: #111;
+	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1); */
 
 	/* ========== TOP RATED BANNER COLORS ========== */
 	--eight: 22, 90%, 65%;
@@ -1478,7 +1481,7 @@ tr.list-table-data:has(.tags) {
 	background: none;
 	margin: 0 auto -5rem !important;
 	color: var(--content-text);
-	font: 1.3rem "Ubuntu";
+	font: 1.3rem var(--font);
 	line-height: 5rem;
 	letter-spacing: 0.05rem;
 	text-transform: uppercase;
@@ -2143,7 +2146,8 @@ tr.list-table-data:has(.tags) {
 }
 
 .data.image a::before {
-	border: 0.3rem solid var(--content-highlight);
+	/* border: 0.3rem solid var(--content-highlight); */
+	box-shadow: var(--medium-shadow);
 	box-sizing: border-box;
 }
 
