@@ -5,6 +5,8 @@
 /* https://dtacat.github.io/Collectibles/main/ */
 
 /* @\import "https://mattymroz.github.io/MyAnimeListCosplay/assets/css/MyAnimeListCosplay_Matty_Mroz_CSS/M-Clari.css"; */
+/* @\import "https://raw.githubusercontent.com/MattyMroz/MyAnimeListCosplay/main/assets/css/MyAnimeListCosplay_Matty_Mroz_CSS/M-Clari.css"; */
+
 
 
 @import "https://malscraper.azurewebsites.net/covers/anime/matty_mroz/presets/dataimagelinkbefore";
@@ -80,17 +82,14 @@
 	/* ========== AVATAR ========== */
 	--avatar-primary-image: url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif);
 	--avatar-secondary-image: url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png);
-
-
 	/* SQUARE */
-	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	/* --avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
 	--avatar-border: 0;
-	--avatar-border-radius: 0;
-
+	--avatar-border-radius: 0; */
 	/* CIRCLE */
-	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	--avatar-frame-image: none;
 	--avatar-overlay-primary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
-	--avatar-overlay-secondary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
+	--avatar-overlay-secondary-image: none;
 	--avatar-border: 0.6rem solid var(--content-background);
 	--avatar-border-radius: 50%;
 
@@ -128,13 +127,6 @@
 	--eight: 22, 90%, 65%;
 	--nine: 40, 5%, 90%;
 	--ten: 45, 95%, 72%;
-
-
-
-
-
-
-
 
 	/* ----------- USER MENU ----------- */
 	--user-menu-profile: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d");
@@ -395,6 +387,7 @@ body::after {
 	left: 0;
 	width: 100%;
 	height: 118%;
+	/* !!!! */
 	background: #141414 var(--header-cover-image) var(--header-cover-position) / contain no-repeat;
 	-webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 	mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
@@ -1292,8 +1285,8 @@ body::after {
 	position: absolute;
 	margin: -4.5rem 0 0 -15.5rem;
 	background:
-		var(--avatar-overlay-secondary-image) no-repeat center / contain,
-		var(--avatar-overlay-primary-image) no-repeat center / contain;
+		var(--avatar-overlay-secondary-image) no-repeat center / contain 15rem,
+		var(--avatar-overlay-primary-image) no-repeat center / contain 15rem;
 }
 
 /* =============== SEARCH BOX BORDER =============== */
@@ -1328,6 +1321,7 @@ body::after {
 	padding: 0.1rem;
 }
 
+/* !!!! */
 /* =============== LIST TABLE DATA HOVER EFFECT =============== */
 .list-table-data:before {
 	content: "";
@@ -1525,6 +1519,7 @@ tr.list-table-data:has(.tags) {
 	line-height: 5rem;
 	letter-spacing: 0.05rem;
 	text-transform: uppercase;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	transform: translateX(1.3rem);
 }
@@ -1685,6 +1680,7 @@ tr.list-table-data:has(.tags) {
 
 .data.tags .edit::before {
 	content: "\e211" !important;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111 !important;
 }
 
@@ -1831,6 +1827,7 @@ tr.list-table-data:has(.tags) {
 .data.number {
 	width: 3.2rem !important;
 	order: 1;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 }
 
@@ -1881,6 +1878,7 @@ tr.list-table-data:has(.tags) {
 .header-title.type,
 .data.type {
 	margin-left: 0.5rem;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	width: 5rem !important;
 	order: 40;
@@ -1906,6 +1904,7 @@ tr.list-table-data:has(.tags) {
 
 .data.title {
 	font: 1.2rem "Ubuntu";
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	letter-spacing: 0.03rem;
 	padding: 0 0.6rem !important;
@@ -1961,6 +1960,7 @@ tr.list-table-data:has(.tags) {
 	float: left;
 	clear: both;
 	color: var(--page-category);
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	opacity: 0.9;
 }
@@ -2057,6 +2057,7 @@ tr.list-table-data:has(.tags) {
 
 .data.mal_score::before {
 	content: "\f500 ";
+	/* !!!! */
 	color: #888;
 	font-size: .9em;
 	font-weight: bold;
@@ -2197,6 +2198,7 @@ tr.list-table-data:has(.tags) {
 
 }
 
+/* !!!! */
 /* =============== TOP RATED BANNERS =============== */
 .data.score-label {
 	--top-text: none;
@@ -2284,6 +2286,7 @@ tr.list-table-data:has(.tags) {
 		inset 0 0.8rem 0.3rem -0.6rem var(--content-highlight);
 }
 
+/* !!!! */
 .data .score-label::after {
 	left: calc(-20.5rem + 19rem/2);
 	top: calc(50% - 0.7rem);
@@ -2318,6 +2321,7 @@ tr.list-table-data:has(.tags) {
 	display: flex !important;
 	width: 7rem;
 	height: 100%;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	order: 10;
 	justify-content: center;
@@ -2438,6 +2442,7 @@ tr.list-table-data:has(.tags) {
 	font-size: 1rem;
 	line-height: 1.4rem;
 	text-align: left !important;
+	/* !!!! */
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
 	background: transparent;
 }
