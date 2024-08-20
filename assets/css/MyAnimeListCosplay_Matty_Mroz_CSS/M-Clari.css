@@ -1,5 +1,9 @@
 /* =============== IMPORTS =============== */
 
+
+/* AVATAR OVERLAY */
+/* https://dtacat.github.io/Collectibles/main/ */
+
 /* @\import "https://mattymroz.github.io/MyAnimeListCosplay/assets/css/MyAnimeListCosplay_Matty_Mroz_CSS/M-Clari.css"; */
 
 
@@ -55,11 +59,41 @@
 	--color-hover-setting: hsl(340, 80%, 70%);
 
 	/* ========== BACKGROUND AND IMAGE SETTINGS ========== */
-	--background: none;
+	--primary-bg: none;
 	--cover-shadow: rgba(0, 0, 0, 0.38) 0 -0.3rem 0.9rem;
 	--image-background: rgba(22, 21, 22, 0.41);
 	--image-text: rgb(255, 255, 255);
 	--image-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+
+	/* ========== USER SPECIFIC SETTINGS ========== */
+	--header-cover-position: center bottom calc(100% + 7rem);
+	--header-cover-image: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
+
+	--overlay-tint: rgba(1, 3, 5, 0.3);
+
+	--primary-bg-opacity: 1;
+	--primary-bg: linear-gradient(var(--overlay-tint), var(--overlay-tint)), url(https://i.ibb.co/1TJtHVd/neko-bw-720-manga-bg.webp);
+
+	--secondary-bg-image: url(https://i.ibb.co/c6j7HtR/aux-BG-2.png);
+	--secondary-bg-opacity: 0.8;
+
+	/* ========== AVATAR ========== */
+	--avatar-primary-image: url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif);
+	--avatar-secondary-image: url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png);
+
+
+	/* SQUARE */
+	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	--avatar-border: 0;
+	--avatar-border-radius: 0;
+
+	/* CIRCLE */
+	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	--avatar-overlay-primary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
+	--avatar-overlay-secondary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
+	--avatar-border: 0.6rem solid var(--content-background);
+	--avatar-border-radius: 50%;
+
 
 	/* ========== DARK MODE COLORS ========== */
 	--page-background: var(--neutral);
@@ -95,14 +129,11 @@
 	--nine: 40, 5%, 90%;
 	--ten: 45, 95%, 72%;
 
-	/* ========== USER-SPECIFIC SETTINGS ========== */
-	--tint: rgba(1, 3, 5, 0.3);
-	--auxiliary-background: url(https://i.ibb.co/c6j7HtR/aux-BG-2.png);
-	--auxiliary-background-image-opacity: 0.8;
-	--background-image-opacity: 1;
-	--background: linear-gradient(var(--tint), var(--tint)), url(https://i.ibb.co/1TJtHVd/neko-bw-720-manga-bg.webp);
-	--cover-position: center bottom calc(100% + 7rem);
-	--cover: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
+
+
+
+
+
 
 
 	/* ----------- USER MENU ----------- */
@@ -200,7 +231,7 @@ body {
 body.ownlist {
 	position: relative;
 	min-width: 106rem;
-	background: var(--background) center / cover fixed var(--page-background) !important;
+	background: var(--primary-bg) center / cover fixed var(--page-background) !important;
 	background-size: cover;
 	color: var(--content-text) !important;
 }
@@ -346,12 +377,12 @@ body::after {
 
 body::before {
 	background: var(--page-background);
-	opacity: calc(1 - var(--background-image-opacity));
+	opacity: calc(1 - var(--primary-bg-opacity));
 }
 
 body::after {
-	background: var(--auxiliary-background) no-repeat center/cover;
-	opacity: var(--auxiliary-background-image-opacity);
+	background: var(--secondary-bg-image) no-repeat center/cover;
+	opacity: var(--secondary-bg-opacity);
 }
 
 /* =============== COVER =============== */
@@ -364,7 +395,7 @@ body::after {
 	left: 0;
 	width: 100%;
 	height: 118%;
-	background: #141414 var(--cover) var(--cover-position) / contain no-repeat;
+	background: #141414 var(--header-cover-image) var(--header-cover-position) / contain no-repeat;
 	-webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 	mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 }
@@ -1236,7 +1267,7 @@ body::after {
 	transition: transform 0.1s ease-in-out;
 }
 
-/* =============== ADD AVATAR =============== */
+/* =============== AVATAR =============== */
 #status-menu:not(.fixed) .status-menu:not(.fixed) {
 	padding-left: 16rem;
 }
@@ -1245,15 +1276,24 @@ body::after {
 	content: "";
 	width: 14rem;
 	height: 14rem;
-	border-radius: 0;
-	/* border-radius: 50%; */
 	margin: -4.5rem 0 0 -15rem;
 	background:
-		url(https://i.ibb.co/DwqTrHj/ava-frame.png) no-repeat center / 16rem,
-		url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png) no-repeat center / 13rem,
-		url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif) no-repeat center / 13rem;
-	border: 0;
-	/* border: .6rem solid var(--content-background); */
+		var(--avatar-frame-image) no-repeat center / 16rem,
+		var(--avatar-secondary-image) no-repeat center / 13rem,
+		var(--avatar-primary-image) no-repeat center / 13rem;
+	border: var(--avatar-border);
+	border-radius: var(--avatar-border-radius);
+}
+
+#status-menu:not(.fixed) .status-menu:not(.fixed)::after {
+	content: "";
+	width: 15rem;
+	height: 15rem;
+	position: absolute;
+	margin: -4.5rem 0 0 -15.5rem;
+	background:
+		var(--avatar-overlay-secondary-image) no-repeat center / contain 15rem,
+		var(--avatar-overlay-primary-image) no-repeat center / contain 15rem;
 }
 
 /* =============== SEARCH BOX BORDER =============== */

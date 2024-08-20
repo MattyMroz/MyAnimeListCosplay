@@ -1,94 +1,15 @@
-/*
-VARIABLES CSS
-	FONTS
-	CORE COLOURS
-	CATEGORY COLORS
-	BACKGROUND AND IMAGE SETTINGS
-	DARK MODE COLORS
-	SHADOWS
-	TOP RATED BANNER COLORS
-	USER-SPECIFIC SETTINGS
-	LIST WIDTH
-	EMOJI GENRES
-	SCROLLBAR COLORS
-	THEME
-
-GLOBAL STYLES
-	HTML STYLES
-	BODY STYLES
-	LINK STYLES
-	HEADER STYLES
-
-SCROLLBAR
-
-LIST CONTAINER
-
-STATUS MENU
-	@Search
-	SEARCH BOX BORDER
-
-LIST
-	@Stats
-	@Side-Buttons
-	@Add-Edit-More
-	@Status
-	@NUMBER
-	@IMAGE
-	COVER PREVIEW ON HOVER
-	@TYPE
-	@POPULARITY
-	@TITLE
-	TITLE COLOR ON TABLE HOVER PER CATEGORY
-	@NOTES
-	@SCORE
-	TOP RATED BANNERS
-	@PROGRESS, PRIORITY
-	@Dates
-	@Started
-	@Finished
-	@Days
-	@Airing
-	@Generic
-	@Rated
-	@Magazine
-	@Storage
-	@Retail
-	@Season
-	@Tags
-	@Genres
-	AUTO-HIDING TAGS & GENRES
-	@Demographic
-	TRY TO UNFUCK DEMOGRAPHIC
-	@Studio
-	@Licensor
-	EMOJI GENRES
-	@Empty-Table
-	@More-Info
-	@BBCode
-	@Loading
-	LOADING BAR
-	LIST TABLE DATA HOVER EFFECT
-
-FOOTER
-
-OVERLAYS
-
-FILTER-MENU
-	FILTER POPUP BACKGROUND IMAGE
-
-STREAMING-INFO
-
-REWATCHING-BOX
-
-USER
-*/
-
-
-
 /* =============== IMPORTS =============== */
+
+
+/* AVATAR OVERLAY */
+/* https://dtacat.github.io/Collectibles/main/ */
+
+/* @\import "https://mattymroz.github.io/MyAnimeListCosplay/assets/css/MyAnimeListCosplay_Matty_Mroz_CSS/M-Clari.css"; */
+
+
 @import "https://malscraper.azurewebsites.net/covers/anime/matty_mroz/presets/dataimagelinkbefore";
 
-/* @import "https://malscraper.azurewebsites.net/covers/manga/matty_mroz/presets/dataimagelinkbefore"; */
+@import "https://malscraper.azurewebsites.net/covers/manga/matty_mroz/presets/dataimagelinkbefore";
 
 /* @import "https://itszayeric.github.io/MAL/MAL%20CSS/M-Clari.css"; */
 
@@ -97,10 +18,18 @@ USER
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
 
+@font-face {
+	font-family: 'Revue Std Bold';
+	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/Revue-Std-Bold.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
 /* =============== VARIABLES CSS =============== */
 :root {
 	/* ========== FONTS ========== */
 	--font: "Noto Sans", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
+	--font-mal: "Revue Std Bold", sans-serif;
 	--icon-font: FontAwesome, var(--font);
 	--alternate-font: "Roboto Condensed", Oswald, var(--icon-font);
 
@@ -115,21 +44,56 @@ USER
 	--color-onhold: hsla(290, 90%, 65%, 1);
 	--color-dropped: hsla(320, 90%, 65%, 1);
 	--color-planned: hsla(340, 90%, 65%, 1);
+	--color-logout: hsla(340, 90%, 60%, 1);
+	--color-setting: hsla(340, 90%, 55%, 1);
 
-	/* Category-specific Hover Colors */
+	/* ========== CATEGORY HOVER COLORS ========== */
+	/* Tak naprawde kolor przed wywołaniem hover XD */
 	--color-hover-all-items: hsl(195, 50%, 70%);
 	--color-hover-current: hsl(210, 50%, 75%);
 	--color-hover-completed: hsl(265, 45%, 75%);
 	--color-hover-onhold: hsl(290, 50%, 75%);
 	--color-hover-dropped: hsl(320, 50%, 75%);
 	--color-hover-planned: hsl(340, 50%, 75%);
+	--color-hover-logout: hsl(340, 70%, 75%);
+	--color-hover-setting: hsl(340, 80%, 70%);
 
 	/* ========== BACKGROUND AND IMAGE SETTINGS ========== */
-	--background: none;
+	--primary-bg: none;
 	--cover-shadow: rgba(0, 0, 0, 0.38) 0 -0.3rem 0.9rem;
 	--image-background: rgba(22, 21, 22, 0.41);
 	--image-text: rgb(255, 255, 255);
 	--image-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+
+	/* ========== USER SPECIFIC SETTINGS ========== */
+	--header-cover-position: center bottom calc(100% + 7rem);
+	--header-cover-image: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
+
+	--overlay-tint: rgba(1, 3, 5, 0.3);
+
+	--primary-bg-opacity: 1;
+	--primary-bg: linear-gradient(var(--overlay-tint), var(--overlay-tint)), url(https://i.ibb.co/1TJtHVd/neko-bw-720-manga-bg.webp);
+
+	--secondary-bg-image: url(https://i.ibb.co/c6j7HtR/aux-BG-2.png);
+	--secondary-bg-opacity: 0.8;
+
+	/* ========== AVATAR ========== */
+	--avatar-primary-image: url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif);
+	--avatar-secondary-image: url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png);
+
+
+	/* SQUARE */
+	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	--avatar-border: 0;
+	--avatar-border-radius: 0;
+
+	/* CIRCLE */
+	--avatar-frame-image: url(https://i.ibb.co/DwqTrHj/ava-frame.png);
+	--avatar-overlay-primary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
+	--avatar-overlay-secondary-image: url(https://cdn.discordapp.com/avatar-decoration-presets/a_1005898c6acf56a9ac5010baf444f6fd.png);
+	--avatar-border: 0.6rem solid var(--content-background);
+	--avatar-border-radius: 50%;
+
 
 	/* ========== DARK MODE COLORS ========== */
 	--page-background: var(--neutral);
@@ -151,31 +115,35 @@ USER
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
 	--scrollbar-track-bg: #111;
-	--scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
+	--scrollbar-thumb-bg-start: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-bg-end: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-hover-bg-start: rgba(255, 255, 255, 0.75);
+	--scrollbar-thumb-hover-bg-end: rgba(255, 255, 255, 0.75);
+	/* --scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
 	--scrollbar-thumb-bg-end: rgba(79, 17, 180, 1);
 	--scrollbar-thumb-hover-bg-start: rgba(8, 176, 233, 1);
-	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1);
-	--scrollbar-corner-bg: #111;
+	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1); */
 
 	/* ========== TOP RATED BANNER COLORS ========== */
 	--eight: 22, 90%, 65%;
 	--nine: 40, 5%, 90%;
 	--ten: 45, 95%, 72%;
 
-	/* ========== USER-SPECIFIC SETTINGS ========== */
-	--tint: rgba(1, 3, 5, 0.3);
-	--auxiliary-background: url(https://i.ibb.co/c6j7HtR/aux-BG-2.png);
-	--auxiliary-background-image-opacity: 0.8;
-	--background-image-opacity: 1;
-	--background: linear-gradient(var(--tint), var(--tint)), url(https://i.ibb.co/1TJtHVd/neko-bw-720-manga-bg.webp);
-	--cover-position: center bottom calc(100% + 7rem);
-	--cover: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
+
+
+
+
+
+
+
+	/* ----------- USER MENU ----------- */
+	--user-menu-profile: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d");
+
 
 	/* ========== LIST WIDTH ========== */
-	/* 106rem | 96rem | 90rem */
+	/* Options: 106rem | 96rem | 90rem */
 	--list-width: 106rem;
 	--render-offset: calc(var(--list-width) * 0.5 + 0.8rem);
-
 
 	/* ========== TAGS SYMBOLS ========== */
 	--hash-symbol: "\23";
@@ -249,28 +217,23 @@ html {
 	-webkit-overflow-scrolling: touch;
 }
 
+/* Invert GDPR modal colors in light mode */
 html:not(.dark-mode) #gdpr-modal-bottom {
 	filter: invert(0.9) hue-rotate(180deg);
 }
 
 /* =============== BASE BODY =============== */
-body.ownlist {
-	position: relative;
-	min-width: 106rem;
-	background: var(--background) center / cover fixed var(--page-background) !important;
-	background-size: cover;
-	color: var(--content-text) !important;
-}
-
-
 body {
 	--content-link: var(--page-category);
 	--inverse-background: var(--page-category);
 }
 
-.data {
-	--content-link: var(--local-category);
-	--inverse-background: var(--local-category);
+body.ownlist {
+	position: relative;
+	min-width: 106rem;
+	background: var(--primary-bg) center / cover fixed var(--page-background) !important;
+	background-size: cover;
+	color: var(--content-text) !important;
 }
 
 /* =============== FONT =============== */
@@ -393,6 +356,11 @@ div[style="padding-top: 0.8rem"] {
 	padding: 0 !important;
 }
 
+/* =============== FOOTER =============== */
+#footer-block {
+	display: none !important;
+}
+
 /* =============== BACKGROUND =============== */
 body::before,
 body::after {
@@ -409,17 +377,16 @@ body::after {
 
 body::before {
 	background: var(--page-background);
-	opacity: calc(1 - var(--background-image-opacity));
+	opacity: calc(1 - var(--primary-bg-opacity));
 }
 
 body::after {
-	background: var(--auxiliary-background) no-repeat center/cover;
-	opacity: var(--auxiliary-background-image-opacity);
+	background: var(--secondary-bg-image) no-repeat center/cover;
+	opacity: var(--secondary-bg-opacity);
 }
 
-
 /* =============== COVER =============== */
-/* ===============  @Cover-Image =============== */
+/* ===============  Cover Image =============== */
 .header::before {
 	content: "";
 	position: absolute;
@@ -428,7 +395,7 @@ body::after {
 	left: 0;
 	width: 100%;
 	height: 118%;
-	background: #141414 var(--cover) var(--cover-position) / contain no-repeat;
+	background: #141414 var(--header-cover-image) var(--header-cover-position) / contain no-repeat;
 	-webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 	mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * 0.9));
 }
@@ -456,6 +423,7 @@ body::after {
 /* =============== GENERIC SETUP =============== */
 /* =============== HEADER =============== */
 .header {
+	top: 0;
 	width: 100%;
 	height: 35rem;
 	color: var(--image-text);
@@ -470,10 +438,8 @@ body::after {
 
 .header .header-menu {
 	top: 1.5rem !important;
-	right: 1.5rem;
+	right: calc(3% - 1.5rem - .6rem);
 	display: flex;
-	opacity: 0.25;
-	transition: opacity .5s ease-out;
 }
 
 .header:hover .header-menu {
@@ -482,13 +448,12 @@ body::after {
 }
 
 /* =============== COMMON BUTTON STYLING =============== */
-
 .header .header-title,
 .header .header-menu .btn-menu,
 .header .header-menu .header-info,
 #header-menu-dropdown .icon-menu {
 	height: 3.2rem;
-	padding: 0.6rem;
+	padding: .6rem;
 	background: var(--image-background);
 	border-radius: 0.3rem;
 	margin-right: 1.5rem;
@@ -496,34 +461,31 @@ body::after {
 }
 
 /* =============== HOME BUTTON =============== */
-
 .header .header-title {
+	position: relative;
 	top: 1.5rem;
-	left: 3rem;
-	width: 7.4rem;
+	left: 3%;
+	width: 7rem;
+	height: 3.2rem;
+	padding: 0.6rem;
 	font-size: 0;
 	text-indent: 0;
 	text-decoration: none !important;
-	opacity: 0.25;
-	transition: opacity .5s ease-out;
+	z-index: 100;
 }
 
 .header .header-title::before {
-	content: "\f015  Home";
-	font-size: 1.4rem;
-}
-
-.header .header-title:hover::before {
-	text-decoration: none;
-}
-
-.header:hover .header-title {
-	opacity: 1;
-	transition-duration: .08s;
+	content: "MAL";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: var(--font-mal);
+	font-size: 2rem;
+	transition: all 0.1s ease-in-out !important;
 }
 
 /* =============== VIEWING "NAME'S" LIST =============== */
-
 .header .header-menu .btn-menu {
 	color: var(--image-text);
 	font-size: 1.4rem;
@@ -531,7 +493,6 @@ body::after {
 }
 
 /* =============== REMOVE DROPDOWN ICON =============== */
-
 #header-menu-button {
 	font-weight: normal;
 	color: inherit;
@@ -543,14 +504,12 @@ body::after {
 }
 
 /* =============== SHARED ANIME / AFFINITY / HISTORY =============== */
-
 .header .header-menu .header-info {
 	margin-top: 0;
 	order: 2;
 }
 
 /* =============== SWAP LIST =============== */
-
 #header-menu-dropdown {
 	position: static;
 	display: block !important;
@@ -583,187 +542,358 @@ body::after {
 	margin-top: 0.2rem;
 }
 
-/* =============== VARIABLES CSS =============== */
-/* ----------- @User-Menu ----------- */
-
+/* ----------- USER MENU ----------- */
 .list-menu-float {
-	position: absolute;
-	top: calc(1.5rem + 3.8rem);
-	left: calc(-4.9rem + 3rem + 1.5rem + 8.4rem);
-	z-index: 15;
-	display: block;
-	width: 15rem;
-	background: none;
-	border: none;
-	padding: 1.2rem;
-	pointer-events: none;
+	position: fixed !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	left: -6rem !important;
+	width: 6rem !important;
+	background: var(--content-background) !important;
+	border: none !important;
+	border-radius: 1rem !important;
+	box-shadow: none !important;
+	transition: left 0.3s ease !important;
+	z-index: 20 !important;
 }
 
 .list-menu-float:hover {
-	pointer-events: auto;
+	left: 0rem !important;
 }
 
 .list-menu-float::before {
-	content: "";
-	position: absolute;
-	left: 3.9rem;
-	top: -3.8rem;
-	width: 7.2rem;
-	height: 3.2rem;
-	background: var(--image-background);
-	border-radius: 0.3rem;
-	opacity: 0.25;
-	pointer-events: auto;
-	transition: opacity .5s ease-out;
+	content: "" !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: calc(50% - 6rem - var(--list-width) * 0.5 - 1.5rem) !important;
+	height: 100vh !important;
+	background: transparent !important;
+	border-top-right-radius: 100% !important;
+	border-bottom-right-radius: 20% !important;
 }
 
-.list-menu-float:hover::before,
-.header:hover~.list-menu-float::before {
-	opacity: 1;
-	transition-duration: .08s;
-}
-
-.list-menu-float:hover::after {
-	content: "";
+.list-menu-float::after {
+	content: '';
 	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem;
+	background-color: transparent;
+	box-shadow: var(--mild-shadow);
 	z-index: -1;
-	inset: 0;
-	background: var(--content-background);
-	border-radius: 0.6rem;
-	box-shadow: var(--medium-shadow);
-}
-
-.list-menu-float .icon-menu.profile {
-	position: absolute;
-	top: -3.2rem;
-	left: 4.5rem;
-	width: 6rem;
-	height: 3.8rem;
-	padding: 0;
-	background-size: 0rem;
-	background-repeat: no-repeat;
-	color: var(--image-text) !important;
-	font-size: 1.4rem;
-	line-height: 2rem;
-	font-weight: bold;
-	white-space: nowrap;
-	text-shadow: var(--image-shadow);
-	opacity: .25;
-	transition: opacity .5s ease-out;
-}
-
-.list-menu-float:hover .icon-menu.profile {
-	color: var(--content-link) !important;
-	opacity: 1;
-	transition-duration: .08s;
-}
-
-.header:hover~.list-menu-float .icon-menu.profile {
-	opacity: 1;
-	transition-duration: .08s;
-}
-
-.list-menu-float .icon-menu.profile::after {
-	content: "User";
-	display: inline-block;
-	width: 2rem;
-	height: 2rem;
-	text-indent: 2.3rem;
-	background: inherit;
-	background-size: cover;
-	border-radius: 50%;
-	white-space: nowrap;
-	vertical-align: top;
 }
 
 .list-menu-float .icon-menu {
-	width: auto;
-	height: auto;
-	float: left;
-	clear: both;
-	padding: 0.3rem 0 0.3rem 2.4rem;
-	background-color: transparent !important;
-	color: var(--content-text);
-	text-align: left;
-	opacity: 0;
-	transition: none;
+	position: relative !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
+	width: 4rem !important;
+	height: 4.28rem !important;
+	background: transparent !important;
+	text-decoration: none !important;
+	border-radius: 0 !important;
+	transition: background-color 0.2s ease !important;
+	cursor: pointer !important;
 }
 
-.list-menu-float .icon-menu:hover {
-	color: var(--content-link);
+.list-menu-float .icon-menu:not(:first-child),
+.list-menu-float .icon-menu.logout {
+	border-top: 0.3rem dotted var(--border) !important;
 }
 
-.list-menu-float:hover .icon-menu {
-	opacity: 1;
+.list-menu-float .icon-menu:not(.profile)::before {
+	content: "" !important;
+	position: absolute !important;
+	top: 0.34rem !important;
+	left: 0 !important;
+	width: 0.2rem !important;
+	height: 0 !important;
+	background-color: var(--local-category) !important;
+	transition: height 0.3s ease, top 0s linear 0.3s !important;
+}
+
+.list-menu-float .icon-menu:not(.profile):hover::before {
+	height: 3.3rem !important;
+	transition: height 0.3s ease !important;
+}
+
+.list-menu-float .icon-menu:not(.profile):not(:hover)::before {
+	top: auto !important;
+	bottom: 0.34rem !important;
+	height: 0 !important;
+}
+
+.list-menu-float .icon-menu.profile:active {
+	transform: scale(0.9) !important;
+	transition: transform 0.1s ease-in-out !important;
+}
+
+.list-menu-float .icon-menu.profile {
+	height: 5rem !important;
+	padding-top: 2rem !important;
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
+
+.list-menu-float .icon-menu.profile::before {
+	content: "" !important;
+	position: absolute !important;
+	top: 50% !important;
+	left: 50% !important;
+	width: 4rem !important;
+	height: 4rem !important;
+	background: var(--user-menu-profile) no-repeat center center !important;
+	background-size: 120% !important;
+	border-radius: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	border: 0.3rem solid transparent !important;
+	background-clip: padding-box !important;
+	transition: all 0.1s ease-in-out !important;
+}
+
+.list-menu-float .icon-menu.profile:hover::before {
+	border-color: var(--local-category) !important;
+	box-shadow: 0 0 .75rem var(--page-category) !important;
+}
+
+.list-menu-float .icon-menu.profile:active::before {
+	transform: translate(-50%, -50%) scale(0.9) !important;
+	transition: none !important;
+}
+
+.list-menu-float .icon-menu.profile:not(:hover)::before {
+	transition: all 0.5s ease-out !important;
 }
 
 .list-menu-float .icon-menu.setting {
-	padding: 0;
+	margin-bottom: 1rem;
 }
 
-.list-menu-float .icon-menu svg.icon {
-	left: 0 !important;
-	top: 50% !important;
-	height: 1.6rem;
-	color: inherit;
-	fill: currentcolor !important;
-	vertical-align: top;
-	transform: translateY(-50%);
+.list-menu-float .icon-menu .icon {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	position: absolute !important;
+	top: 1rem !important;
+	left: 1rem !important;
+	width: 2rem !important;
+	height: 2rem !important;
+	fill: var(--local-category) !important;
 }
 
 .list-menu-float .icon-menu .text,
-.list-menu-float .icon-menu .text :is(.link-list-setting, .link-style-setting) {
-	position: static !important;
-	width: auto;
-	height: auto !important;
-	background: none !important;
-	border: none !important;
-	overflow: visible;
-	color: inherit;
-	font-size: 1.4rem;
-	line-height: 1.9rem !important;
-	text-align: left;
+.list-menu-float .icon-menu.setting .text {
+	position: absolute !important;
+	top: 0rem !important;
+	left: 3rem !important;
+	height: 4rem !important;
+	width: 12rem !important;
+	padding-left: 1rem !important;
+	opacity: 0 !important;
+	white-space: nowrap !important;
+	pointer-events: none !important;
+	font-family: var(--font) !important;
+	font-size: 1.4rem !important;
+	font-weight: 600 !important;
+	text-shadow: var(--image-shadow) !important;
+	background: linear-gradient(to right, transparent 1.01rem, var(--content-background) 1.01rem) !important;
+	color: var(--local-category-hover) !important;
+	transition: transform 0.05s ease-in-out !important;
+	transform: translateX(-10px) !important;
+}
+
+.list-menu-float .icon-menu .text {
+	box-shadow: var(--mild-shadow) !important;
+	clip-path: polygon(0.1rem -6rem,
+			calc(100% + 6rem) -6rem,
+			calc(100% + 6rem) calc(100% + 6rem),
+			0.1rem calc(100% + 6rem)) !important;
+}
+
+/* DZIAŁA ALE ŹLE PRZEGLĄDARKA RENDERUJE */
+/* .list-menu-float .icon-menu.setting .text {
+	clip-path: polygon(-6rem -6rem,
+			calc(100% + 6rem) -6rem,
+			calc(100% + 6rem) calc(100% + 6rem),
+			-6rem calc(100% + 6rem),
+			-6rem 5rem,
+			0.1rem 5rem,
+			0.1rem -6rem) !important;
+} */
+
+.list-menu-float .icon-menu:hover .text,
+.list-menu-float .icon-menu .text:hover,
+.list-menu-float .icon-menu.setting:hover .text,
+.list-menu-float .icon-menu.setting .text:hover {
 	opacity: 1 !important;
-	transition: none;
+	transform: translateX(10px) !important;
+	padding: 0.8rem 1.2rem !important;
+	border-top-right-radius: 0.5rem !important;
+	border-bottom-right-radius: 0.5rem !important;
+	pointer-events: auto !important;
 }
 
-.list-menu-float .icon-menu:not(.setting):hover .text,
-.list-menu-float .icon-menu.setting .text a:hover {
-	text-decoration: none !important;
+.list-menu-float .icon-menu .text:hover,
+.list-menu-float .icon-menu.setting .text:hover {
+	color: var(--local-category) !important;
 }
 
-.list-menu-float .icon-menu.setting svg.icon {
-	display: none;
+.list-menu-float .icon-menu:hover .text::before,
+.list-menu-float .icon-menu.setting:hover .text::before {
+	content: '' !important;
+	position: absolute !important;
+	left: -0.8rem !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	border-width: 0.8rem 0.8rem 0.8rem 0 !important;
+	border-style: solid !important;
+	border-color: transparent var(--content-background) transparent transparent !important;
 }
 
-.list-menu-float .icon-menu.setting .text :is(.link-list-setting, .link-style-setting) {
-	padding: 0.3rem 0;
-	color: var(--content-text) !important;
+.list-menu-float .icon-menu.setting .text {
+	display: flex !important;
+	justify-content: center !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	height: 8rem !important;
+	width: 16rem !important;
+	border-bottom-left-radius: 1rem !important;
+	background: transparent !important;
 }
 
-.list-menu-float .icon-menu.setting .text :is(.link-list-setting, .link-style-setting):hover {
-	color: var(--content-link) !important;
+.list-menu-float .icon-menu.setting .text a {
+	position: static !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	text-align: center !important;
+	height: 4rem !important;
+	width: 16rem !important;
+	background: none !important;
+	color: var(--local-category-hover) !important;
+}
+
+.list-menu-float .icon-menu.setting .text a.link-list-setting {
+	background: var(--content-background) !important;
+	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
+	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
+}
+
+.list-menu-float .icon-menu.setting .text a.link-style-setting {
+	border: none !important;
+	background: var(--content-background) !important;
+	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
+	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem),
+		linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
 }
 
 .list-menu-float .icon-menu.setting .text a::before {
-	width: 2.4rem;
-	display: inline-block;
-	font-weight: bold;
-	font-size: 1.6rem;
+	content: '';
+	display: block;
+	height: 0;
+	width: 14rem;
+	border-bottom: 0.3rem dotted var(--border) !important;
+	position: absolute;
+	top: 49%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
-.list-menu-float .icon-menu.setting .text .link-list-setting::before {
-	content: "\f013";
+.list-menu-float .icon-menu.setting .text a:hover {
+	color: var(--local-category) !important;
 }
 
-.list-menu-float .icon-menu.setting .text .link-style-setting::before {
-	content: "\f53f";
+.list-menu-float .icon-menu.setting:hover~.list-menu-float,
+.list-menu-float:has(.icon-menu.setting:hover) {
+	border-bottom-right-radius: 0 !important;
 }
 
+.list-menu-float .icon-menu.quick-add:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.quick-add:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 5.28rem, calc(100%) 5.28rem, calc(100%) 9.28rem, calc(100% + 6rem) 9.28rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
 
-/* =============== CATEGORY-MENU =============== */
+.list-menu-float .icon-menu.anime-list:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.anime-list:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 9.56rem, calc(100%) 9.56rem, calc(100%) 13.56rem, calc(100% + 6rem) 13.56rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
 
-/* the reason for the position and 0 height is so that the "fixed" class will trigger at the correct scroll location */
+.list-menu-float .icon-menu.manga-list:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.manga-list:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 13.84rem, calc(100%) 13.84rem, calc(100%) 17.84rem, calc(100% + 6rem) 17.84rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.statistics:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.statistics:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 18.12rem, calc(100%) 18.12rem, calc(100%) 22.12rem, calc(100% + 6rem) 22.12rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.history:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.history:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 22.4rem, calc(100%) 22.4rem, calc(100%) 26.4rem, calc(100% + 6rem) 26.4rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.export:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.export:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 26.68rem, calc(100%) 26.68rem, calc(100%) 30.68rem, calc(100% + 6rem) 30.68rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.logout:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.logout:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 30.96rem, calc(100%) 30.96rem, calc(100%) 34.96rem, calc(100% + 6rem) 34.96rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.setting:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.setting:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.quick-add {
+	--local-category: var(--color-all-items) !important;
+	--local-category-hover: var(--color-hover-all-items) !important;
+}
+
+.list-menu-float .icon-menu.anime-list {
+	--local-category: var(--color-current) !important;
+	--local-category-hover: var(--color-hover-current) !important;
+}
+
+.list-menu-float .icon-menu.manga-list {
+	--local-category: var(--color-completed) !important;
+	--local-category-hover: var(--color-hover-completed) !important;
+}
+
+.list-menu-float .icon-menu.statistics {
+	--local-category: var(--color-onhold) !important;
+	--local-category-hover: var(--color-hover-onhold) !important;
+}
+
+.list-menu-float .icon-menu.history {
+	--local-category: var(--color-dropped) !important;
+	--local-category-hover: var(--color-hover-dropped) !important;
+}
+
+.list-menu-float .icon-menu.export {
+	--local-category: var(--color-planned) !important;
+	--local-category-hover: var(--color-hover-planned) !important;
+}
+
+.list-menu-float .icon-menu.logout {
+	--local-category: var(--color-logout) !important;
+	--local-category-hover: var(--color-hover-logout) !important;
+}
+
+.list-menu-float .icon-menu.setting {
+	--local-category: var(--color-setting) !important;
+	--local-category-hover: var(--color-hover-setting) !important;
+}
+
+/* =============== CATEGORY MENU =============== */
 .status-menu-container {
 	position: absolute;
 	top: 4rem;
@@ -772,7 +902,7 @@ body::after {
 	border: none;
 }
 
-@media (max-width: 125rem) {
+@media (max-width: 1250px) {
 	#status-menu.fixed {
 		display: none;
 	}
@@ -783,7 +913,7 @@ body::after {
 	right: calc(50% - 6rem - var(--list-width) * 0.5 - 1.5rem);
 	z-index: 10;
 	width: 6rem;
-	height: 27.5rem;
+	height: auto;
 	border-radius: 0.6rem;
 	background: var(--content-background);
 	box-shadow: var(--mild-shadow);
@@ -812,8 +942,8 @@ body::after {
 	position: relative;
 	top: -6.5rem;
 	width: var(--list-width);
-	min-width: 90rem;
 	height: 5rem;
+	min-width: 90rem;
 	background: var(--content-background);
 	border-radius: 0.6rem;
 	box-shadow: var(--mild-shadow);
@@ -825,10 +955,12 @@ body::after {
 }
 
 #status-menu .status-button {
+	position: relative;
 	height: 3rem;
 	padding: 0 1.2rem;
 	font-size: 0;
 	text-decoration: none;
+	overflow: hidden;
 }
 
 #status-menu.fixed .status-button {
@@ -903,28 +1035,71 @@ body::after {
 }
 
 #status-menu .status-button::after {
-	left: 1.2rem;
-	bottom: 0.2rem;
-	width: calc(100% - 2.4rem);
-	height: 0.2rem;
-	background: var(--content-link);
-	opacity: 0;
-	transition: opacity .3s ease;
-}
-
-#status-menu .status-button:hover::after {
+	content: '';
+	position: absolute;
+	background: var(--category);
 	opacity: 1;
 }
 
-#status-menu.fixed .status-button::after {
-	left: 0.2rem;
+#status-menu:not(.fixed) .status-button::after {
+	left: 1.2rem;
 	bottom: 0.2rem;
-	height: calc(100% - 0.4rem);
+	width: 0;
+	height: 0.2rem;
+	transition: width 0.3s ease, height 0s linear 0.3s;
+}
+
+#status-menu.fixed .status-button::after {
+	top: 0.5rem;
+	left: 0.2rem;
 	width: 0.2rem;
+	height: 0;
+	transition: height 0.3s ease, width 0s linear 0.3s;
+}
+
+#status-menu:not(.fixed) .status-button:hover::after,
+#status-menu:not(.fixed) .status-button.on::after {
+	width: calc(100% - 2.4rem);
+	height: 0.2rem;
+	transition: width 0.3s ease;
+}
+
+#status-menu.fixed .status-button:hover::after,
+#status-menu.fixed .status-button.on::after {
+	width: 0.2rem;
+	height: calc(100% - 1rem);
+	transition: height 0.3s ease;
+}
+
+#status-menu:not(.fixed) .status-button:not(.on):not(:hover)::after {
+	right: 1.2rem;
+	left: auto;
+	width: 0;
+	height: 0.2rem;
+}
+
+#status-menu.fixed .status-button:not(.on):not(:hover)::after {
+	bottom: 0.5rem;
+	top: auto;
+	width: 0.2rem;
+	height: 0;
+}
+
+#status-menu:not(.fixed) .status-button.on::after {
+	width: calc(100% - 2.4rem);
+	height: 0.2rem;
+	left: 1.2rem;
+	right: auto;
+}
+
+#status-menu.fixed .status-button.on::after {
+	width: 0.2rem;
+	height: calc(100% - 1rem);
+	top: 0.5rem;
+	bottom: auto;
 }
 
 /* =============== CATEGORY HEADER COLORS =============== */
-
 #status-menu .status-button:hover,
 #status-menu .status-button::before {
 	color: var(--category);
@@ -932,10 +1107,6 @@ body::after {
 
 #status-menu .status-button::after {
 	background: var(--category);
-}
-
-#status-menu .status-button.on::after {
-	opacity: 1;
 }
 
 .status-button:nth-of-type(1) {
@@ -962,11 +1133,11 @@ body::after {
 	--category: var(--color-planned);
 }
 
-/* @Search */
-
+/* =============== SEARCH BAR =============== */
 #status-menu .search-container {
 	display: flex;
 	background: var(--content-background);
+	transition: none;
 }
 
 #status-menu:not(.fixed) .search-container {
@@ -982,7 +1153,7 @@ body::after {
 	right: 0;
 	top: 29rem;
 	width: 6rem;
-	height: 4.5rem;
+	height: 4.4rem;
 	border-radius: 0.6rem;
 	box-shadow: var(--mild-shadow);
 	justify-content: center;
@@ -996,7 +1167,7 @@ body::after {
 	}
 
 	to {
-		height: 4.5rem;
+		height: 4.4rem;
 		overflow: hidden;
 	}
 }
@@ -1014,7 +1185,7 @@ body::after {
 #status-menu.fixed #search-box {
 	position: absolute;
 	right: calc(100% + 0.5rem);
-	height: 4.5rem;
+	height: 4.4rem;
 	box-shadow: var(--medium-shadow);
 	border-radius: 0.6rem;
 }
@@ -1066,9 +1237,12 @@ body::after {
 }
 
 #status-menu.fixed #search-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 0;
 	font-size: 1.7rem;
-	height: 4.5rem;
+	height: 4.4rem;
 }
 
 #status-menu:not(.fixed) #search-button i {
@@ -1076,11 +1250,24 @@ body::after {
 }
 
 #status-menu.fixed #search-button i {
-	line-height: 4.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	width: 4rem;
+	line-height: 4.4rem;
 }
 
-/* =============== ADD AVATAR =============== */
+#status-menu.fixed #search-button:hover i::before {
+	filter: drop-shadow(0 0 0.5rem var(--page-category)) !important;
+}
 
+#status-menu.fixed #search-button:active i {
+	transform: scale(0.9);
+	transition: transform 0.1s ease-in-out;
+}
+
+/* =============== AVATAR =============== */
 #status-menu:not(.fixed) .status-menu:not(.fixed) {
 	padding-left: 16rem;
 }
@@ -1089,17 +1276,27 @@ body::after {
 	content: "";
 	width: 14rem;
 	height: 14rem;
-	border-radius: 0;
 	margin: -4.5rem 0 0 -15rem;
 	background:
-		url(https://i.ibb.co/DwqTrHj/ava-frame.png) no-repeat center / 16rem,
-		url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png) no-repeat center / 13rem,
-		url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif) no-repeat center / 13rem;
-	border: 0;
+		var(--avatar-frame-image) no-repeat center / 16rem,
+		var(--avatar-secondary-image) no-repeat center / 13rem,
+		var(--avatar-primary-image) no-repeat center / 13rem;
+	border: var(--avatar-border);
+	border-radius: var(--avatar-border-radius);
+}
+
+#status-menu:not(.fixed) .status-menu:not(.fixed)::after {
+	content: "";
+	width: 15rem;
+	height: 15rem;
+	position: absolute;
+	margin: -4.5rem 0 0 -15.5rem;
+	background:
+		var(--avatar-overlay-secondary-image) no-repeat center / contain,
+		var(--avatar-overlay-primary-image) no-repeat center / contain;
 }
 
 /* =============== SEARCH BOX BORDER =============== */
-
 #status-menu:not(.fixed) .search-container {
 	border: 0.2rem solid transparent;
 	transition: border 0.2s ease;
@@ -1117,8 +1314,7 @@ body::after {
 	outline: 0 !important;
 }
 
-/* =============== LIST =============== */
-
+/* =============== LIST!!! =============== */
 .list-table>tbody {
 	display: block;
 	width: 106rem;
@@ -1126,16 +1322,13 @@ body::after {
 	box-shadow: var(--mild-shadow);
 	border-radius: 0.6rem;
 	margin-bottom: 0.6rem;
-	/* list gap */
 }
 
 .list-item {
 	padding: 0.1rem;
-	/* list thiccness */
 }
 
 /* =============== LIST TABLE DATA HOVER EFFECT =============== */
-
 .list-table-data:before {
 	content: "";
 	position: absolute;
@@ -1180,8 +1373,6 @@ body::after {
 	}
 }
 
-
-
 .list-table>tbody:first-of-type {
 	position: sticky;
 	top: 0.5rem;
@@ -1222,8 +1413,7 @@ tr.list-table-data:has(.tags) {
 	margin-right: 0.3rem;
 }
 
-/* Textarea */
-
+/* =============== LIST TABLE DATA TEXT AREA =============== */
 .data textarea {
 	width: calc(100% - 0.6rem) !important;
 	margin-top: 0.3rem;
@@ -1232,7 +1422,7 @@ tr.list-table-data:has(.tags) {
 	resize: vertical;
 }
 
-/* Category colour variables */
+/* =============== CATEGORY COLOUR VARIABLES =============== */
 .status:is(.watching, .reading)~td {
 	--local-category: var(--color-current);
 	--local-category-hover: var(--color-hover-current);
@@ -1258,9 +1448,12 @@ tr.list-table-data:has(.tags) {
 	--local-category-hover: var(--color-hover-planned);
 }
 
+.data {
+	--content-link: var(--local-category);
+	--inverse-background: var(--local-category);
+}
 
-/* =============== List-Header =============== */
-
+/* =============== LIST HEADER =============== */
 .list-table .list-table-header .header-title {
 	position: relative;
 	height: auto;
@@ -1283,7 +1476,6 @@ tr.list-table-data:has(.tags) {
 	text-indent: 0.3rem;
 }
 
-/* column icon styles */
 .header-title::before,
 .header-title a::before {
 	font-size: 1.1rem;
@@ -1295,7 +1487,6 @@ tr.list-table-data:has(.tags) {
 	text-decoration: none;
 }
 
-/* description on hover for icons, activated by adding "content" property later on specific column headers */
 .header-title a:hover::after {
 	content: var(--label, none);
 	position: absolute;
@@ -1312,15 +1503,14 @@ tr.list-table-data:has(.tags) {
 	pointer-events: none;
 }
 
-/* hidden column headers */
+/* =============== HIDDEN COLUMN HEADERS =============== */
 .header-title.finished+.days,
 .header-title:is(.tags, .genre) {
 	display: none !important;
 }
 
 
-/* =============== Stats =============== */
-
+/* =============== STATS =============== */
 .list-unit .list-stats {
 	position: sticky;
 	top: 0.5rem;
@@ -1331,7 +1521,7 @@ tr.list-table-data:has(.tags) {
 	background: none;
 	margin: 0 auto -5rem !important;
 	color: var(--content-text);
-	font: 1.3rem "Ubuntu";
+	font: 1.3rem var(--font);
 	line-height: 5rem;
 	letter-spacing: 0.05rem;
 	text-transform: uppercase;
@@ -1339,130 +1529,240 @@ tr.list-table-data:has(.tags) {
 	transform: translateX(1.3rem);
 }
 
-/* Hides the text on the column headers. I could instead simply add a background to .list-stats, but that causes the Stats button to layer incorrectly and is more likely to cause glitchy visuals */
 .list-unit .list-stats[style*="block;"]+.list-table>tbody:first-of-type .header-title {
 	visibility: hidden;
 	pointer-events: none;
 }
 
-
-/* =============== Side-Buttons =============== */
-/* =============== Add-Edit-More =============== */
-
+/* =============== SIDE BUTTONS =============== */
+/* =============== ADD EDIT MORE =============== */
 .list-unit .list-status-title {
-	position: sticky;
-	top: 0.5rem;
-	z-index: 11;
+	position: sticky !important;
+	top: 0.5rem !important;
+	z-index: 11 !important;
 }
 
 .list-table .list-table-data .data.title .add-edit-more,
 .list-unit .list-status-title .stats {
-	position: absolute;
-	left: -0.1rem;
-	top: -0.1rem;
-	z-index: 4;
-	width: 2.6rem;
-	padding: 0.3rem;
-	height: calc(100% + 0.2rem);
-	border-radius: 0.6rem 0rem 0rem 0.6rem;
-	background: var(--content-highlight);
-	margin: 0;
-	font-size: 0;
-	line-height: 0;
+	position: absolute !important;
+	top: -0.1rem !important;
+	left: -0.1rem !important;
+	z-index: 4 !important;
+	width: 2.6rem !important;
+	height: calc(100% + 0.2rem) !important;
+	padding: 0.3rem !important;
+	margin: 0 !important;
+	background: var(--content-highlight) !important;
+	border-radius: 0.6rem 0rem 0rem 0.6rem !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
 }
 
 .list-unit .list-status-title .stats {
-	top: 0;
-	height: 5rem;
-	padding: 0.3rem;
-	z-index: 13;
+	top: 0 !important;
+	z-index: 13 !important;
+	height: 5rem !important;
+	padding: 0.3rem !important;
+}
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	position: absolute !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
 }
 
 .list-table .list-table-data .tags .edit {
-	position: absolute;
-	left: 0.3rem;
-	top: 4.7rem;
-	z-index: 4;
+	top: 4.8rem !important;
 }
+
+.list-table .list-table-data .notes .edit {
+	top: 7.1rem !important;
+}
+
+/* ========================================================= */
+.notes .edit::before {
+	content: "\f044" !important;
+	font: bold 1.2rem var(--font) !important;
+	animation: none !important;
+	pointer-events: auto !important;
+	cursor: pointer !important;
+}
+
+.notes .edit:hover::after {
+	content: "Add Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	cursor: pointer !important;
+}
+
+/* ========================================================= */
 
 .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data .tags .edit {
-	display: flex;
-	width: auto;
-	height: 2rem;
-	border-radius: 0.3rem;
-	margin: 0 0 0.3rem;
-	/* 'more' button pos */
-	float: left;
-	clear: both;
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	display: flex !important;
+	float: left !important;
+	clear: both !important;
+	width: auto !important;
+	height: 2rem !important;
+	margin: 0 0 0.3rem !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border-radius: 0.3rem !important;
 	color: var(--content-text) !important;
-	font-size: 0;
-	line-height: 2rem;
-	text-align: center;
-	white-space: nowrap;
-	opacity: 0.25;
+	font-size: 0 !important;
+	line-height: 2rem !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	opacity: 0.25 !important;
+}
+
+.list-table .list-table-data .notes .edit {
+	display: none !important;
 }
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
 #list-container .list-table .list-table-data .tags .edit:hover {
-	background: var(--inverse-background);
-	box-shadow: var(--mild-shadow);
+	background: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
-	/* edit,more text on hover */
-	font: bold 1.2rem "Noto Sans";
-	padding: 0.2rem 0.6rem 0rem 0rem;
-	text-shadow: none;
+	font: bold 1.2rem "Noto Sans" !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
+}
+
+#list-container .list-table .list-table-data .notes .edit:hover {
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
 }
 
 .list-table-data:hover .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data:hover .tags .edit {
-	opacity: 1;
+.list-table .list-table-data:hover .tags .edit,
+.list-table .list-table-data:hover .notes .edit {
+	opacity: 1 !important;
+	display: flex !important;
 }
 
 .add-edit-more a::before,
 .tags .edit::before,
+.notes .edit::before,
 .list-unit .list-status-title .stats i {
-	width: 2rem;
-	line-height: 2rem;
-	margin-right: 0.3rem;
-	margin-top: -0.1rem;
+	width: 2rem !important;
+	margin-top: -0.1rem !important;
+	margin-right: 0.3rem !important;
 	font: 600 1.2rem/2rem var(--icon-font) !important;
-	font-variant: normal;
+	font-variant: normal !important;
+	line-height: 2rem !important;
+}
+
+.tags .edit::before,
+.notes .edit::before {
+	margin-right: 0.2rem !important;
 }
 
 .add-edit-more .add a::before {
-	content: "\2b";
-	font-family: var(--icon-font);
+	content: "\2b" !important;
+	font-family: var(--icon-font) !important;
 }
 
 .add-edit-more .edit a::before {
-	content: "\f304";
+	content: "\f304" !important;
 }
 
 .add-edit-more .more a::before {
-	content: "\e3d6";
+	content: "\e3d6" !important;
 }
 
 .data.tags .edit::before {
-	content: "\e211";
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	content: "\e211" !important;
+	text-shadow: 0.1rem 0.1rem 0.1rem #111 !important;
 }
 
 .data.tags .edit::after {
-	content: " Tags";
-	white-space: pre;
+	content: " Tags" !important;
+	white-space: pre !important;
 }
 
-.data.tags .edit:hover::before {
+.data.tags .edit:hover::before,
+.data.notes .edit:hover::before {
 	text-shadow: none !important;
 }
 
+/* =============== NOTES =============== */
+.notes {
+	width: 100% !important;
+	clear: both !important;
+}
 
-/* =============== Status =============== */
+.notes:has(.text:empty) {
+	cursor: pointer !important;
+}
 
+.notes:has(.text:not(:empty)) {
+	cursor: text !important;
+}
+
+.notes .text:not(:empty) {
+	padding: 0rem 0 !important;
+	color: var(--subdued-text) !important;
+	pointer-events: none !important;
+}
+
+.notes textarea {
+	max-height: 30rem !important;
+	min-height: 6rem !important;
+}
+
+[data-owner="1"] .notes .text:empty {
+	padding-top: 0.1rem !important;
+}
+
+[data-owner="1"] .notes .text:not(:empty)::after {
+	content: "\f044" !important;
+	position: absolute !important;
+	top: 6.9rem !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
+	display: none !important;
+	/* display: block !important; */
+	width: fit-content !important;
+	margin-top: 0.2rem !important;
+	padding: 0.2rem 0.4rem !important;
+	color: var(--content-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	opacity: 0.25 !important;
+	text-shadow: none !important;
+	cursor: pointer !important;
+	pointer-events: auto !important;
+}
+
+.notes .edit:hover,
+[data-owner="1"] .notes .text:hover:not(:empty)::after {
+	content: "\f044\00a0\00a0 Edit Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-decoration: none !important;
+}
+
+.list-table .list-table-data:hover .notes .text:not(:empty)::after {
+	opacity: 1 !important;
+	display: block !important;
+}
+
+/* =============== STATUS =============== */
 .header-title.status {
 	width: 1.8rem !important;
 	order: 2;
@@ -1526,9 +1826,7 @@ tr.list-table-data:has(.tags) {
 	content: "\f141 ";
 }
 
-
 /* =============== NUMBER =============== */
-
 .header-title.number,
 .data.number {
 	width: 3.2rem !important;
@@ -1545,9 +1843,7 @@ tr.list-table-data:has(.tags) {
 	grid-row-start: 1;
 }
 
-
 /* =============== IMAGE =============== */
-
 .header-title.image {
 	width: 5.4rem !important;
 	text-indent: 0.6rem;
@@ -1581,9 +1877,7 @@ tr.list-table-data:has(.tags) {
 	box-shadow: 0 0 0 0.2rem var(--local-category);
 }
 
-
 /* =============== TYPE =============== */
-
 .header-title.type,
 .data.type {
 	margin-left: 0.5rem;
@@ -1592,9 +1886,7 @@ tr.list-table-data:has(.tags) {
 	order: 40;
 }
 
-
 /* =============== POPULARITY =============== */
-
 :is(.header-title, .data).popularity {
 	width: 6rem;
 	order: 43;
@@ -1605,17 +1897,13 @@ tr.list-table-data:has(.tags) {
 	letter-spacing: 0.05em;
 }
 
-
 /* =============== TITLE =============== */
-
-/* Header Styles */
 .header-title.title {
 	width: 50% !important;
 	flex: 1 1 auto !important;
 	order: 5;
 }
 
-/* Title Data Styles */
 .data.title {
 	font: 1.2rem "Ubuntu";
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
@@ -1634,7 +1922,7 @@ tr.list-table-data:has(.tags) {
 	float: left;
 }
 
-/* Icon Watch Styles */
+/* =============== ICON WATCH STYLES =============== */
 .icon-watch2 {
 	float: left;
 	clear: left;
@@ -1647,7 +1935,6 @@ tr.list-table-data:has(.tags) {
 	font-style: italic;
 	opacity: 1;
 	display: none;
-	/* REMOVE "WATCH" FROM LIST */
 }
 
 #list-container .mal-icon I {
@@ -1665,7 +1952,7 @@ tr.list-table-data:has(.tags) {
 	text-decoration: none;
 }
 
-/* Content Status Styles (airing, publishing) */
+/* =============== CONTENT STATUS STYLES (airing, publishing) =============== */
 .list-table .list-table-data .data.title :is(.rewatching, .rereading, .content-status) {
 	font: 1.8rem "Pixelify Sans";
 	font-weight: 500;
@@ -1696,67 +1983,8 @@ tr.list-table-data:has(.tags) {
 	color: var(--local-category) !important;
 }
 
-/* =============== NOTES =============== */
-
-.notes {
-	width: 100% !important;
-	clear: both;
-	cursor: text;
-}
-
-.notes .text:not(:empty) {
-	padding: 0rem 0;
-	color: var(--subdued-text) !important;
-	pointer-events: none;
-}
-
-[data-owner="1"] .notes .text:empty {
-	padding-top: 0.1rem;
-}
-
-.notes .edit,
-[data-owner="1"] .notes .text:not(:empty)::after {
-	display: block;
-	padding: 0.1rem 0.4rem;
-	width: fit-content;
-	background: var(--button);
-	border-radius: 0.3rem;
-	margin-top: 0.2rem;
-	color: var(--content-text) !important;
-	font-size: 1.1rem !important;
-	opacity: 0;
-	transition: opacity 0.15s ease;
-}
-
-/* Change note text
-.notes .edit {
-	font-size: 0 !important;
-	letter-spacing: 0; /* resetting letter-spacing in this way fixes a .3px gap
-}
-.notes .edit::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	letter-spacing: 0.03rem;
-} */
-
-[data-owner="1"] .notes .text:not(:empty)::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	pointer-events: auto;
-}
-
-.notes .edit:hover,
-[data-owner="1"] .notes .text:hover:not(:empty)::after {
-	opacity: 1;
-	color: var(--content-link) !important;
-	text-decoration: none;
-}
-
-
-
 /* =============== SCORE =============== */
-
-/* Header Styles */
+/* =============== HEADER STYLES =============== */
 :is(.header-title, .data)[class*="score"] {
 	width: 2.3rem !important;
 	order: 7;
@@ -1802,7 +2030,7 @@ tr.list-table-data:has(.tags) {
 	content: "Diff.";
 }
 
-/* Data Styles */
+/* =============== DATA STYLES =============== */
 .data.score a,
 .data.mal_score,
 .data.score_diff {
@@ -1836,7 +2064,7 @@ tr.list-table-data:has(.tags) {
 	margin: 0 0.3rem 0 0.6rem;
 }
 
-/* Score Difference Hover Effect */
+/* =============== SCORE DIFFERENCE HOVER EFFECT =============== */
 .data.score~.score_diff {
 	position: relative;
 	top: -2.6rem;
@@ -1863,8 +2091,9 @@ tr.list-table-data:has(.tags) {
 	font-weight: normal;
 }
 
-/* MAL Score Style Changes */
-.status:not([class*="planto"])~.data.score~.mal_score {
+/* =============== MAL SCORE STYLE CHANGES =============== */
+/* .status:not([class*="planto"])~.data.score~.mal_score { */
+.status~.data.score~.mal_score {
 	position: static;
 	width: 6.15rem !important;
 	margin-right: -1.15rem;
@@ -1873,21 +2102,21 @@ tr.list-table-data:has(.tags) {
 	border-radius: 1.15rem 0 0 1.15rem;
 }
 
-.status[class*="planto"]~.data.score~.mal_score {
+/* .status[class*="planto"]~.data.score~.mal_score {
 	position: relative;
 	z-index: 1;
-}
+} */
 
-/* Plan to Watch/Read Styles */
-.data[class*="planto"]~.score~.mal_score {
+/* =============== PLAN TO WATCH/READ STYLES =============== */
+/* .data[class*="planto"]~.score~.mal_score {
 	margin-right: -2.6rem;
 }
 
 .data[class*="planto"]~.score_diff {
 	display: none;
-}
+} */
 
-/* Score Select Dropdown */
+/* =============== SCORE SELECT DROPDOWN =============== */
 .data.score select {
 	position: relative;
 	background: var(--button);
@@ -1903,7 +2132,6 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== COVER PREVIEW ON HOVER =============== */
-
 .data.image a {
 	overflow: visible;
 }
@@ -1958,7 +2186,8 @@ tr.list-table-data:has(.tags) {
 }
 
 .data.image a::before {
-	border: 0.3rem solid var(--content-highlight);
+	/* border: 0.3rem solid var(--content-highlight); */
+	box-shadow: var(--medium-shadow) !important;
 	box-sizing: border-box;
 }
 
@@ -1969,15 +2198,12 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== TOP RATED BANNERS =============== */
-
-/* Default Banner Settings */
 .data.score-label {
 	--top-text: none;
 	--rated: transparent;
 	--toggle: hidden;
 }
 
-/* Score-specific Banner Styles */
 .data .score-8 {
 	--top-text: "TOP 3 🥉";
 	--rated: var(--eight);
@@ -2029,7 +2255,6 @@ tr.list-table-data:has(.tags) {
 			hsla(42, 80%, 30%, 1) 100%);
 }
 
-/* Banner Hover Effects */
 .data .score-label::before,
 .data .score-label::after {
 	content: var(--top-text);
@@ -2045,7 +2270,6 @@ tr.list-table-data:has(.tags) {
 	opacity: 1;
 }
 
-/* Banner Line */
 .data .score-label::before {
 	left: -20.5rem;
 	top: calc(50% - 0rem);
@@ -2060,7 +2284,6 @@ tr.list-table-data:has(.tags) {
 		inset 0 0.8rem 0.3rem -0.6rem var(--content-highlight);
 }
 
-/* Banner Text */
 .data .score-label::after {
 	left: calc(-20.5rem + 19rem/2);
 	top: calc(50% - 0.7rem);
@@ -2086,7 +2309,6 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== PROGRESS, PRIORITY =============== */
-
 .header-title:is(.progress, .chapters, .volumes, .priority) {
 	width: 7rem !important;
 	order: 10;
@@ -2102,14 +2324,12 @@ tr.list-table-data:has(.tags) {
 	align-items: center;
 }
 
-/* Progress */
-
+/* =============== PROGRESS =============== */
 [class^="icon-add-"] i {
 	font-weight: 400;
 }
 
-/* Priority */
-
+/* =============== PRIORITY =============== */
 .header-title:is(.progress, .chapters, .volumes)~.priority {
 	width: 2rem !important;
 	margin-left: -2.3rem;
@@ -2143,36 +2363,19 @@ tr.list-table-data:has(.tags) {
 	margin-right: 0.3rem;
 }
 
-/* Hide priority column on non-planned items */
 .data.status:not([class*="planto"])~.priority {
 	display: none !important;
 }
 
-
-/* =============== VARIABLES CSS =============== */
-
-/* =============== @Dates =============== */
-/* =============== @Started =============== */
-/* =============== @Finished =============== */
-/* =============== @Days =============== */
-/* =============== @Airing =============== */
-
-/* Header
-
-VL rant officially removed as of v2.3.5 */
-
-/* days */
-
+/* =============== DATES STARTED FINISHED DAYS AIRING =============== */
 .header-title.days {
 	width: 7rem !important;
 	order: 25;
 }
 
-/* other dates */
-
 .header-title:is(.started, .finished):has(a) {
 	width: auto !important;
-	background: var(--content-background) !important;
+	background: transparent !important;
 	order: 25;
 	text-align: left !important;
 	font-size: 0;
@@ -2190,8 +2393,6 @@ VL rant officially removed as of v2.3.5 */
 	content: "\f253";
 }
 
-/* user dates */
-
 .header-title.started:not(.finished ~ .started) {
 	--label: "User Started";
 }
@@ -2199,8 +2400,6 @@ VL rant officially removed as of v2.3.5 */
 .header-title.finished:not(.finished ~ .finished) {
 	--label: "User Finished";
 }
-
-/* airing / publishing */
 
 .header-title:is(.started, .finished) a {
 	width: 3.3rem;
@@ -2228,8 +2427,6 @@ VL rant officially removed as of v2.3.5 */
 	--label: "Publishing Finished";
 }
 
-/* Column */
-
 .data:is(.started, .finished, .days, .airing-started, .airing-finished) {
 	position: relative;
 	display: flex !important;
@@ -2242,6 +2439,7 @@ VL rant officially removed as of v2.3.5 */
 	line-height: 1.4rem;
 	text-align: left !important;
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	background: transparent;
 }
 
 .data.started {
@@ -2276,7 +2474,6 @@ VL rant officially removed as of v2.3.5 */
 	margin-left: -7.3rem;
 }
 
-/* Icons */
 .data:is(.started, .finished, .days, .airing-started, .airing-finished)::before {
 	display: inline-block;
 	width: 1.4rem;
@@ -2305,7 +2502,6 @@ VL rant officially removed as of v2.3.5 */
 	cursor: help;
 }
 
-/* Empty column text - thanks to its fixed width, any text in the column will push this to the next line, which hides it due to "overflow: hidden" on the parent. */
 .data:is(.started, .finished, .days, .airing-started, .airing-finished)::after {
 	content: "None";
 	display: block;
@@ -2313,13 +2509,7 @@ VL rant officially removed as of v2.3.5 */
 	opacity: 0.35;
 }
 
-
-/* =============== @Generic =============== */
-/* =============== @Rated =============== */
-/* =============== @Magazine =============== */
-/* =============== @Storage =============== */
-/* =============== @Retail =============== */
-/* =============== @Season =============== */
+/* =============== GENERIC RATED MAGAZINE STORAGE RETAIL SEASON =============== */
 
 .data:is(.rated, .magazine, .storage, .retail, .season) {
 	height: 1.5em;
@@ -2340,8 +2530,6 @@ VL rant officially removed as of v2.3.5 */
 	order: 19;
 }
 
-/* Rated */
-
 .header-title.rated,
 .data.rated {
 	width: 4rem !important;
@@ -2355,8 +2543,6 @@ VL rant officially removed as of v2.3.5 */
 	background: var(--content-highlight);
 	font: bold 1.2rem/2.4rem var(--alternate-font);
 }
-
-/* Season */
 
 .header-title.started:not(:has(a)) {
 	width: 4.4rem !important;
@@ -2392,7 +2578,6 @@ VL rant officially removed as of v2.3.5 */
 	font-weight: 400;
 }
 
-/* Empty column text - thanks to its fixed width, any text in the column will push this to the next line, which hides it due to "overflow: hidden" on the parent. */
 .data:is(.rated, .magazine, .storage, .retail, .season:empty)::after {
 	content: "None";
 	display: block;
@@ -2417,13 +2602,7 @@ VL rant officially removed as of v2.3.5 */
 	text-align: center;
 }
 
-
-/* =============== @Tags =============== */
-/* =============== @Genres =============== */
-/* =============== @Demographic =============== */
-/* =============== @Studio =============== */
-/* =============== @Licensor =============== */
-
+/* =============== TAGS GENRES DEMOGRAPHIC STUDIO LICENSOR =============== */
 .data:is(.tags, .genre, .demographic, .studio, .licensor) {
 	order: 35;
 	line-height: 1;
@@ -2439,7 +2618,6 @@ VL rant officially removed as of v2.3.5 */
 	display: none;
 }
 
-/* Empty Columns */
 
 .data:is(.demographic, .licensor, .studio, .genre):empty::after {
 	content: "None";
@@ -2448,7 +2626,6 @@ VL rant officially removed as of v2.3.5 */
 	opacity: 0.35;
 }
 
-/* Studio & Licensor */
 
 .header-title:is(.studio, .licensor) {
 	width: 10rem !important;
@@ -2471,9 +2648,7 @@ VL rant officially removed as of v2.3.5 */
 	line-height: 1.6rem;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	/*other browsers*/
 	text-overflow: "..";
-	/*firefox*/
 }
 
 .data:is(.studio, .licensor) span+span {
@@ -2482,9 +2657,7 @@ VL rant officially removed as of v2.3.5 */
 	margin-top: 0.2rem;
 }
 
-/* Tags & Genre & Demographic */
-
-/* =============== AUTO-HIDING TAGS & GENRES =============== */
+/* =============== TAGS GENRES DEMOGRAPHIC =============== */
 .data:is(.tags, .genre) {
 	display: grid !important;
 	grid-auto-columns: max-content;
@@ -2600,7 +2773,7 @@ VL rant officially removed as of v2.3.5 */
 	padding: 0.4rem;
 	background: var(--button);
 	border-radius: 0.3rem;
-	margin: 0.3rem 0.3rem 0 0;
+	margin: 0.55rem 0.3rem 0 0;
 	font-size: 1.1rem;
 }
 
@@ -2621,6 +2794,22 @@ VL rant officially removed as of v2.3.5 */
 .data.tags span a::before {
 	content: var(--hash-symbol);
 	font-family: var(--icon-font);
+}
+
+.data.genre:empty::after {
+	content: "None" !important;
+	display: none !important;
+	padding: 0.4rem !important;
+	background: var(--button) !important;
+	border-radius: 0.3rem !important;
+	margin: 0.55rem 0.3rem 0 0 !important;
+	font-size: 1.1rem !important;
+	overflow: visible !important;
+	opacity: 0.5 !important;
+}
+
+.list-table-data:hover .data.genre::after {
+	display: inline-block !important;
 }
 
 /* =============== EMOJI GENRES =============== */
@@ -2732,9 +2921,7 @@ a[href$="&genre=45"]::before {
 }
 
 
-
-/* =============== @Empty-Table =============== */
-
+/* =============== EMPTY TABLE =============== */
 .list-table[data-items="[]"]::after {
 	display: block;
 	width: 60rem;
@@ -2748,12 +2935,10 @@ a[href$="&genre=45"]::before {
 	line-height: 2rem;
 	text-align: center;
 
-	/* No Entries (Generic/Non-Owner) */
 	content: var(--empty, "*Cricket noise*");
 }
 
 [data-owner="1"] {
-	/* No Entries (Owner) */
 	--empty: "*Cricket noise*";
 }
 
@@ -2763,13 +2948,10 @@ a[href$="&genre=45"]::before {
 	[data-query*='"aired_from_year":'],
 	[data-query*='"aired_to_year":'],
 	[data-query*='"season":']) {
-	/* No Entries (Bad Search) */
-	--empty: "Didn't find shiet yo";
+	--empty: "Didn't find shiet yo...!";
 }
 
-
-/* =============== @More-Info =============== */
-
+/* =============== MORE INFO =============== */
 .list-table .more-info[style$="table-row;"] {
 	display: block !important;
 	border: none;
@@ -2777,7 +2959,6 @@ a[href$="&genre=45"]::before {
 	margin-top: 1rem;
 }
 
-/* force full-width more info */
 .more-info>table,
 .more-info>table>tbody,
 .more-info>table>tbody>tr,
@@ -2795,9 +2976,7 @@ a[href$="&genre=45"]::before {
 	letter-spacing: .03rem;
 }
 
-
-/* =============== @BBCode =============== */
-
+/* =============== BBCODE =============== */
 :is(.notes, .more-info) :is(a, input, iframe) {
 	pointer-events: auto;
 	cursor: pointer;
@@ -2869,15 +3048,11 @@ a[href$="&genre=45"]::before {
 	border: 0.1rem solid var(--border);
 }
 
-
-/* =============== @Loading =============== */
-
+/* =============== LOADING =============== */
 .list-unit .loading-space {
 	margin: 0;
 	height: auto;
 }
-
-/* =============== VARIABLES CSS =============== */
 
 #loading-spinner {
 	position: relative;
@@ -2916,56 +3091,7 @@ a[href$="&genre=45"]::before {
 	}
 }
 
-/* =============== FOOTER =============== */
-
-#footer-block {
-	display: none;
-	/* display: block; */
-	width: 50rem !important;
-	padding: 1rem 0;
-	margin: 2rem auto;
-	background: var(--inverse-background);
-	line-height: 1.4rem;
-	border-radius: 0.6rem;
-}
-
-/* Logo */
-#footer-block::before {
-	content: "";
-	height: 4.5rem;
-	margin-bottom: 1.8rem;
-	background: url(https://files.catbox.moe/2aocpd.webp) center / contain no-repeat;
-	display: none;
-}
-
-#copyright,
-#recaptcha-terms {
-	color: var(--inverse-text);
-}
-
-#recaptcha-terms a {
-	color: inherit !important;
-}
-
-#copyright::after {
-	content: "\a \"Clarified\" list design by Valerio Lyndon.\a Executed by Matty_Mroz";
-	white-space: pre-wrap;
-}
-
-#recaptcha-terms {
-	margin: 0;
-	font-size: 0.9rem;
-	line-height: 1.6rem;
-	display: none;
-}
-
-#recaptcha-terms::before {
-	content: "";
-	white-space: pre-wrap;
-}
-
 /* =============== OVERLAYS =============== */
-
 body.ownlist #fancybox-overlay {
 	background: var(--page-background) !important;
 	opacity: 0.5 !important;
@@ -2983,7 +3109,6 @@ body.ownlist #fancybox-overlay {
 	color: var(--content-text);
 }
 
-/* Close Button */
 
 body #fancybox-close {
 	top: -0.8rem;
@@ -3010,9 +3135,7 @@ body #fancybox-close::after {
 	font-weight: 700;
 }
 
-
-/* =============== FILTER-MENU =============== */
-
+/* =============== FILTER MENU =============== */
 #advanced-options {
 	position: fixed;
 	top: calc(2rem + 10vh);
@@ -3023,8 +3146,18 @@ body #fancybox-close::after {
 	color: var(--content-text);
 }
 
-/* Headers */
+div#advanced-options {
+	--menu-blur: blur(1rem);
+	/* --menu-bg-color: hsla(0, 0%, 10%, 0.5); */
+	--menu-bg-color: hsla(0, 0%, 10%, 1);
+	background-color: var(--menu-bg-coFlor);
+	background-image: url("");
+	background-size: 100% 100%;
+	background-repeat: no-repeat !important;
+	backdrop-filter: var(--menu-blur);
+}
 
+/* =============== FILTER MENU HEADER =============== */
 #advanced-options .advanced-options-header {
 	line-height: 3rem;
 	border-bottom: 0.2rem dashed var(--border);
@@ -3055,8 +3188,7 @@ body #fancybox-close::after {
 	color: var(--content-link);
 }
 
-/* Fields */
-
+/* =============== FILTER MENU FIELDS =============== */
 #advanced-options [class*="-widget"] {
 	display: flex;
 }
@@ -3084,8 +3216,7 @@ body #fancybox-close::after {
 	color: var(--inverse-text) !important;
 }
 
-/* Specific Fields */
-
+/* =============== SPECIFIC FIELDS =============== */
 #advanced-options .filter-widget[class*="-date"] span:nth-of-type(n+2) {
 	display: inline-block;
 	width: 4rem;
@@ -3132,8 +3263,7 @@ body #fancybox-close::after {
 	line-height: 1.4rem;
 }
 
-/* Buttons */
-
+/* =============== BUTTONS =============== */
 #advanced-options .advanced-options-button {
 	border-top: 0.2rem dashed var(--border);
 }
@@ -3149,9 +3279,7 @@ body #fancybox-close::after {
 	color: var(--inverse-text) !important;
 }
 
-
-/* =============== STREAMING-INFO =============== */
-
+/* =============== STREAMING INFO =============== */
 .mal-modal * {
 	border-color: var(--border) !important;
 }
@@ -3178,9 +3306,7 @@ body #fancybox-close::after {
 	color: var(--content-text) !important;
 }
 
-
 /* =============== REWATCHING-BOX =============== */
-
 div[style^="width: 30rem;"] input {
 	border-radius: 0.4rem;
 	background: var(--button);
@@ -3193,37 +3319,4 @@ div[style^="width: 30rem;"] input:hover {
 	color: var(--content-link);
 }
 
-
-/* Other tweaks */
-
-#footer-block::before {
-	filter: brightness(100) invert(1);
-}
-
-
-/* =============== USER =============== */
-
-
 /* =============== MODS =============== */
-
-
-
-
-
-
-
-
-
-
-
-/* =============== FILTER POPUP BACKGROUND IMAGE =============== */
-
-div#advanced-options {
-	--menu-blur: blur(1rem);
-	--menu-bg-color: hsla(0, 0%, 10%, 0.5);
-	background-color: var(--menu-bg-color);
-	background-image: url("");
-	background-size: 100% 100%;
-	background-repeat: no-repeat !important;
-	backdrop-filter: var(--menu-blur);
-}

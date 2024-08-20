@@ -14,10 +14,18 @@
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
 
+@font-face {
+	font-family: 'Revue Std Bold';
+	src: url('https://mattymroz.github.io/MyAnimeListCosplay/assets/fonts/Revue-Std-Bold.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
 /* =============== VARIABLES CSS =============== */
 :root {
 	/* ========== FONTS ========== */
 	--font: "Noto Sans", Arial, "Helvetica Neue", Helvetica, "Pixelify Sans", "Ubuntu", "Kodchasan", FontAwesome, sans-serif;
+	--font-mal: "Revue Std Bold", sans-serif;
 	--icon-font: FontAwesome, var(--font);
 	--alternate-font: "Roboto Condensed", Oswald, var(--icon-font);
 
@@ -73,11 +81,14 @@
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
 	--scrollbar-track-bg: #111;
-	--scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
+	--scrollbar-thumb-bg-start: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-bg-end: rgba(255, 255, 255, 0.9);
+	--scrollbar-thumb-hover-bg-start: rgba(255, 255, 255, 0.75);
+	--scrollbar-thumb-hover-bg-end: rgba(255, 255, 255, 0.75);
+	/* --scrollbar-thumb-bg-start: rgba(6, 128, 170, 1);
 	--scrollbar-thumb-bg-end: rgba(79, 17, 180, 1);
 	--scrollbar-thumb-hover-bg-start: rgba(8, 176, 233, 1);
-	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1);
-	--scrollbar-corner-bg: #111;
+	--scrollbar-thumb-hover-bg-end: rgba(106, 30, 230, 1); */
 
 	/* ========== TOP RATED BANNER COLORS ========== */
 	--eight: 22, 90%, 65%;
@@ -92,6 +103,11 @@
 	--background: linear-gradient(var(--tint), var(--tint)), url(https://i.ibb.co/1TJtHVd/neko-bw-720-manga-bg.webp);
 	--cover-position: center bottom calc(100% + 7rem);
 	--cover: url(https://i.ibb.co/CWdbn5R/mangalist-cover.gif);
+
+
+	/* ----------- USER MENU ----------- */
+	--user-menu-profile: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d");
+
 
 	/* ========== LIST WIDTH ========== */
 	/* Options: 106rem | 96rem | 90rem */
@@ -391,10 +407,8 @@ body::after {
 
 .header .header-menu {
 	top: 1.5rem !important;
-	right: 1.5rem;
+	right: calc(3% - 1.5rem - .6rem);
 	display: flex;
-	opacity: 0.25;
-	transition: opacity .5s ease-out;
 }
 
 .header:hover .header-menu {
@@ -408,7 +422,7 @@ body::after {
 .header .header-menu .header-info,
 #header-menu-dropdown .icon-menu {
 	height: 3.2rem;
-	padding: 0.6rem;
+	padding: .6rem;
 	background: var(--image-background);
 	border-radius: 0.3rem;
 	margin-right: 1.5rem;
@@ -417,29 +431,27 @@ body::after {
 
 /* =============== HOME BUTTON =============== */
 .header .header-title {
+	position: relative;
 	top: 1.5rem;
-	left: 3rem;
-	width: 7.4rem;
+	left: 3%;
+	width: 7rem;
+	height: 3.2rem;
+	padding: 0.6rem;
 	font-size: 0;
 	text-indent: 0;
 	text-decoration: none !important;
-	opacity: 0.25;
-	transition: opacity .5s ease-out;
 	z-index: 100;
 }
 
 .header .header-title::before {
-	content: "\f015  Home";
-	font-size: 1.4rem;
-}
-
-.header .header-title:hover::before {
-	text-decoration: none;
-}
-
-.header:hover .header-title {
-	opacity: 1;
-	transition-duration: .08s;
+	content: "MAL";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: var(--font-mal);
+	font-size: 2rem;
+	transition: all 0.1s ease-in-out !important;
 }
 
 /* =============== VIEWING "NAME'S" LIST =============== */
@@ -502,16 +514,16 @@ body::after {
 /* ----------- USER MENU ----------- */
 .list-menu-float {
 	position: fixed !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
 	left: -6rem !important;
 	width: 6rem !important;
 	background: var(--content-background) !important;
 	border: none !important;
 	border-radius: 1rem !important;
-	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1) !important;
+	box-shadow: none !important;
 	transition: left 0.3s ease !important;
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
 	z-index: 20 !important;
 }
 
@@ -527,6 +539,21 @@ body::after {
 	width: calc(50% - 6rem - var(--list-width) * 0.5 - 1.5rem) !important;
 	height: 100vh !important;
 	background: transparent !important;
+	border-top-right-radius: 100% !important;
+	border-bottom-right-radius: 20% !important;
+}
+
+.list-menu-float::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem;
+	background-color: transparent;
+	box-shadow: var(--mild-shadow);
+	z-index: -1;
 }
 
 .list-menu-float .icon-menu {
@@ -536,145 +563,16 @@ body::after {
 	justify-content: flex-start !important;
 	width: 4rem !important;
 	height: 4.28rem !important;
-	background: var(--content-background) !important;
+	background: transparent !important;
 	text-decoration: none !important;
 	border-radius: 0 !important;
 	transition: background-color 0.2s ease !important;
 	cursor: pointer !important;
 }
 
-.list-menu-float .icon-menu.profile {
-	height: 5rem !important;
-	padding-top: 2rem !important;
-	border-top-left-radius: 1rem !important;
-	border-top-right-radius: 1rem !important;
-}
-
-.list-menu-float .icon-menu.profile::before {
-	content: "" !important;
-	position: absolute !important;
-	top: 50% !important;
-	left: 50% !important;
-	width: 4rem !important;
-	height: 4rem !important;
-	background: url("https://cdn.myanimelist.net/s/common/userimages/c11c85c0-a609-446d-abf7-17dfe4ca1322_225w?s=8dd4632b0f62e9022379573a7799486d") no-repeat center center !important;
-	background-size: 120% !important;
-	border-radius: 50% !important;
-	transform: translate(-50%, -50%) !important;
-	border: 0.3rem solid transparent !important;
-	background-clip: padding-box !important;
-	transition: all 0.1s ease-in-out !important;
-}
-
-.list-menu-float .icon-menu.profile:hover::before {
-	border-color: var(--local-category) !important;
-	filter: drop-shadow(0 0 0.5rem rgb(150, 150, 150)) !important;
-}
-
-.list-menu-float .icon-menu.profile:not(:hover)::before {
-	transition: all 0.5s ease-out !important;
-}
-
 .list-menu-float .icon-menu:not(:first-child),
 .list-menu-float .icon-menu.logout {
 	border-top: 0.3rem dotted var(--border) !important;
-}
-
-.list-menu-float .icon-menu.setting {
-	margin-bottom: 1rem;
-}
-
-.list-menu-float .icon-menu .icon {
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	position: absolute !important;
-	top: 1rem !important;
-	left: 1rem !important;
-	width: 2rem !important;
-	height: 2rem !important;
-	fill: var(--local-category) !important;
-}
-
-
-.list-menu-float .icon-menu .text {
-	position: absolute !important;
-	top: 0rem !important;
-	left: 3rem !important;
-	height: 4rem !important;
-	width: 12rem !important;
-	padding-left: 1rem !important;
-	opacity: 0 !important;
-	white-space: nowrap !important;
-	pointer-events: none !important;
-	font-family: var(--font) !important;
-	font-size: 1.4rem !important;
-	font-weight: 600 !important;
-	text-shadow: var(--image-shadow) !important;
-	color: var(--local-category-hover) !important;
-	transition: transform 0.05s ease-in-out !important;
-	transform: translateX(-10px) !important;
-}
-
-.list-menu-float .icon-menu:hover .text,
-.list-menu-float .icon-menu .text:hover {
-	opacity: 1 !important;
-	transform: translateX(10px) !important;
-	background: linear-gradient(to right, transparent 1rem, var(--content-background) 1rem) !important;
-	padding: 0.8rem 1.2rem !important;
-	border-top-right-radius: 0.5rem !important;
-	border-bottom-right-radius: 0.5rem !important;
-	pointer-events: auto !important;
-}
-
-.list-menu-float .icon-menu .text:hover {
-	color: var(--local-category) !important;
-}
-
-.list-menu-float .icon-menu:hover .text::before {
-	content: '' !important;
-	position: absolute !important;
-	left: -0.8rem !important;
-	top: 50% !important;
-	transform: translateY(-50%) !important;
-	border-width: 0.8rem 0.8rem 0.8rem 0 !important;
-	border-style: solid !important;
-	border-color: transparent var(--content-background) transparent transparent !important;
-}
-
-.list-menu-float .icon-menu.setting .text {
-	display: flex !important;
-	justify-content: center !important;
-	flex-direction: column !important;
-	align-items: center !important;
-	top: 0rem !important;
-	left: 3rem !important;
-	height: 8rem !important;
-	width: 16rem !important;
-	padding-left: 1rem !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border-radius: 1rem !important;
-}
-
-.list-menu-float .icon-menu.setting .text a {
-	position: static !important;
-	display: flex !important;
-	flex-direction: column !important;
-	justify-content: center !important;
-	text-align: center !important;
-	height: 4rem !important;
-	width: 100% !important;
-	background: var(--content-background) !important;
-	color: var(--local-category-hover) !important;
-}
-
-.list-menu-float .icon-menu.setting .text a.link-style-setting {
-	border-top: 0.3rem dotted var(--border) !important;
-}
-
-.list-menu-float .icon-menu.setting .text a:hover {
-	color: var(--local-category) !important;
 }
 
 .list-menu-float .icon-menu:not(.profile)::before {
@@ -697,6 +595,231 @@ body::after {
 	top: auto !important;
 	bottom: 0.34rem !important;
 	height: 0 !important;
+}
+
+.list-menu-float .icon-menu.profile:active {
+	transform: scale(0.9) !important;
+	transition: transform 0.1s ease-in-out !important;
+}
+
+.list-menu-float .icon-menu.profile {
+	height: 5rem !important;
+	padding-top: 2rem !important;
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
+
+.list-menu-float .icon-menu.profile::before {
+	content: "" !important;
+	position: absolute !important;
+	top: 50% !important;
+	left: 50% !important;
+	width: 4rem !important;
+	height: 4rem !important;
+	background: var(--user-menu-profile) no-repeat center center !important;
+	background-size: 120% !important;
+	border-radius: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	border: 0.3rem solid transparent !important;
+	background-clip: padding-box !important;
+	transition: all 0.1s ease-in-out !important;
+}
+
+.list-menu-float .icon-menu.profile:hover::before {
+	border-color: var(--local-category) !important;
+	box-shadow: 0 0 .75rem var(--page-category) !important;
+}
+
+.list-menu-float .icon-menu.profile:active::before {
+	transform: translate(-50%, -50%) scale(0.9) !important;
+	transition: none !important;
+}
+
+.list-menu-float .icon-menu.profile:not(:hover)::before {
+	transition: all 0.5s ease-out !important;
+}
+
+.list-menu-float .icon-menu.setting {
+	margin-bottom: 1rem;
+}
+
+.list-menu-float .icon-menu .icon {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	position: absolute !important;
+	top: 1rem !important;
+	left: 1rem !important;
+	width: 2rem !important;
+	height: 2rem !important;
+	fill: var(--local-category) !important;
+}
+
+.list-menu-float .icon-menu .text,
+.list-menu-float .icon-menu.setting .text {
+	position: absolute !important;
+	top: 0rem !important;
+	left: 3rem !important;
+	height: 4rem !important;
+	width: 12rem !important;
+	padding-left: 1rem !important;
+	opacity: 0 !important;
+	white-space: nowrap !important;
+	pointer-events: none !important;
+	font-family: var(--font) !important;
+	font-size: 1.4rem !important;
+	font-weight: 600 !important;
+	text-shadow: var(--image-shadow) !important;
+	background: linear-gradient(to right, transparent 1.01rem, var(--content-background) 1.01rem) !important;
+	color: var(--local-category-hover) !important;
+	transition: transform 0.05s ease-in-out !important;
+	transform: translateX(-10px) !important;
+}
+
+.list-menu-float .icon-menu .text {
+	box-shadow: var(--mild-shadow) !important;
+	clip-path: polygon(0.1rem -6rem,
+			calc(100% + 6rem) -6rem,
+			calc(100% + 6rem) calc(100% + 6rem),
+			0.1rem calc(100% + 6rem)) !important;
+}
+
+/* DZIAŁA ALE ŹLE PRZEGLĄDARKA RENDERUJE */
+/* .list-menu-float .icon-menu.setting .text {
+	clip-path: polygon(-6rem -6rem,
+			calc(100% + 6rem) -6rem,
+			calc(100% + 6rem) calc(100% + 6rem),
+			-6rem calc(100% + 6rem),
+			-6rem 5rem,
+			0.1rem 5rem,
+			0.1rem -6rem) !important;
+} */
+
+.list-menu-float .icon-menu:hover .text,
+.list-menu-float .icon-menu .text:hover,
+.list-menu-float .icon-menu.setting:hover .text,
+.list-menu-float .icon-menu.setting .text:hover {
+	opacity: 1 !important;
+	transform: translateX(10px) !important;
+	padding: 0.8rem 1.2rem !important;
+	border-top-right-radius: 0.5rem !important;
+	border-bottom-right-radius: 0.5rem !important;
+	pointer-events: auto !important;
+}
+
+.list-menu-float .icon-menu .text:hover,
+.list-menu-float .icon-menu.setting .text:hover {
+	color: var(--local-category) !important;
+}
+
+.list-menu-float .icon-menu:hover .text::before,
+.list-menu-float .icon-menu.setting:hover .text::before {
+	content: '' !important;
+	position: absolute !important;
+	left: -0.8rem !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	border-width: 0.8rem 0.8rem 0.8rem 0 !important;
+	border-style: solid !important;
+	border-color: transparent var(--content-background) transparent transparent !important;
+}
+
+.list-menu-float .icon-menu.setting .text {
+	display: flex !important;
+	justify-content: center !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	height: 8rem !important;
+	width: 16rem !important;
+	border-bottom-left-radius: 1rem !important;
+	background: transparent !important;
+}
+
+.list-menu-float .icon-menu.setting .text a {
+	position: static !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	text-align: center !important;
+	height: 4rem !important;
+	width: 16rem !important;
+	background: none !important;
+	color: var(--local-category-hover) !important;
+}
+
+.list-menu-float .icon-menu.setting .text a.link-list-setting {
+	background: var(--content-background) !important;
+	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
+	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) !important;
+}
+
+.list-menu-float .icon-menu.setting .text a.link-style-setting {
+	border: none !important;
+	background: var(--content-background) !important;
+	mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem) linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
+	-webkit-mask: linear-gradient(to right, transparent 1.01rem, black 1.01rem),
+		linear-gradient(to bottom, transparent 1.01rem, black 1.01rem) !important;
+}
+
+.list-menu-float .icon-menu.setting .text a::before {
+	content: '';
+	display: block;
+	height: 0;
+	width: 14rem;
+	border-bottom: 0.3rem dotted var(--border) !important;
+	position: absolute;
+	top: 49%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.list-menu-float .icon-menu.setting .text a:hover {
+	color: var(--local-category) !important;
+}
+
+.list-menu-float .icon-menu.setting:hover~.list-menu-float,
+.list-menu-float:has(.icon-menu.setting:hover) {
+	border-bottom-right-radius: 0 !important;
+}
+
+.list-menu-float .icon-menu.quick-add:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.quick-add:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 5.28rem, calc(100%) 5.28rem, calc(100%) 9.28rem, calc(100% + 6rem) 9.28rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.anime-list:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.anime-list:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 9.56rem, calc(100%) 9.56rem, calc(100%) 13.56rem, calc(100% + 6rem) 13.56rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.manga-list:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.manga-list:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 13.84rem, calc(100%) 13.84rem, calc(100%) 17.84rem, calc(100% + 6rem) 17.84rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.statistics:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.statistics:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 18.12rem, calc(100%) 18.12rem, calc(100%) 22.12rem, calc(100% + 6rem) 22.12rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.history:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.history:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 22.4rem, calc(100%) 22.4rem, calc(100%) 26.4rem, calc(100% + 6rem) 26.4rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.export:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.export:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 26.68rem, calc(100%) 26.68rem, calc(100%) 30.68rem, calc(100% + 6rem) 30.68rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.logout:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.logout:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) 30.96rem, calc(100%) 30.96rem, calc(100%) 34.96rem, calc(100% + 6rem) 34.96rem, calc(100% + 6rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
+}
+
+.list-menu-float .icon-menu.setting:hover~.list-menu-float::after,
+.list-menu-float:has(.icon-menu.setting:hover)::after {
+	clip-path: polygon(-6rem -6rem, calc(100% + 6rem) -6rem, calc(100% + 6rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% - 5rem), calc(100% - 1rem) calc(100% + 6rem), -6rem calc(100% + 6rem));
 }
 
 .list-menu-float .icon-menu.quick-add {
@@ -738,7 +861,6 @@ body::after {
 	--local-category: var(--color-setting) !important;
 	--local-category-hover: var(--color-hover-setting) !important;
 }
-
 
 /* =============== CATEGORY MENU =============== */
 .status-menu-container {
@@ -1106,7 +1228,12 @@ body::after {
 }
 
 #status-menu.fixed #search-button:hover i::before {
-	filter: drop-shadow(0 0 0.5rem rgb(150, 150, 150)) !important;
+	filter: drop-shadow(0 0 0.5rem var(--page-category)) !important;
+}
+
+#status-menu.fixed #search-button:active i {
+	transform: scale(0.9);
+	transition: transform 0.1s ease-in-out;
 }
 
 /* =============== ADD AVATAR =============== */
@@ -1119,12 +1246,14 @@ body::after {
 	width: 14rem;
 	height: 14rem;
 	border-radius: 0;
+	/* border-radius: 50%; */
 	margin: -4.5rem 0 0 -15rem;
 	background:
 		url(https://i.ibb.co/DwqTrHj/ava-frame.png) no-repeat center / 16rem,
 		url(https://i.ibb.co/XkZnFDg/ava-scan-lines.png) no-repeat center / 13rem,
 		url(https://i.ibb.co/vYmTT6p/mangalist-ava.gif) no-repeat center / 13rem;
 	border: 0;
+	/* border: .6rem solid var(--content-background); */
 }
 
 /* =============== SEARCH BOX BORDER =============== */
@@ -1145,7 +1274,7 @@ body::after {
 	outline: 0 !important;
 }
 
-/* =============== LIST =============== */
+/* =============== LIST!!! =============== */
 .list-table>tbody {
 	display: block;
 	width: 106rem;
@@ -1203,8 +1332,6 @@ body::after {
 		background-position: -400% 0;
 	}
 }
-
-
 
 .list-table>tbody:first-of-type {
 	position: sticky;
@@ -1354,7 +1481,7 @@ tr.list-table-data:has(.tags) {
 	background: none;
 	margin: 0 auto -5rem !important;
 	color: var(--content-text);
-	font: 1.3rem "Ubuntu";
+	font: 1.3rem var(--font);
 	line-height: 5rem;
 	letter-spacing: 0.05rem;
 	text-transform: uppercase;
@@ -1370,113 +1497,229 @@ tr.list-table-data:has(.tags) {
 /* =============== SIDE BUTTONS =============== */
 /* =============== ADD EDIT MORE =============== */
 .list-unit .list-status-title {
-	position: sticky;
-	top: 0.5rem;
-	z-index: 11;
+	position: sticky !important;
+	top: 0.5rem !important;
+	z-index: 11 !important;
 }
 
 .list-table .list-table-data .data.title .add-edit-more,
 .list-unit .list-status-title .stats {
-	position: absolute;
-	left: -0.1rem;
-	top: -0.1rem;
-	z-index: 4;
-	width: 2.6rem;
-	padding: 0.3rem;
-	height: calc(100% + 0.2rem);
-	border-radius: 0.6rem 0rem 0rem 0.6rem;
-	background: var(--content-highlight);
-	margin: 0;
-	font-size: 0;
-	line-height: 0;
+	position: absolute !important;
+	top: -0.1rem !important;
+	left: -0.1rem !important;
+	z-index: 4 !important;
+	width: 2.6rem !important;
+	height: calc(100% + 0.2rem) !important;
+	padding: 0.3rem !important;
+	margin: 0 !important;
+	background: var(--content-highlight) !important;
+	border-radius: 0.6rem 0rem 0rem 0.6rem !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
 }
 
 .list-unit .list-status-title .stats {
-	top: 0;
-	height: 5rem;
-	padding: 0.3rem;
-	z-index: 13;
+	top: 0 !important;
+	z-index: 13 !important;
+	height: 5rem !important;
+	padding: 0.3rem !important;
+}
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	position: absolute !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
 }
 
 .list-table .list-table-data .tags .edit {
-	position: absolute;
-	left: 0.3rem;
-	top: 4.7rem;
-	z-index: 4;
+	top: 4.8rem !important;
 }
+
+.list-table .list-table-data .notes .edit {
+	top: 7.1rem !important;
+}
+
+/* ========================================================= */
+.notes .edit::before {
+	content: "\f044" !important;
+	font: bold 1.2rem var(--font) !important;
+	animation: none !important;
+	pointer-events: auto !important;
+	cursor: pointer !important;
+}
+
+.notes .edit:hover::after {
+	content: "Add Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	cursor: pointer !important;
+}
+
+/* ========================================================= */
 
 .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data .tags .edit {
-	display: flex;
-	width: auto;
-	height: 2rem;
-	border-radius: 0.3rem;
-	margin: 0 0 0.3rem;
-	float: left;
-	clear: both;
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .notes .edit {
+	display: flex !important;
+	float: left !important;
+	clear: both !important;
+	width: auto !important;
+	height: 2rem !important;
+	margin: 0 0 0.3rem !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border-radius: 0.3rem !important;
 	color: var(--content-text) !important;
-	font-size: 0;
-	line-height: 2rem;
-	text-align: center;
-	white-space: nowrap;
-	opacity: 0.25;
+	font-size: 0 !important;
+	line-height: 2rem !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	opacity: 0.25 !important;
+}
+
+.list-table .list-table-data .notes .edit {
+	display: none !important;
 }
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
 #list-container .list-table .list-table-data .tags .edit:hover {
-	background: var(--inverse-background);
-	box-shadow: var(--mild-shadow);
+	background: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
-	/* edit,more text on hover */
-	font: bold 1.2rem "Noto Sans";
-	padding: 0.2rem 0.6rem 0rem 0rem;
-	text-shadow: none;
+	font: bold 1.2rem "Noto Sans" !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
+}
+
+#list-container .list-table .list-table-data .notes .edit:hover {
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem !important;
+	padding: 0.2rem 0.6rem 0rem 0rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
 }
 
 .list-table-data:hover .add-edit-more a,
 .list-unit .list-status-title .stats a,
-.list-table .list-table-data:hover .tags .edit {
-	opacity: 1;
+.list-table .list-table-data:hover .tags .edit,
+.list-table .list-table-data:hover .notes .edit {
+	opacity: 1 !important;
+	display: flex !important;
 }
 
 .add-edit-more a::before,
 .tags .edit::before,
+.notes .edit::before,
 .list-unit .list-status-title .stats i {
-	width: 2rem;
-	line-height: 2rem;
-	margin-right: 0.3rem;
-	margin-top: -0.1rem;
+	width: 2rem !important;
+	margin-top: -0.1rem !important;
+	margin-right: 0.3rem !important;
 	font: 600 1.2rem/2rem var(--icon-font) !important;
-	font-variant: normal;
+	font-variant: normal !important;
+	line-height: 2rem !important;
+}
+
+.tags .edit::before,
+.notes .edit::before {
+	margin-right: 0.2rem !important;
 }
 
 .add-edit-more .add a::before {
-	content: "\2b";
-	font-family: var(--icon-font);
+	content: "\2b" !important;
+	font-family: var(--icon-font) !important;
 }
 
 .add-edit-more .edit a::before {
-	content: "\f304";
+	content: "\f304" !important;
 }
 
 .add-edit-more .more a::before {
-	content: "\e3d6";
+	content: "\e3d6" !important;
 }
 
 .data.tags .edit::before {
-	content: "\e211";
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	content: "\e211" !important;
+	text-shadow: 0.1rem 0.1rem 0.1rem #111 !important;
 }
 
 .data.tags .edit::after {
-	content: " Tags";
-	white-space: pre;
+	content: " Tags" !important;
+	white-space: pre !important;
 }
 
-.data.tags .edit:hover::before {
+.data.tags .edit:hover::before,
+.data.notes .edit:hover::before {
 	text-shadow: none !important;
+}
+
+/* =============== NOTES =============== */
+.notes {
+	width: 100% !important;
+	clear: both !important;
+}
+
+.notes:has(.text:empty) {
+	cursor: pointer !important;
+}
+
+.notes:has(.text:not(:empty)) {
+	cursor: text !important;
+}
+
+.notes .text:not(:empty) {
+	padding: 0rem 0 !important;
+	color: var(--subdued-text) !important;
+	pointer-events: none !important;
+}
+
+.notes textarea {
+	max-height: 30rem !important;
+	min-height: 6rem !important;
+}
+
+[data-owner="1"] .notes .text:empty {
+	padding-top: 0.1rem !important;
+}
+
+[data-owner="1"] .notes .text:not(:empty)::after {
+	content: "\f044" !important;
+	position: absolute !important;
+	top: 6.9rem !important;
+	left: 0.3rem !important;
+	z-index: 4 !important;
+	display: none !important;
+	/* display: block !important; */
+	width: fit-content !important;
+	margin-top: 0.2rem !important;
+	padding: 0.2rem 0.4rem !important;
+	color: var(--content-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	opacity: 0.25 !important;
+	text-shadow: none !important;
+	cursor: pointer !important;
+	pointer-events: auto !important;
+}
+
+.notes .edit:hover,
+[data-owner="1"] .notes .text:hover:not(:empty)::after {
+	content: "\f044\00a0\00a0 Edit Notes" !important;
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
+	border-radius: 0.3rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-decoration: none !important;
+}
+
+.list-table .list-table-data:hover .notes .text:not(:empty)::after {
+	opacity: 1 !important;
+	display: block !important;
 }
 
 /* =============== STATUS =============== */
@@ -1700,61 +1943,6 @@ tr.list-table-data:has(.tags) {
 	color: var(--local-category) !important;
 }
 
-/* =============== NOTES =============== */
-.notes {
-	width: 100% !important;
-	clear: both;
-	cursor: text;
-}
-
-.notes .text:not(:empty) {
-	padding: 0rem 0;
-	color: var(--subdued-text) !important;
-	pointer-events: none;
-}
-
-[data-owner="1"] .notes .text:empty {
-	padding-top: 0.1rem;
-}
-
-.notes .edit,
-[data-owner="1"] .notes .text:not(:empty)::after {
-	display: block;
-	padding: 0.1rem 0.4rem;
-	width: fit-content;
-	background: var(--button);
-	border-radius: 0.3rem;
-	margin-top: 0.2rem;
-	color: var(--content-text) !important;
-	font-size: 1.1rem !important;
-	opacity: 0;
-	transition: opacity 0.15s ease;
-}
-
-/* Change note text
-.notes .edit {
-	font-size: 0 !important;
-	letter-spacing: 0; /* resetting letter-spacing in this way fixes a .3px gap
-}
-.notes .edit::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	letter-spacing: 0.03rem;
-} */
-
-[data-owner="1"] .notes .text:not(:empty)::after {
-	content: "\f044";
-	font: 1.1rem var(--icon-font);
-	pointer-events: auto;
-}
-
-.notes .edit:hover,
-[data-owner="1"] .notes .text:hover:not(:empty)::after {
-	opacity: 1;
-	color: var(--content-link) !important;
-	text-decoration: none;
-}
-
 /* =============== SCORE =============== */
 /* =============== HEADER STYLES =============== */
 :is(.header-title, .data)[class*="score"] {
@@ -1864,7 +2052,8 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== MAL SCORE STYLE CHANGES =============== */
-.status:not([class*="planto"])~.data.score~.mal_score {
+/* .status:not([class*="planto"])~.data.score~.mal_score { */
+.status~.data.score~.mal_score {
 	position: static;
 	width: 6.15rem !important;
 	margin-right: -1.15rem;
@@ -1873,19 +2062,19 @@ tr.list-table-data:has(.tags) {
 	border-radius: 1.15rem 0 0 1.15rem;
 }
 
-.status[class*="planto"]~.data.score~.mal_score {
+/* .status[class*="planto"]~.data.score~.mal_score {
 	position: relative;
 	z-index: 1;
-}
+} */
 
 /* =============== PLAN TO WATCH/READ STYLES =============== */
-.data[class*="planto"]~.score~.mal_score {
+/* .data[class*="planto"]~.score~.mal_score {
 	margin-right: -2.6rem;
 }
 
 .data[class*="planto"]~.score_diff {
 	display: none;
-}
+} */
 
 /* =============== SCORE SELECT DROPDOWN =============== */
 .data.score select {
@@ -1957,7 +2146,8 @@ tr.list-table-data:has(.tags) {
 }
 
 .data.image a::before {
-	border: 0.3rem solid var(--content-highlight);
+	/* border: 0.3rem solid var(--content-highlight); */
+	box-shadow: var(--medium-shadow) !important;
 	box-sizing: border-box;
 }
 
@@ -2145,7 +2335,7 @@ tr.list-table-data:has(.tags) {
 
 .header-title:is(.started, .finished):has(a) {
 	width: auto !important;
-	background: var(--content-background) !important;
+	background: transparent !important;
 	order: 25;
 	text-align: left !important;
 	font-size: 0;
@@ -2209,6 +2399,7 @@ tr.list-table-data:has(.tags) {
 	line-height: 1.4rem;
 	text-align: left !important;
 	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	background: transparent;
 }
 
 .data.started {
@@ -2542,7 +2733,7 @@ tr.list-table-data:has(.tags) {
 	padding: 0.4rem;
 	background: var(--button);
 	border-radius: 0.3rem;
-	margin: 0.3rem 0.3rem 0 0;
+	margin: 0.55rem 0.3rem 0 0;
 	font-size: 1.1rem;
 }
 
@@ -2563,6 +2754,22 @@ tr.list-table-data:has(.tags) {
 .data.tags span a::before {
 	content: var(--hash-symbol);
 	font-family: var(--icon-font);
+}
+
+.data.genre:empty::after {
+	content: "None" !important;
+	display: none !important;
+	padding: 0.4rem !important;
+	background: var(--button) !important;
+	border-radius: 0.3rem !important;
+	margin: 0.55rem 0.3rem 0 0 !important;
+	font-size: 1.1rem !important;
+	overflow: visible !important;
+	opacity: 0.5 !important;
+}
+
+.list-table-data:hover .data.genre::after {
+	display: inline-block !important;
 }
 
 /* =============== EMOJI GENRES =============== */
@@ -2701,7 +2908,7 @@ a[href$="&genre=45"]::before {
 	[data-query*='"aired_from_year":'],
 	[data-query*='"aired_to_year":'],
 	[data-query*='"season":']) {
-	--empty: "Didn't find shiet yo";
+	--empty: "Didn't find shiet yo...!";
 }
 
 /* =============== MORE INFO =============== */
