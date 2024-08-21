@@ -2063,6 +2063,7 @@ tr.list-table-data:has(.tags) {
 .data.mal_score {
 	width: 5rem !important;
 	text-align: left !important;
+	z-index: -1;
 }
 
 .data.score_diff {
@@ -2078,9 +2079,13 @@ tr.list-table-data:has(.tags) {
 	margin: 0 0.3rem 0 0.6rem;
 }
 
-/* .data .score-label {
-	color: var(--local-category);
-} */
+.data .score-label {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 0rem 1rem;
+	/* color: var(--local-category); */
+}
 
 /* =============== SCORE DIFFERENCE HOVER EFFECT =============== */
 .data.score~.score_diff {
@@ -2360,7 +2365,16 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== PROGRESS =============== */
+.data.progress {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
 [class^="icon-add-"] i {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 0.2rem;
 	font-weight: 400;
 }
 
