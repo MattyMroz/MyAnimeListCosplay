@@ -1626,7 +1626,8 @@ tr.list-table-data:has(.tags) {
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
-#list-container .list-table .list-table-data .tags .edit:hover {
+#list-container .list-table .list-table-data .tags .edit:hover,
+#list-container .list-table .list-table-data .notes .edit:hover {
 	background: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
 	font: bold 1.2rem "Noto Sans" !important;
