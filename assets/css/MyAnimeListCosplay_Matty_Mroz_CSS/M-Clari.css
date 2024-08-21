@@ -1317,7 +1317,6 @@ body::after {
 	padding: 0.1rem;
 }
 
-/* !!!! */
 /* =============== LIST TABLE DATA HOVER EFFECT =============== */
 .list-table-data:before {
 	content: "";
@@ -1325,17 +1324,18 @@ body::after {
 	z-index: -1;
 	inset: 0;
 	background-image: linear-gradient(90deg,
-			hsl(195, 90%, 60%) 0%,
-			hsl(210, 93%, 65%) 10%,
-			hsl(265, 90%, 69%) 20%,
-			hsl(290, 90%, 65%) 30%,
-			hsl(320, 90%, 65%) 40%,
-			hsl(340, 90%, 65%) 50%,
-			hsl(320, 90%, 65%) 60%,
-			hsl(290, 90%, 65%) 70%,
-			hsl(265, 90%, 69%) 80%,
-			hsl(210, 93%, 65%) 90%,
-			hsl(195, 90%, 60%) 100%);
+			var(--color-all-items) 0%,
+			var(--color-current) 10%,
+			var(--color-completed) 20%,
+			var(--color-onhold) 30%,
+			var(--color-dropped) 40%,
+			var(--color-planned) 50%,
+			var(--color-dropped) 60%,
+			var(--color-onhold) 70%,
+			var(--color-completed) 80%,
+			var(--color-current) 90%,
+			var(--color-all-items) 100%);
+/* !!!! */
 	box-shadow: 0 0 4rem 0.8rem #211E21 inset;
 	top: 0;
 	left: 0;
