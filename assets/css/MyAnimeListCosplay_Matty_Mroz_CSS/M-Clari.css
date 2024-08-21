@@ -110,7 +110,7 @@
 	/* ========== SHADOWS ========== */
 	--mild-shadow: rgba(21, 21, 21, 0.15) 0 0.2rem 0.6rem, rgba(0, 0, 0, 0.14) 0 0.3rem 0.8rem;
 	--medium-shadow: rgba(0, 0, 0, 0.55) 0 0.3rem 0.8rem;
-	--text-shadow: 0.1rem 0.1rem 0.1rem rgb(255, 0, 0);
+	--text-shadow: 0.1rem 0.1rem 0.1rem rgba(17, 17, 17, 1);
 
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
