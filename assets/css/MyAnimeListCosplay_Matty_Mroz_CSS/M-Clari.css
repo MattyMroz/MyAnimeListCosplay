@@ -110,7 +110,8 @@
 	/* ========== SHADOWS ========== */
 	--mild-shadow: rgba(21, 21, 21, 0.15) 0 0.2rem 0.6rem, rgba(0, 0, 0, 0.14) 0 0.3rem 0.8rem;
 	--medium-shadow: rgba(0, 0, 0, 0.55) 0 0.3rem 0.8rem;
-	--text-shadow: 0.1rem 0.1rem 0.1rem rgba(17, 17, 17, 1);
+	--text-shadow: 0.1rem 0.1rem 0.1rem rgb(255, 0, 0);
+
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
 	--scrollbar-track-bg: #111;
@@ -1399,6 +1400,7 @@ tr.list-table-data:has(.tags) {
 	padding: 0 1rem 0 3.3rem;
 	align-items: center;
 	height: 100%;
+	text-shadow: var(--text-shadow);
 }
 
 .list-table .list-table-data .data {
@@ -1557,6 +1559,7 @@ tr.list-table-data:has(.tags) {
 	z-index: 13 !important;
 	height: 5rem !important;
 	padding: 0.3rem !important;
+	text-shadow: var(--text-shadow);
 }
 
 .list-table .list-table-data .tags .edit,
@@ -1679,8 +1682,7 @@ tr.list-table-data:has(.tags) {
 
 .data.tags .edit::before {
 	content: "\e211" !important;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111 !important;
+	text-shadow: var(--text-shadow);
 }
 
 .data.tags .edit::after {
@@ -1736,7 +1738,7 @@ tr.list-table-data:has(.tags) {
 	color: var(--content-text) !important;
 	font: bold 1.2rem var(--font) !important;
 	opacity: 0.25 !important;
-	text-shadow: none !important;
+	text-shadow: var(--text-shadow);
 	cursor: pointer !important;
 	pointer-events: auto !important;
 }
@@ -1747,6 +1749,7 @@ tr.list-table-data:has(.tags) {
 	background: var(--inverse-background) !important;
 	color: var(--inverse-text) !important;
 	font: bold 1.2rem var(--font) !important;
+	text-shadow: none !important;
 	border-radius: 0.3rem !important;
 	box-shadow: var(--mild-shadow) !important;
 	text-decoration: none !important;
@@ -1826,7 +1829,6 @@ tr.list-table-data:has(.tags) {
 .data.number {
 	width: 3.2rem !important;
 	order: 1;
-	text-shadow: var(--text-shadow);
 }
 
 .header-title.number {
@@ -2035,6 +2037,7 @@ tr.list-table-data:has(.tags) {
 	background: var(--button);
 	border-radius: 1.15rem;
 	line-height: 2.3rem;
+	text-shadow: var(--text-shadow);
 }
 
 .data.score a {
@@ -2514,6 +2517,7 @@ tr.list-table-data:has(.tags) {
 	margin-right: 0.4rem;
 	overflow: hidden;
 	line-height: 1.5em;
+	text-shadow: var(--text-shadow);
 }
 
 .header-title.magazine,
@@ -2604,6 +2608,7 @@ tr.list-table-data:has(.tags) {
 .data:is(.tags, .genre, .demographic, .studio, .licensor) {
 	order: 35;
 	line-height: 1;
+	text-shadow: var(--text-shadow);
 }
 
 .header-title.demographic,
@@ -2783,6 +2788,7 @@ tr.list-table-data:has(.tags) {
 .list-table .list-table-data .data.genre span a[href*="genre="]:hover {
 	background: var(--inverse-background);
 	color: var(--inverse-text) !important;
+	text-shadow: none;
 }
 
 .data:is(.tags, .genre) span a::before {
