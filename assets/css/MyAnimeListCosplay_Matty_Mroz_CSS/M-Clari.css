@@ -2151,15 +2151,10 @@ tr.list-table-data:has(.tags) {
 	color: var(--local-category);
 }
 
-.data.score select option {
-	background: var(--button);
-	color: var(--content-text);
+.data.score select:focus option:checked {
+	background: var(--local-category);
+	color: var(--button);
 }
-
-.data.score select option:hover {
-	color: var(--local-category);
-}
-
 
 .data.score a:not([style="display: none;"])+select {
 	display: none;
