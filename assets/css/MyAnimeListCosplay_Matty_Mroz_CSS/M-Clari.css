@@ -1572,11 +1572,14 @@ tr.list-table-data:has(.tags) {
 }
 
 .list-table .list-table-data .tags .edit {
-	top: 4.8rem !important;
+	/* top: 4.8rem !important; */
+	top: 7.1rem !important;
+
 }
 
 .list-table .list-table-data .notes .edit {
-	top: 7.1rem !important;
+	/* top: 7.1rem !important; */
+	top: 4.8rem !important;
 }
 
 /* ========================================================= */
