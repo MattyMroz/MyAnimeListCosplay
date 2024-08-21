@@ -1286,8 +1286,8 @@ body::after {
 	position: absolute;
 	margin: -4.5rem 0 0 -15.5rem;
 	background:
-		var(--avatar-overlay-secondary-image) no-repeat center / contain 15rem,
-		var(--avatar-overlay-primary-image) no-repeat center / contain 15rem;
+		var(--avatar-overlay-secondary-image) no-repeat center / contain,
+		var(--avatar-overlay-primary-image) no-repeat center / contain ;
 }
 
 /* =============== SEARCH BOX BORDER =============== */
@@ -2049,13 +2049,16 @@ tr.list-table-data:has(.tags) {
 
 .data.mal_score::before {
 	content: "\f500 ";
-	/* !!!! */
-	color: #888;
+	color: var(--content-text);
 	font-size: .9em;
 	font-weight: bold;
 	float: left;
 	margin: 0 0.3rem 0 0.6rem;
 }
+
+/* .data .score-label {
+	color: var(--local-category);
+} */
 
 /* =============== SCORE DIFFERENCE HOVER EFFECT =============== */
 .data.score~.score_diff {
@@ -2119,6 +2122,7 @@ tr.list-table-data:has(.tags) {
 	text-indent: 0.3rem;
 	color: var(--content-text);
 	cursor: pointer;
+	font-weight: bold;
 }
 
 .data.score select:hover {
@@ -2133,6 +2137,7 @@ tr.list-table-data:has(.tags) {
 .data.score select option:hover {
 	color: var(--local-category);
 }
+
 
 .data.score a:not([style="display: none;"])+select {
 	display: none;
