@@ -1626,27 +1626,14 @@ tr.list-table-data:has(.tags) {
 
 #list-container .add-edit-more a:hover,
 .list-unit .list-status-title .stats a:hover,
-#list-container .list-table .list-table-data .tags .edit:hover {
-	background: var(--inverse-background) !important;
-	color: var(--inverse-text) !important;
-	font: bold 1.2rem "Noto Sans" !important;
-	padding: 0.2rem 0.6rem 0rem 0rem !important;
-	box-shadow: var(--mild-shadow) !important;
-	text-shadow: none !important;
-}
-
-#list-container .list-table .list-table-data .notes .edit:hover {
-	background: var(--inverse-background) !important;
-	color: var(--inverse-text) !important;
-	font: bold 1.2rem !important;
-	padding: 0.2rem 0.6rem 0rem 0rem !important;
-	box-shadow: var(--mild-shadow) !important;
-	text-shadow: none !important;
-}
-
 #list-container .list-table .list-table-data .tags .edit:hover,
 #list-container .list-table .list-table-data .notes .edit:hover {
+	background: var(--inverse-background) !important;
+	color: var(--inverse-text) !important;
+	font: bold 1.2rem var(--font) !important;
 	padding: 0.2rem 0.6rem 0rem 0.1rem !important;
+	box-shadow: var(--mild-shadow) !important;
+	text-shadow: none !important;
 }
 
 .list-table-data:hover .add-edit-more a,
