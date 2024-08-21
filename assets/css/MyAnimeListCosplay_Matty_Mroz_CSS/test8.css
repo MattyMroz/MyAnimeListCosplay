@@ -1,35 +1,205 @@
+/* Switch USERNAME with yours for the hover preview pics! */
+@\import "https://malscraper.azurewebsites.net/covers/anime/USERNAME/presets/dataimagelinkbefore";
+@\import "https://malscraper.azurewebsites.net/covers/manga/USERNAME/presets/dataimagelinkbefore";
+
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarity%20Theme/Theme%20-%20Compressed.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarity%20Theme/Mod%20-%20Hover%20Image%20Compressed.css";
+
+
+
+@\import "https://malscraper.azurewebsites.net/covers/anime/matty_mroz/presets/dataimagelinkbefore";
+
+@\import "https://malscraper.azurewebsites.net/covers/manga/matty_mroz/presets/dataimagelinkbefore";
+
+/* Clarity layout originally by Valerio_Lyndon */
+
+
 /*-S-T-A-R-T--------------------*\
-| Hover Image R0.3               |
+| Banner Titles   |
 \*------------------------------*/
-.data.image a {
-    overflow: visible
+
+body {
+    --name: "";
 }
 
-.data.image a:before {
+
+/*-S-T-A-R-T--------------------*\
+| Banner Background Image
+To change background images: delete what's in the parenthesis. Upload 
+the new background to Imgur or a similar site, then copy the direct link (or Original GIF link if it's animated) and paste it into the parenthesis. Save.
+
+Reposition the banner with the percentages below. For example, change the second percentage to 50% to move 50% of the banner up. 
+|
+\*------------------------------*/
+
+
+body {
+    --banner: url(https://imgur.com/kPiCOTj.jpg);
+}
+
+.cover-block {
+    background-position: 0% 10% !important;
+}
+
+
+/*-S-T-A-R-T--------------------*\
+| Banner Character (Render)
+Background size is the size of the image. 100% is full size. 
+
+The first percentage after background position is the position from the left. Lower percentages move it left and you can go negative. The second percentage is position from the top. Lower percentages move it down. 
+|
+\*------------------------------*/
+
+
+body {
+    --character: url();
+}
+
+#list-container #cover-image-container {
+    background-size: 60%;
+    background-position: 80% 20%;
+
+}
+
+
+/*-S-T-A-R-T--------------------*\
+| Banner Avatar    |
+\*------------------------------*/
+
+body {
+    --avatar: url(https://imgur.com/RzKEd2O.png);
+}
+
+
+
+/*-S-T-A-R-T--------------------*\
+| The wallpaper.
+|
+\*------------------------------*/
+
+body {
+    --background: url();
+}
+
+
+/*SIDE RENDERS (left and right)
+To move the renders, adjust the percentage after "left" or "right" and "top". You can use negatives. The percentage is the distance from the left, top, or right. 
+
+To resize the renders, adjust the percentage after "width". 0% will remove the render.*/
+
+body footer:before {
+    left: -5%;
+    top: 15%;
+    width: 35% !important;
+    background-size: contain !important;
+    background-image: url();
+    background-position: left bottom !important;
+}
+
+body footer:after {
+    right: -10%;
+    top: 0%;
+    width: 40% !important;
+    background-size: contain !important;
+    ;
+    background-image: url();
+    background-position: right bottom !important;
+}
+
+
+footer:before,
+footer:after {
     content: "";
-    position: absolute;
-    top: 50%;
-    left: -166px;
-    z-index: 50;
-    width: 150px;
-    height: 0;
-    background: var(--bg-dark) no-repeat center/cover;
-    border-radius: 8px;
-    box-shadow: 0 0 2px #000;
-    opacity: 0;
-    pointer-events: none;
-    transition: all .3s ease
+    position: fixed;
+    top: 0;
+    z-index: -1;
+
+    width: calc(50% - 538px);
+    min-width: 262px;
+    height: 100%;
+    background: transparent no-repeat center bottom / contain scroll;
 }
 
-.list-item:hover .data.image a:before {
-    top: calc(50% - 100px);
-    height: 200px;
-    opacity: 1
+
+
+/*------------------------------*\
+| ANIME TITLE COLOR
+\*------------------------------*/
+
+
+:root {
+    --text: #323232;
+
 }
 
-.data.image a:after,
-.data.image img {
-    border-radius: 50%
+/*------------------------------*\
+| TABLE COLORS        |
+
+Use an RGBA color generator to find the perfect color for the tables!
+https://www.cssportal.com/css3-rgba-generator/
+
+\*------------------------------*/
+
+:root {
+    --bg: #fff;
 }
 
-/*------------------------E-N-D-*/
+
+
+/*------------------------------*\
+| List colors       |
+pbg is the color of the wallpaper when you have no image there
+
+bg is the color of the tables and rows
+ 
+text is the color of your anime
+titles and some text on your rows (numbers, score, information, tags)
+ 
+text-dim is other text on your rows (edit, more, non-links, Progress:, Rated:, etc)
+ 
+btn-bg is the button color around score and tags
+ 
+text-head is the category links unselected
+ 
+text-head-h is the current category link selected
+ 
+btn-head-bg-h is buttons under the header when selected
+ 
+btn-text-h is that button text
+ 
+banner-text is the banner text color, and its shadow color is under that
+ 
+Get a new HTML/Hex color number here, or use color names.
+https://htmlcolorcodes.com/
+ 
+Get new RGBA colors here for the rows
+https://cssgenerator.org/rgba-and-hex-color-generator.html
+\*------------------------------*/
+:root {
+
+    --pbg: #efefef;
+    --bg-dark: #ddd;
+    --text-h: #787878;
+    --text-dim: #bababa;
+    --text-dim-h: #646464;
+    --text-dark: #111;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --icon: #323232;
+    --accent: #4065ba;
+    --banner-text: #fff;
+    --banner-text-shadow: rgba(0, 0, 0, 0.45);
+    --btn-bg: #ebebeb;
+    --btn-bg-h: #323232;
+    --btn-head-bg-h: #1d439b;
+    --btn-text-h: #fff;
+    --text-head: #9b9b9b;
+    --text-head-h: #787878;
+    --watching: #2db039;
+    --completed: #26448f;
+    --onhold: #f1c83e;
+    --dropped: #a12f31;
+    --plantowatch: #c3c3c3;
+    --cover-bg: #323232;
+    --edit-btn: #d9d9d9;
+    --checkmark: #9696eb;
+}
