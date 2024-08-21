@@ -1287,7 +1287,7 @@ body::after {
 	margin: -4.5rem 0 0 -15.5rem;
 	background:
 		var(--avatar-overlay-secondary-image) no-repeat center / contain,
-		var(--avatar-overlay-primary-image) no-repeat center / contain ;
+		var(--avatar-overlay-primary-image) no-repeat center / contain;
 }
 
 /* =============== SEARCH BOX BORDER =============== */
@@ -1635,6 +1635,13 @@ tr.list-table-data:has(.tags) {
 	box-shadow: var(--mild-shadow) !important;
 	text-shadow: none !important;
 }
+
+#list-container .add-edit-more a:hover,
+.list-unit .list-status-title .stats a:hover,
+#list-container .list-table .list-table-data .tags .edit:hover {
+	font: bold 1.2rem 'Noto Sans' !important;
+}
+
 
 .list-table-data:hover .add-edit-more a,
 .list-unit .list-status-title .stats a,
