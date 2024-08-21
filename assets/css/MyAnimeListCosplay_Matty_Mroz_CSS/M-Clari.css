@@ -110,7 +110,7 @@
 	/* ========== SHADOWS ========== */
 	--mild-shadow: rgba(21, 21, 21, 0.15) 0 0.2rem 0.6rem, rgba(0, 0, 0, 0.14) 0 0.3rem 0.8rem;
 	--medium-shadow: rgba(0, 0, 0, 0.55) 0 0.3rem 0.8rem;
-
+	--text-shadow: 0.1rem 0.1rem 0.1rem rgba(17, 17, 17, 1);
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
 	--scrollbar-track-bg: #111;
@@ -1519,8 +1519,7 @@ tr.list-table-data:has(.tags) {
 	line-height: 5rem;
 	letter-spacing: 0.05rem;
 	text-transform: uppercase;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	transform: translateX(1.3rem);
 }
 
@@ -1827,8 +1826,7 @@ tr.list-table-data:has(.tags) {
 .data.number {
 	width: 3.2rem !important;
 	order: 1;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 }
 
 .header-title.number {
@@ -1878,8 +1876,7 @@ tr.list-table-data:has(.tags) {
 .header-title.type,
 .data.type {
 	margin-left: 0.5rem;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	width: 5rem !important;
 	order: 40;
 }
@@ -1904,8 +1901,7 @@ tr.list-table-data:has(.tags) {
 
 .data.title {
 	font: 1.2rem "Ubuntu";
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	letter-spacing: 0.03rem;
 	padding: 0 0.6rem !important;
 	grid-column-start: 3;
@@ -1960,8 +1956,7 @@ tr.list-table-data:has(.tags) {
 	float: left;
 	clear: both;
 	color: var(--page-category);
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	opacity: 0.9;
 }
 
@@ -2321,8 +2316,7 @@ tr.list-table-data:has(.tags) {
 	display: flex !important;
 	width: 7rem;
 	height: 100%;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	order: 10;
 	justify-content: center;
 	align-items: center;
@@ -2442,8 +2436,7 @@ tr.list-table-data:has(.tags) {
 	font-size: 1rem;
 	line-height: 1.4rem;
 	text-align: left !important;
-	/* !!!! */
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 	background: transparent;
 }
 
@@ -2575,7 +2568,7 @@ tr.list-table-data:has(.tags) {
 	font-size: 1.2rem;
 	font-weight: bold;
 	text-align: center;
-	text-shadow: 0.1rem 0.1rem 0.1rem #111;
+	text-shadow: var(--text-shadow);
 }
 
 .data.season a::first-line {
