@@ -2218,7 +2218,7 @@ tr.list-table-data:has(.tags) {
 
 /* !!!! */
 /* =============== TOP RATED BANNERS =============== */
-.data.score-label {
+/* .data.score-label {
 	--top-text: none;
 	--rated: transparent;
 	--toggle: hidden;
@@ -2304,7 +2304,6 @@ tr.list-table-data:has(.tags) {
 		inset 0 0.8rem 0.3rem -0.6rem var(--content-highlight);
 }
 
-/* !!!! */
 .data .score-label::after {
 	left: calc(-20.5rem + 19rem/2);
 	top: calc(50% - 0.7rem);
@@ -2327,7 +2326,7 @@ tr.list-table-data:has(.tags) {
 
 .data.score {
 	position: static;
-}
+} */
 
 /* =============== PROGRESS, PRIORITY =============== */
 .header-title:is(.progress, .chapters, .volumes, .priority) {
