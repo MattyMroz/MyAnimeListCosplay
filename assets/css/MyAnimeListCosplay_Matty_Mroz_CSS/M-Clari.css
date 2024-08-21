@@ -2111,14 +2111,29 @@ tr.list-table-data:has(.tags) {
 
 /* =============== SCORE SELECT DROPDOWN =============== */
 .data.score select {
-	position: relative;
-	background: var(--button);
-	height: 2.3rem;
-	width: 4.3rem;
-	border-radius: 1.15rem;
-	text-indent: 0.3rem;
-	color: var(--content-text);
+    position: relative;
+    background: var(--button);
+    height: 2.3rem;
+    width: 4.3rem;
+    border-radius: 1.15rem;
+    text-indent: 0.3rem;
+    color: var(--content-text);
+    cursor: pointer;
 }
+
+.data.score select:hover {
+    color: var(--local-category);
+}
+
+.data.score select option {
+    background: var(--button);
+    color: var(--content-text);
+}
+
+.data.score select option:hover {
+    color: var(--local-category);
+}
+
 
 .data.score a:not([style="display: none;"])+select {
 	display: none;
@@ -2783,7 +2798,6 @@ tr.list-table-data:has(.tags) {
 	background: var(--inverse-background);
 	color: var(--inverse-text) !important;
 	text-shadow: none;
-	font-weight: bold;
 }
 
 .data:is(.tags, .genre) span a::before {
