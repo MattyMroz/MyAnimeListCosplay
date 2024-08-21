@@ -349,11 +349,6 @@ div[style="padding-top: 0.8rem"] {
 	padding: 0 !important;
 }
 
-/* =============== FOOTER =============== */
-#footer-block {
-	display: none !important;
-}
-
 /* =============== BACKGROUND =============== */
 body::before,
 body::after {
@@ -2365,7 +2360,9 @@ tr.list-table-data:has(.tags) {
 }
 
 /* =============== PROGRESS =============== */
-.data.progress {
+.data.progress,
+.data.chapter,
+.data.volume {
 	font-size: 1.2rem;
 	font-weight: bold;
 }
@@ -3142,6 +3139,13 @@ a[href$="&genre=45"]::before {
 		transform: rotate(300deg);
 	}
 }
+
+
+/* =============== FOOTER =============== */
+#footer-block {
+	display: none !important;
+}
+
 
 /* =============== OVERLAYS =============== */
 body.ownlist #fancybox-overlay {
