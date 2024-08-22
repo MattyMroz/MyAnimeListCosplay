@@ -1958,7 +1958,7 @@ tr.list-table-data:has(.tags) {
 	clear: both;
 	color: var(--page-category);
 	/* text-shadow: var(--text-shadow); */
-	text-shadow: .2rem .1rem .2rem rgba(17, 17, 17, 1), 0rem 0rem 3rem var(--page-category);
+	text-shadow: .2rem .1rem .2rem rgba(17, 17, 17, 1), 0rem 0rem .3rem var(--page-category);
 	opacity: 0.9;
 }
 
