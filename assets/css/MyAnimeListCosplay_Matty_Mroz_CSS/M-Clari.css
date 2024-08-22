@@ -15,8 +15,8 @@
 
 /* @import "https://itszayeric.github.io/MAL/MAL%20CSS/M-Clari.css"; */
 
-@import "https://itszayeric.github.io/MAL/MAL%20CSS/Tags.css";
-@import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/Emoji%20Genres.css";
+/* @import "https://itszayeric.github.io/MAL/MAL%20CSS/Tags.css"; */
+/* @import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified%20Theme/Modifications/Emoji%20Genres.css"; */
 
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Condensed:wght@700&family=Pixelify+Sans:wght@400&family=Ubuntu+Condensed:wght@400&family=Ubuntu:wght@300;400;500;700&family=Kodchasan:wght@400;600&display=swap";
 
@@ -98,11 +98,12 @@
 	--page-background: var(--neutral);
 	--content-background: hsla(0, 0%, 10%, 1);
 	--content-highlight: hsla(0, 0%, 15%, 1);
+	--option-color: hsla(0, 0%, 15%, 1);
 	--button: var(--content-highlight);
 	--border: var(--neutral);
-	--content-text: #ababab;
+	--content-text: rgba(171, 171, 171, 1);
 	--content-link: var(--myanimelist-blue);
-	--subdued-text: #888;
+	--subdued-text: rgba(136, 136, 136, 1);
 	--inverse-background: var(--myanimelist-blue);
 	--inverse-text: var(--neutral);
 	--scroll-thumb: var(--myanimelist-blue);
@@ -111,6 +112,7 @@
 	--mild-shadow: rgba(21, 21, 21, 0.15) 0 0.2rem 0.6rem, rgba(0, 0, 0, 0.14) 0 0.3rem 0.8rem;
 	--medium-shadow: rgba(0, 0, 0, 0.55) 0 0.3rem 0.8rem;
 	--text-shadow: 0.1rem 0.1rem 0.1rem rgba(17, 17, 17, 1);
+	--list-table-data-shadow: 0 0 4rem 0.8rem rgba(33, 30, 33, 1) inset;
 
 	/* ========== SCROLLBAR ========== */
 	--scrollbar-width: 0.8rem;
@@ -1335,8 +1337,7 @@ body::after {
 			var(--color-completed) 80%,
 			var(--color-current) 90%,
 			var(--color-all-items) 100%);
-/* !!!! */
-	box-shadow: 0 0 4rem 0.8rem #211E21 inset;
+	box-shadow: var(--list-table-data-shadow);
 	top: 0;
 	left: 0;
 	background-size: 400%;
@@ -1500,7 +1501,6 @@ tr.list-table-data:has(.tags) {
 .header-title:is(.tags, .genre) {
 	display: none !important;
 }
-
 
 /* =============== STATS =============== */
 .list-unit .list-stats {
@@ -2152,13 +2152,13 @@ tr.list-table-data:has(.tags) {
 }
 
 .data.score select option {
-	background: var(--button);
+	background: var(--option-color);
 	color: var(--content-text);
 }
 
 .data.score select option:checked {
 	background: var(--local-category);
-	color: var(--button);
+	color: var(--option-color);
 }
 
 .data.score a:not([style="display: none;"])+select {
