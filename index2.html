@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Cosplay</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .credit {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            overflow-y: auto;
+            height: calc(100% - 100px);
+            width: 1000px;
+        }
+
+        .option {
+            position: relative;
+            overflow: hidden;
+            min-height: 60px;
+            margin: 10px;
+            background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+            background-size: 120% auto;
+            background-position: center;
+            cursor: pointer;
+            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        }
+
+        .option:nth-child(1) { --defaultBackground: #ED5565; }
+        .option:nth-child(2) { --defaultBackground: #FC6E51; }
+        .option:nth-child(3) { --defaultBackground: #FFCE54; }
+        .option:nth-child(4) { --defaultBackground: #2ECC71; }
+        .option:nth-child(5) { --defaultBackground: #5D9CEC; }
+
+        .option.active {
+            flex-grow: 10000;
+            transform: scale(1);
+            max-height: 300px;
+            margin: 0px;
+            border-radius: 40px;
+            background-size: 100% auto;
+        }
+
+        .option:not(.active) {
+            flex-grow: 1;
+            border-radius: 30px;
+        }
+
+        .option .shadow {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            height: 60px;
+            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        }
+
+        .option.active .shadow {
+            box-shadow: inset 0 -60px 60px -60px black, inset 0 -60px 60px -50px black;
+        }
+
+        .option:not(.active) .shadow {
+            bottom: -20px;
+            box-shadow: inset 0 -60px 0px -60px black, inset 0 -60px 0px -50px black;
+        }
+
+        .option .label {
+            display: flex;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 40px;
+            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        }
+
+        .option.active .label {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .option:not(.active) .label {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .option .label .icon {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-width: 40px;
+            max-width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: white;
+            color: var(--defaultBackground);
+        }
+
+        .option .label .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+            color: white;
+            white-space: pre;
+        }
+
+        .option .label .info > div {
+            position: relative;
+            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+        }
+
+        .option.active .label .info > div {
+            left: 0px;
+            opacity: 1;
+        }
+
+        .option:not(.active) .label .info > div {
+            left: 20px;
+            opacity: 0;
+        }
+
+        .option .label .info .main {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .option .label .info .sub {
+            transition-delay: 0.1s;
+        }
+
+        @media screen and (max-height: 418px) {
+            .options { min-height: 260px; }
+            .option:nth-child(5) { display: none; }
+        }
+        @media screen and (max-height: 338px) {
+            .options { min-height: 220px; }
+            .option:nth-child(4) { display: none; }
+        }
+        @media screen and (max-height: 258px) {
+            .options { min-height: 180px; }
+            .option:nth-child(3) { display: none; }
+        }
+        @media screen and (max-height: 178px) {
+            .options { min-height: 140px; }
+            .option:nth-child(2) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="options">
+        <div class="option active" style="--optionBackground:url(https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-walking"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Blonkisoaz</div>
+                    <div class="sub">Omuke trughte a otufta</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/8b69cdde47aa952e4176b4200052abf4/tumblr_o51p7mFFF21qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Oretemauw</div>
+                    <div class="sub">Omuke trughte a otufta</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Iteresuselle</div>
+                    <div class="sub">Omuke trughte a otufta</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Idiefe</div>
+                    <div class="sub">Omuke trughte a otufta</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="info">
+                    <div class="main">Inatethi</div>
+                    <div class="sub">Omuke trughte a otufta</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <a href="http://victorofvalencia-blog.tumblr.com" target="_blank" class="credit">Photos from Victor of Valencia on tumblr</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(".option").mouseover(function(){
+            $(".option").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
+</body>
+</html>
